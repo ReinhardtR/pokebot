@@ -18,10 +18,16 @@ You can contact one of the editors through either one of these sources:
 * GitHub - samuel1212703
 * Twitter - [@samuel1212703](https://twitter.com/samuel1212703)
 
-## To-Do
-- [ ] Setup
-- [ ] Commands
+## To-Do-List
+- [x] Setup
+- [x] Infrastructure
+- [ ] Profile-system (Name, Level, Pokemons)
+- [ ] Pokemon-System (Name, Level, Type, Stats)
+- [ ] Pokedex (List of undiscovered, discovered and caught Pokemons)
+- [ ] Pokemon-Battles (Battkes against wild Pokemons)
+- [ ] Player-Battles (Battles against other players)
 - [ ] Walks (to catch Pokemons with friends)
+- [ ] Commands (menues and such)
 
 
 ## Credit 🏅
