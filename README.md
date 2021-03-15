@@ -8,7 +8,7 @@ JavaScript was chosen as the programming language as it is user friendly, and es
 
 ## Contact
 You can contact one of the editors through either one of these sources:
-#### ReinhardtR
+#### ReinhardtR :+1:
 * GitHub - ReinhardtR
 * Twitter - [@PGNcs](https://twitter.com/PGNcs)
 #### LiviDk
