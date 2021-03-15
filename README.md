@@ -10,7 +10,6 @@
 
 <p align="center">
   <a href="#description">Description</a> •
-  <a href="#features">Features</a> •
   <a href="#installation">Installation</a> •
   <a href="#use">Use</a> •
   <a href="#credits">Credits</a>
