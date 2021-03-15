@@ -1,5 +1,5 @@
 # Pokebot
-![alt text](menu.png)
+![alt text](PokeballsRender2.png)
 
 ## Description
 A JavaScript Discord-bot based on a Pokemon-theme. The bot allows a server's users to play a basic version of a Pokemon themed game. The game is still in development, but should be finished before summer. 
