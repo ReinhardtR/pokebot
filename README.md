@@ -15,9 +15,7 @@ You can contact one of the editors through either one of these sources:
 * Github - samuel1212703
 
 ## Credit
-### Main editor:
+### Main Editors:
 * ReinhardtR
-
-### Other editors:
 * samuel1212703
 * LiviDk
