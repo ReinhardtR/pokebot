@@ -10,9 +10,12 @@ Javascript was chosen as the programming language as it is user friendly, and es
 No contact information set up yet.
 
 ## Credit
-Main editor:
+### Main editor:
+
 ReinhardtR
 
-Other editors:
+### Other editors:
+
 samuel1212703
+
 LiviDk
