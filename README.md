@@ -1,6 +1,12 @@
+<style>
+img {
+  width: 50%;
+}
+</style>
+
 <h1 align="center">
   <br>
-  <a href="https://github.com/ReinhardtR/pokebot" width="50%" height="50%"><img src="./PokeballsRender2.png"></a>
+  <a href="https://github.com/ReinhardtR/pokebot"><img src="./PokeballsRender2.png"></a>
   <br>
   Pokebot
   <br>
