@@ -12,7 +12,7 @@
   <a href="#description">Description</a> •
   <a href="#installation">Installation</a> •
   <a href="#use">Use</a> •
-  <a href="#toDoList">To-Do-List</a> •
+  <a href="#to-do-list">To-Do-List</a> •
   <a href="#contact">Contact</a> •
   <a href="#credits">Credits</a>
 </p>
