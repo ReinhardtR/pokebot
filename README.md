@@ -1,7 +1,7 @@
 # Pokebot
 ![alt text](PokeballsRender2.png)
 <p align="center">
-  <a href="#Description">Description</a>
+  <a href="#description">Description</a>
   •
   <a href="#features">Features</a>
   •
