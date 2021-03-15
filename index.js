@@ -29,10 +29,10 @@ client.on("message", (msg) => {
 
     msg.channel.send({ embed }).then((embedMsg) => {
       const emojis = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣"];
-      emojis.forEach((emoji, index) => {
-        if (index === 5) return;
-        embedMsg.react(emoji);
-      });
+      for (let i = 0; i < emojis.length; i++) {
+        if (i === 5) return;
+        embedMsg.react(emojis[i]);
+      }
     });
   }
 });
