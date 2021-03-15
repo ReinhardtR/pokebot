@@ -1,4 +1,6 @@
-const dotenv = require("dotenv");
+// Load enviroment variables.
+require("dotenv").config();
+
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
@@ -6,4 +8,4 @@ client.once("ready", () => {
   console.log("Ready!");
 });
 
-client.login("ODIwOTQwMzQwMjM5Nzk0MTc2.YE8eRQ.2tu1YTTc1jue4QmIyLE-_nCrwcw");
+client.login(process.env.TOKEN);
