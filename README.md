@@ -18,12 +18,21 @@ You can contact one of the editors through either one of these sources:
 * GitHub - samuel1212703
 * Twitter - [@samuel1212703](https://twitter.com/samuel1212703)
 
-## Setup
-
+## Installation
+You can add the bot to your server with [this](https://discord.com/api/oauth2/authorize?client_id=820940340239794176&permissions=0&scope=bot) link. Alternatively, you can clone this repo and host the bot yourself.
+```
+git clone https://github.com/ReinhardtR/pokebot.git
+```
+After cloning run:
+```
+npm install
+```
+to snag all of the dependencies. Of course, you need [node](https://nodejs.org/en/) installed. To optimize testing, this [nodemon](https://www.npmjs.com/package/nodemon) is also recommended.
 
 ## Use
 | Command | Description |
 | --- | --- |
+| `p!help` | Shows help table |
 | `p!menu` | Shows menu |
 | `p!example` | Exanple text |
 
