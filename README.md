@@ -16,11 +16,8 @@ You can contact one of the editors through either one of these sources:
 
 ## Credit
 ### Main editor:
-
-ReinhardtR
+* ReinhardtR
 
 ### Other editors:
-
-samuel1212703
-
-LiviDk
+* samuel1212703
+* LiviDk
