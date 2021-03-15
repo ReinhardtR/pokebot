@@ -9,7 +9,7 @@
   •
   <a href="#setting-up">Setting Up</a>
   •
-  <a href="#license">License</a>
+  <a href="#use">Use</a>
   •
   <a href="#credits">Credits</a>
 </p>
