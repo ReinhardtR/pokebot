@@ -1,9 +1,3 @@
-<style>
-img {
-  width: 50%;
-}
-</style>
-
 <h1 align="center">
   <br>
   <a href="https://github.com/ReinhardtR/pokebot"><img src="./PokeballsRender2.png"></a>
