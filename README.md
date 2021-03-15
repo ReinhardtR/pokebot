@@ -18,6 +18,12 @@ You can contact one of the editors through either one of these sources:
 * GitHub - samuel1212703
 * Twitter - [@samuel1212703](https://twitter.com/samuel1212703)
 
+## To-Do
+- [ ] Setup
+- [ ] Commands
+- [ ] Walks (to catch Pokemons with friends)
+
+
 ## Credit 🏅
 * ReinhardtR
 * LiviDk
