@@ -15,7 +15,7 @@ After cloning run:
 ```
 npm install
 ```
-to snag all of the dependencies. Of course, you need [node](https://nodejs.org/en/) installed. To optimize testing, this [nodemon](https://www.npmjs.com/package/nodemon) is also recommended.
+to get all dependencies. You will also need to have [node](https://nodejs.org/en/) installed. To optimize testing, this [nodemon](https://www.npmjs.com/package/nodemon) is also recommended.
 
 ## Use ⚙️
 | Command | Description |
