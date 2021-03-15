@@ -8,4 +8,10 @@ client.once("ready", () => {
   console.log("Ready!");
 });
 
+client.on("message", (msg) => {
+  if (msg.content === "yo") {
+    msg.channel.send("yo");
+  }
+});
+
 client.login(process.env.TOKEN);
