@@ -2,7 +2,7 @@
   <br>
   <a href="https://github.com/ReinhardtR/pokebot"><img src="./PokeballsRender2.png"></a>
   <br>
-    Pokebot
+  Pokebot
   <br>
 </h1>
 
