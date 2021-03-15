@@ -1,5 +1,6 @@
 # Pokebot
-![Screenshot](PokeballsImage.png)
+![alt text](PokeballsRender2.png)
+
 Repository of a Pokemon-themed Discord bot
 
 ## Description
