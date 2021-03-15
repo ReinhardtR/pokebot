@@ -18,6 +18,12 @@ You can contact one of the editors through either one of these sources:
 * GitHub - samuel1212703
 * Twitter - [@samuel1212703](https://twitter.com/samuel1212703)
 
+## Use
+| Command | Description |
+| --- | --- |
+| `p!menu` | Shows menu |
+| `p!example` | Exanple text |
+
 ## To-Do-List
 - [x] Setup
 - [x] Infrastructure
