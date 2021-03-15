@@ -9,14 +9,10 @@
 <h3 align=center>A Pokemon made with <a href=https://github.com/discordjs/discord.js>discord.js</a></h3>
 
 <p align="center">
-  <a href="#description">Description</a>
-  •
-  <a href="#features">Features</a>
-  •
-  <a href="#installation">Installation</a>
-  •
-  <a href="#use">Use</a>
-  •
+  <a href="#description">Description</a> •
+  <a href="#features">Features</a> •
+  <a href="#installation">Installation</a> •
+  <a href="#use">Use</a> •
   <a href="#credits">Credits</a>
 </p>
 
