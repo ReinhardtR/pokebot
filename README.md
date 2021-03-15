@@ -11,11 +11,9 @@ You can contact one of the editors through either one of these sources:
 #### ReinhardtR
 * GitHub - ReinhardtR
 * Twitter - @PGNcs
-
 #### LiviDk
 * GitHub - LiviDk
 * Twitter - @LiviDk
-
 #### samuel1212703
 * GitHub - samuel1212703
 * Twitter - @samuel1212703
