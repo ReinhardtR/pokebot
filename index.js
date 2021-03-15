@@ -9,6 +9,8 @@ client.once("ready", () => {
 });
 
 client.on("message", (msg) => {
+  if (msg.author.bot()) return;
+
   if (msg.content === "yo") {
     msg.channel.send("yo");
   }
