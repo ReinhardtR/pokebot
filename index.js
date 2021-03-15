@@ -6,6 +6,8 @@ client.once("ready", () => {
   console.log("Ready!");
 });
 
+console.log(process.env.TOKEN);
+
 client.on("message", (msg) => {
   if (msg.author.bot) return;
 
