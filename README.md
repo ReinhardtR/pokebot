@@ -6,6 +6,8 @@
   <br>
 </h1>
 
+<h3 align=center>A Pokemon made with <a href=https://github.com/discordjs/discord.js>discord.js</a></h3>
+
 <p align="center">
   <a href="#description">Description</a>
   •
