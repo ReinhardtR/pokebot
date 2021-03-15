@@ -13,10 +13,10 @@ You can contact one of the editors through either one of these sources:
 * Twitter - [@PGNcs](https://twitter.com/PGNcs)
 #### LiviDk
 * GitHub - LiviDk
-* Twitter - @LiviDk
+* Twitter - [@LiviDk](https://twitter.com/LiviDk)
 #### samuel1212703
 * GitHub - samuel1212703
-* Twitter - @samuel1212703
+* Twitter - [@samuel1212703](https://twitter.com/samuel1212703)
 
 ## Credit
 * ReinhardtR
