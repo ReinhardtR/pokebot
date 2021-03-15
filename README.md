@@ -8,9 +8,6 @@ JavaScript was chosen as the programming language as it is user friendly, and es
 
 ## Contact
 You can contact one of the editors through either one of these sources:
-* Gmail - samuel.jakobsen321@gmail.com
-* Twitter - @samuel1212703
-* GitHub - samuel1212703
 * GitHub - ReinhardtR
 * GitHub - LiviDk
 
