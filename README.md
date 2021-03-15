@@ -11,8 +11,11 @@ No contact information set up yet.
 
 ## Credit
 Main editor:
+
 ReinhardtR
 
 Other editors:
+
 samuel1212703
+
 LiviDk
