@@ -2,6 +2,8 @@ const config = require("./config.json");
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
+console.log(config.token);
+
 client.once("ready", () => {
   console.log("Ready!");
 });
