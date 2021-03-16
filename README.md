@@ -45,7 +45,7 @@ to get all dependencies. You will also need to have [node](https://nodejs.org/en
 - [x] Infrastructure
 - [ ] Profile-system (Name, Level, Pokemons)
 - [ ] Pokemon-System (Name, Level, Type, Stats)
-- [ ] Pokedex (List of undiscovered, discovered and caught Pokemons)
+- [x] Pokedex (List of undiscovered, discovered and caught Pokemons)
 - [ ] Pokemon-Battles (Battkes against wild Pokemons)
 - [ ] Player-Battles (Battles against other players)
 - [ ] Walks (to catch Pokemons with friends)
