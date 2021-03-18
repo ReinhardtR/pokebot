@@ -1,5 +1,5 @@
 module.exports = {
-  name: "sendPokedex",
+  name: "pokedex",
   description: "Get data from a user, and visualize their pokedex.",
   execute(msg, args) {
     sendPokedex(msg);
@@ -7,10 +7,8 @@ module.exports = {
 };
 
 function sendPokedex(msg) {
-  // Canvas
+  const Discord = require("discord.js");
   const Canvas = require("canvas");
-
-  // Pokémon API
   const Pokedex = require("pokedex-promise-v2");
   const P = new Pokedex();
 

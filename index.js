@@ -13,14 +13,17 @@ const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
 // Find all command files
-const commandFiles = fs
-  .readdirSync("./commands")
-  .filter((file) => file.endsWith(".js"));
+const commandFolders = fs.readdirSync("./commands");
 
 // Load command files and set in collection
-commandFiles.forEach((file) => {
-  const command = require(`./commands/${file}`);
-  client.commands.set(command.name, command);
+commandFolders.forEach((folder) => {
+  const commandFiles = fs
+    .readdirSync(`./commands/${folder}`)
+    .filter((file) => file.endsWith(".js"));
+  commandFiles.forEach((file) => {
+    const command = require(`./commands/${folder}/${file}`);
+    client.commands.set(command.name, command);
+  });
 });
 
 client.once("ready", () => {
@@ -28,17 +31,25 @@ client.once("ready", () => {
 });
 
 client.on("message", (msg) => {
+  console.log("1");
   if (!msg.content.startsWith(PREFIX) || msg.author.bot) return;
 
   const args = msg.content.slice(PREFIX.length).trim().split(/ +/);
-  const command = args.shift().toLowerCase();
+  const commandName = args.shift().toLowerCase();
 
-  if (command === "yo") {
-    client.commands.get("sendYo").execute(msg, args);
-  } else if (command === "pokedex") {
-    client.commands.get("sendPokedex").execute(msg, args);
-  } else if (command === "menu") {
-    client.commands.get("sendMenuGUI").execute(msg, args);
+  console.log(commandName);
+  console.log(client.commands);
+  if (!client.commands.has(commandName)) return;
+  const command = client.commands.get(commandName);
+
+  console.log("2");
+
+  try {
+    console.log("3");
+    command.execute(msg, args);
+  } catch (err) {
+    console.error(err);
+    msg.reply("Error: " + err);
   }
 });
 
