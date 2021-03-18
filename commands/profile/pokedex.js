@@ -2,13 +2,16 @@ module.exports = {
   name: "pokedex",
   description: "Get data from a user, and visualize their pokedex.",
   execute(msg, args) {
-    getPokedex(msg).then((embed) => {
+    getPokedexData(msg).then((embed) => {
       msg.channel.send(embed);
     });
   },
+  getPokedex(msg) {
+    return getPokedexData();
+  },
 };
 
-function getPokedex(msg) {
+function getPokedexData(msg) {
   const Discord = require("discord.js");
   const Canvas = require("canvas");
   const Pokedex = require("pokedex-promise-v2");
