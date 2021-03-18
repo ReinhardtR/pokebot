@@ -31,21 +31,15 @@ client.once("ready", () => {
 });
 
 client.on("message", (msg) => {
-  console.log("1");
   if (!msg.content.startsWith(PREFIX) || msg.author.bot) return;
 
   const args = msg.content.slice(PREFIX.length).trim().split(/ +/);
   const commandName = args.shift().toLowerCase();
 
-  console.log(commandName);
-  console.log(client.commands);
   if (!client.commands.has(commandName)) return;
   const command = client.commands.get(commandName);
 
-  console.log("2");
-
   try {
-    console.log("3");
     command.execute(msg, args);
   } catch (err) {
     console.error(err);
