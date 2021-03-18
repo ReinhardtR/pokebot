@@ -7,6 +7,13 @@ module.exports = {
 };
 
 function sendPokedex(msg) {
+  // Canvas
+  const Canvas = require("canvas");
+
+  // Pokémon API
+  const Pokedex = require("pokedex-promise-v2");
+  const P = new Pokedex();
+
   const getData = new Promise((resolve, reject) => {
     P.getGenerationByName("generation-i").then((item) => {
       const data = item.pokemon_species.map((pokemon, index) => {
