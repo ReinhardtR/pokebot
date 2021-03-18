@@ -49,14 +49,14 @@ function openMenuGUI(msg) {
         .awaitReactions(filter, { max: 1, time: 60000, errors: ["time"] })
         .then((collected) => {
           const reaction = collected.first();
+          embedMsg.reactions.removeAll();
 
           if (reaction.emoji.name === "1️⃣") {
-            embedMsg.reactions.removeAll();
             menuWalk(embedMsg, msg);
           } else if (reaction.emoji.name === "4️⃣") {
-            embedMsg.reactions.removeAll();
             const pokedex = require("../profile/pokedex");
-            const pokedexEmbed = 
+            const pokedexEmbed = pokedex.getPokedex(msg);
+            embedMsg.edit(pokedexEmbed);
           } else {
             msg.reply("sadge");
           }
