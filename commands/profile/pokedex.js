@@ -7,7 +7,7 @@ module.exports = {
     });
   },
   getPokedex(msg) {
-    return getPokedexData();
+    return getPokedexData(msg);
   },
 };
 
