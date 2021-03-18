@@ -1,10 +1,4 @@
-<h1 align="center">
-  <br>
-  <a href="https://github.com/ReinhardtR/pokebot"><img src="./PokeballsRender2.png"></a>
-  <br>
-  Pokebot
-  <br>
-</h1>
+![alt text](https://github.com/ReinhardtR/pokebot/blob/89195bea06ae7e342ae24a8e427ddbed621ba191/images/PokemonHeaderImage.png?raw=true)
 
 <h3 align=center>A Pokemon bot made using <a href=https://github.com/discordjs/discord.js>discord.js</a></h3>
 
