@@ -4,13 +4,6 @@ require("dotenv").config();
 // File System
 const fs = require("fs");
 
-// Canvas
-const Canvas = require("canvas");
-
-// Pokémon API
-const Pokedex = require("pokedex-promise-v2");
-const P = new Pokedex();
-
 // Constants
 const PREFIX = "p!";
 const menuGUI = "https://i.imgur.com/Sx2mQTH.png";
