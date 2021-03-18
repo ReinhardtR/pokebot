@@ -3,12 +3,14 @@ module.exports = {
   description: "Get data from a user, and visualize their pokedex.",
   execute(msg, args) {
     getPokedexData(msg).then((embed) => {
-      msg.channel.send(embed);
+      msg.channel.send({ embed });
     });
   },
   getPokedex(msg) {
-    return getPokedexData(msg).then((embed) => {
-      return embed;
+    return new Promise((resolve, reject) => {
+      getPokedexData(msg).then((pokedexEmbed) => {
+        resolve(pokedexEmbed);
+      });
     });
   },
 };
@@ -30,7 +32,6 @@ function getPokedexData(msg) {
           })
         );
       });
-      console.log(data);
       resolve(Promise.all(data));
     });
   });
@@ -126,7 +127,6 @@ function getPokedexData(msg) {
           );
 
           // Create image file
-          console.log("sending");
           const attachment = new Discord.MessageAttachment(
             canvas.toBuffer(),
             "pokedex.png"
@@ -140,9 +140,10 @@ function getPokedexData(msg) {
             .attachFiles(attachment)
             .setImage(`attachment://${attachment.name}`)
             .setThumbnail(msg.author.avatarURL());
+
           resolve(pokedexEmbed);
         });
     });
   });
-  return { embed };
+  return embed;
 }

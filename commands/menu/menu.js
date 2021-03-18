@@ -1,3 +1,5 @@
+const { getPokedex } = require("../profile/pokedex");
+
 module.exports = {
   name: "menu",
   description: "Open the GUI menu",
@@ -7,15 +9,14 @@ module.exports = {
 };
 
 function openMenuGUI(msg) {
+  const Discord = require("discord.js");
+
   const menuGUI =
     "https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/PokemonMenu.png";
-  const embed = {
-    title: "PokéBot Menu",
-    color: 53380,
-    image: {
-      url: menuGUI,
-    },
-  };
+  const embed = new Discord.MessageEmbed()
+    .setTitle("Pokébot Menu")
+    .setColor(53380)
+    .setImage(menuGUI);
 
   msg.channel.send({ embed }).then((embedMsg) => {
     const emojis = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣"];
@@ -47,7 +48,7 @@ function openMenuGUI(msg) {
 
       embedMsg
         .awaitReactions(filter, { max: 1, time: 60000, errors: ["time"] })
-        .then((collected) => {
+        .then(async (collected) => {
           const reaction = collected.first();
           embedMsg.reactions.removeAll();
 
@@ -55,8 +56,10 @@ function openMenuGUI(msg) {
             menuWalk(embedMsg, msg);
           } else if (reaction.emoji.name === "4️⃣") {
             const pokedex = require("../profile/pokedex");
-            const pokedexEmbed = pokedex.getPokedex(msg);
-            embedMsg.edit(pokedexEmbed);
+            pokedex.getPokedex(msg).then((pokedexEmbed) => {
+              embedMsg.delete();
+              msg.channel.send({ embed: pokedexEmbed });
+            });
           } else {
             msg.reply("sadge");
           }
