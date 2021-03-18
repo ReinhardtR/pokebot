@@ -6,7 +6,6 @@ const fs = require("fs");
 
 // Constants
 const PREFIX = "p!";
-const menuGUI = "https://i.imgur.com/Sx2mQTH.png";
 
 // Discord.js
 const Discord = require("discord.js");

@@ -7,6 +7,7 @@ module.exports = {
 };
 
 function openMenuGUI(msg) {
+  const menuGUI = "https://i.imgur.com/Sx2mQTH.png";
   const embed = {
     title: "PokéBot Menu",
     color: 53380,
