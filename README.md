@@ -1,4 +1,4 @@
-![alt text](https://github.com/ReinhardtR/pokebot/blob/b9fc8265ac23800904bd086380280ee75e15576d/images/PokemonHeaderImage.png?raw=true)
+![alt text](https://github.com/ReinhardtR/pokebot/blob/89195bea06ae7e342ae24a8e427ddbed621ba191/images/PokemonHeaderImage.png?raw=true)
 
 <h3 align=center>A Pokemon bot made using <a href=https://github.com/discordjs/discord.js>discord.js</a></h3>
 
