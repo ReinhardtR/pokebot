@@ -56,7 +56,7 @@ function openMenuGUI(msg) {
           } else if (reaction.emoji.name === "4️⃣") {
             embedMsg.reactions.removeAll();
             const pokedex = require("../profile/pokedex");
-            pokedex.execute(msg);
+            const pokedexEmbed = 
           } else {
             msg.reply("sadge");
           }
