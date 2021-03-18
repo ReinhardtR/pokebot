@@ -7,7 +7,8 @@ module.exports = {
 };
 
 function openMenuGUI(msg) {
-  const menuGUI = "https://i.imgur.com/Sx2mQTH.png";
+  const menuGUI =
+    "https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/PokemonMenu.png";
   const embed = {
     title: "PokéBot Menu",
     color: 53380,
@@ -50,7 +51,12 @@ function openMenuGUI(msg) {
           const reaction = collected.first();
 
           if (reaction.emoji.name === "1️⃣") {
-            msg.reply("pogU");
+            embedMsg.reactions.removeAll();
+            menuWalk(embedMsg, msg);
+          } else if (reaction.emoji.name === "4️⃣") {
+            embedMsg.reactions.removeAll();
+            const pokedex = require("../profile/pokedex");
+            pokedex.execute(msg);
           } else {
             msg.reply("sadge");
           }
@@ -59,13 +65,15 @@ function openMenuGUI(msg) {
   });
 }
 
-function menuPlayerProfile(msg) {
-  const commandEmbed = {
-    plainText: "test",
-    description: "A complete list of all player profile commands!",
+function menuWalk(botMsg, userMsg) {
+  const walkEmbed = {
+    description:
+      userMsg.author.toString() +
+      " here is a complete list of all walk commands!",
     author: {
-      name: "Player Profile Commands",
+      name: "Walk Commands",
     },
     color: 53380,
   };
+  botMsg.edit({ embed: walkEmbed });
 }
