@@ -1,15 +1,14 @@
 module.exports = {
-  name: "yo",
+  name: "add",
   description: "Test - replies with yo.",
   args: true,
-  usage: "<boi>",
+  usage: "<pokemon-id>",
   execute(msg, args) {
-    let reply = "yo ";
+    const db = require("../../firebase/database");
+    db.givePokemonToUser(msg.author.id, args[0]);
 
-    if (args[0] === "boi") {
-      reply += "boi";
-    }
-
-    msg.channel.send(reply);
+    msg.channel.send(
+      `I've added the Pokémon with the id of ${args[0]} to the collection of ${msg.author}`
+    );
   },
 };
