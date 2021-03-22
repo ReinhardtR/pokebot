@@ -60,6 +60,10 @@ function openMenuGUI(msg) {
               embedMsg.delete();
               msg.channel.send({ embed: pokedexEmbed });
             });
+          } else if (reaction.emoji.name === "") {
+            const help = require("../misc/help");
+            help.execute();
+            embedMsg.delete();
           } else {
             msg.reply("sadge");
           }

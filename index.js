@@ -1,30 +1,11 @@
 // Enviroment Variables
 require("dotenv").config();
 
-// File System
-const fs = require("fs");
-
 // Constants
 const PREFIX = "p!";
 
 // Discord.js
-const Discord = require("discord.js");
-const client = new Discord.Client();
-client.commands = new Discord.Collection();
-
-// Find all command files
-const commandFolders = fs.readdirSync("./commands");
-
-// Load command files and set in collection
-commandFolders.forEach((folder) => {
-  const commandFiles = fs
-    .readdirSync(`./commands/${folder}`)
-    .filter((file) => file.endsWith(".js"));
-  commandFiles.forEach((file) => {
-    const command = require(`./commands/${folder}/${file}`);
-    client.commands.set(command.name, command);
-  });
-});
+const client = require("./client");
 
 client.once("ready", () => {
   console.log("Ready!");
@@ -56,7 +37,7 @@ client.on("message", (msg) => {
   // Execute the command.
   try {
     if (command.name === "help") {
-      command.execute(client.commands);
+      command.execute(msg, client.commands);
     } else {
       command.execute(msg, args);
     }
