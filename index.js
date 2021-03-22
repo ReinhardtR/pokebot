@@ -37,6 +37,7 @@ client.on("message", (msg) => {
   // Execute the command.
   try {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     if (command.name === "help") {
       command.execute(msg, client.commands);
     } else {
@@ -47,11 +48,13 @@ client.on("message", (msg) => {
     msg.reply("Error: " + err);
 =======
     console.log("TRYING")
+=======
+    console.log("TRYING");
+>>>>>>> Stashed changes
     command.execute(msg, args);
   } catch (error) {
-    console.log("ERROR HERE")
+    console.log("ERROR HERE");
     msg.reply("Error: " + error);
->>>>>>> Stashed changes
   }
 });
 
