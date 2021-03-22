@@ -1,26 +1,24 @@
 module.exports = {
   name: "pokedex",
   description: "Get data from a user, and visualize their pokedex.",
+  usage: "[user-tag]",
   execute(msg, args) {
-    getPokedexData(msg).then((embed) => {
-      console.log("sending");
-      msg.channel.send({ embed });
-    });
-  },
-  getPokedex(msg) {
-    return new Promise((resolve, reject) => {
-      getPokedexData(msg).then((pokedexEmbed) => {
-        resolve(pokedexEmbed);
-      });
-    });
+    var user = msg.author;
+    if (msg.mentions.members.size) {
+      user = msg.mentions.members.first().user;
+    }
+    sendPokedex(msg, user);
   },
 };
 
-function getPokedexData(msg) {
+async function sendPokedex(msg, user) {
+  console.log("in function", user);
   const Discord = require("discord.js");
   const Canvas = require("canvas");
-  const pokemons = require("../../pokemons.json");
-
+  const pokemons = require("../../constants/pokemons.json");
+  const db = require("../../database");
+  const userPokedex = await db.getUserPokedex(user.id);
+  console.log(userPokedex);
   // Create canvas
   const canvas = Canvas.createCanvas(2500, 3200);
   const ctx = canvas.getContext("2d");
@@ -30,102 +28,96 @@ function getPokedexData(msg) {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   // Draw pokemon sprites
-  const embed = new Promise((resolve, reject) => {
-    // Size and position variables
-    const spriteSize = 192;
-    const gap = 16;
-    var x = 10;
-    var y = 64;
+  // Size and position variables
+  const spriteSize = 192;
+  const gap = 16;
+  var x = 10;
+  var y = 64;
 
-    // Test array to check if owned pokemons are colored
-    const array = [8, 23, 48, 57, 58, 110, 121, 122, 139, 140, 149];
+  // Preload images
+  Promise.all(
+    pokemons.map((pokemon) => {
+      return new Promise((resolve, reject) => {
+        const img = new Canvas.Image();
+        img.src = pokemon.sprites.front;
+        img.onload = resolve;
+        pokemon.sprite = img;
+      });
+    })
+  )
+    .then(() => {
+      // Draw pokemon sprites and names
+      pokemons.map(async (pokemon, index) => {
+        // Adjust position
+        if (x + spriteSize + gap > canvas.width) {
+          y += spriteSize + gap * 3.3;
+          x = 10;
+        } else if (index !== 0) {
+          x += spriteSize + gap;
+        }
 
-    // Preload images
-    Promise.all(
-      pokemons.map((pokemon) => {
-        return new Promise((resolve, reject) => {
-          const img = new Canvas.Image();
-          img.src = pokemon.sprites.front;
-          img.onload = resolve;
-          pokemon.sprite = img;
-        });
-      })
-    )
-      .then(() => {
-        // Draw pokemon sprites and names
-        pokemons.map((pokemon, index) => {
-          // Adjust position
-          if (x + spriteSize + gap > canvas.width) {
-            y += spriteSize + gap * 3.3;
-            x = 10;
-          } else if (index !== 0) {
-            x += spriteSize + gap;
-          }
+        // Do you have that pokemon
+        const isCaught = userPokedex ? userPokedex.includes(pokemon.id) : false;
 
-          // Do you have that pokemon
-          const isCaught = array.includes(pokemon.id);
+        // Capitalize pokemon name
+        const name = isCaught
+          ? pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
+          : "???";
 
-          // Capitalize pokemon name
-          const name = isCaught
-            ? pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
-            : "???";
-
-          // Text settings
-          ctx.font = "32px sans-serif";
-          ctx.fillStyle = "#ffffff";
-          ctx.textAlign = "center";
-          // Calculate text position, needed because of textAlign
-          const textPosX = x + spriteSize / 2;
-          // Draw text and image
-          ctx.fillText(name, textPosX, y);
-          ctx.drawImage(pokemon.sprite, x, y, spriteSize, spriteSize);
-          // Recolor unowned pokemons
-          if (!isCaught) {
-            // Recolor each pixel
-            const pixels = ctx.getImageData(x, y, spriteSize, spriteSize);
-            for (var i = 0; i < pixels.data.length; i += 4) {
-              for (var j = 0; j < 3; j++) {
-                if (pixels.data[i + j] !== 20) {
-                  pixels.data[i + j] = 5;
-                }
+        // Text settings
+        ctx.font = "32px sans-serif";
+        ctx.fillStyle = "#ffffff";
+        ctx.textAlign = "center";
+        // Calculate text position, needed because of textAlign
+        const textPosX = x + spriteSize / 2;
+        // Draw text and image
+        ctx.fillText(name, textPosX, y);
+        ctx.drawImage(pokemon.sprite, x, y, spriteSize, spriteSize);
+        // Recolor unowned pokemons
+        if (!isCaught) {
+          // Recolor each pixel
+          const pixels = ctx.getImageData(x, y, spriteSize, spriteSize);
+          for (var i = 0; i < pixels.data.length; i += 4) {
+            for (var j = 0; j < 3; j++) {
+              if (pixels.data[i + j] !== 20) {
+                pixels.data[i + j] = 5;
               }
             }
-            ctx.putImageData(pixels, x, y);
           }
-        });
-      })
-      .then(() => {
-        // Text settings
-        ctx.font = "100px sans-serif";
-        ctx.fillStyle = "#ffffff";
-        ctx.textAlign = "end";
-        ctx.textBaseline = "bottom";
-        // User tag
-        ctx.fillText(msg.author.tag, canvas.width - gap, canvas.height - gap);
-        // Pokemon count
-        ctx.fillText(
-          `${array.length}/151`,
-          canvas.width - gap,
-          canvas.height - (100 + gap)
-        );
-
-        // Create image file
-        const attachment = new Discord.MessageAttachment(
-          canvas.toBuffer(),
-          "pokedex.png"
-        );
-
-        // Create embed with image attached
-        const pokedexEmbed = new Discord.MessageEmbed()
-          .setTitle("Pokédex")
-          .setDescription(msg.author)
-          .setColor(53380)
-          .attachFiles(attachment)
-          .setImage(`attachment://${attachment.name}`)
-          .setThumbnail(msg.author.avatarURL());
-
-        resolve(pokedexEmbed);
+          ctx.putImageData(pixels, x, y);
+        }
       });
-  });
-  return embed;
+    })
+    .then(() => {
+      // Text settings
+      ctx.font = "100px sans-serif";
+      ctx.fillStyle = "#ffffff";
+      ctx.textAlign = "end";
+      ctx.textBaseline = "bottom";
+      // User tag
+      ctx.fillText(user.tag, canvas.width - gap, canvas.height - gap);
+      // Pokemon count
+      ctx.fillText(
+        `${userPokedex.length}/151`,
+        canvas.width - gap,
+        canvas.height - (100 + gap)
+      );
+
+      // Create image file
+      const attachment = new Discord.MessageAttachment(
+        canvas.toBuffer(),
+        "pokedex.png"
+      );
+
+      // Create embed with image attached
+      const embed = new Discord.MessageEmbed()
+        .setTitle("Pokédex")
+        .setDescription(user)
+        .setColor(53380)
+        .attachFiles(attachment)
+        .setImage(`attachment://${attachment.name}`)
+        .setThumbnail(user.avatarURL());
+
+      msg.channel.send({ embed });
+    });
 }

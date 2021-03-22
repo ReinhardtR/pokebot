@@ -1,11 +1,30 @@
 // Enviroment Variables
 require("dotenv").config();
 
-// Constants
-const PREFIX = "p!";
+// File System
+const fs = require("fs");
 
 // Discord.js
-const client = require("./client");
+const Discord = require("discord.js");
+const client = new Discord.Client();
+client.commands = new Discord.Collection();
+
+// Find all command files
+const commandFolders = fs.readdirSync("./commands");
+
+// Load command files and set in collection
+commandFolders.forEach((folder) => {
+  const commandFiles = fs
+    .readdirSync(`./commands/${folder}`)
+    .filter((file) => file.endsWith(".js"));
+  commandFiles.forEach((file) => {
+    const command = require(`./commands/${folder}/${file}`);
+    client.commands.set(command.name, command);
+  });
+});
+
+// Constants
+const { PREFIX } = require("./constants/config.json");
 
 client.once("ready", () => {
   console.log("Ready!");
@@ -17,11 +36,17 @@ client.on("message", (msg) => {
 
   // Disect the message, get the args and command name.
   const args = msg.content.slice(PREFIX.length).trim().split(/ +/);
-
   const commandName = args.shift().toLowerCase();
+
   // Check if the command exists.
-  if (!client.commands.has(commandName)) return;
-  const command = client.commands.get(commandName);
+  const command =
+    client.commands.get(commandName) ||
+    client.commands.find(
+      (cmd) => cmd.aliases && cmd.aliases.includes(commandName)
+    );
+
+  // Return if command doesn't exist.
+  if (!command) return;
 
   // Check if there is any args.
   if (command.args && !args.length) {
@@ -36,11 +61,7 @@ client.on("message", (msg) => {
 
   // Execute the command.
   try {
-    if (command.name === "help") {
-      command.execute(msg, client.commands);
-    } else {
-      command.execute(msg, args);
-    }
+    command.execute(msg, args);
   } catch (err) {
     console.error(err);
     msg.reply("Error: " + err);

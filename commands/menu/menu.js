@@ -2,11 +2,11 @@ module.exports = {
   name: "menu",
   description: "Open the GUI menu",
   execute(msg, args) {
-    openMenuGUI(msg);
+    sendMenu(msg, args);
   },
 };
 
-function openMenuGUI(msg) {
+function sendMenu(msg, args) {
   const Discord = require("discord.js");
 
   const menuGUI =
@@ -50,20 +50,20 @@ function openMenuGUI(msg) {
           const reaction = collected.first();
           embedMsg.reactions.removeAll();
 
+          function runCommand(path) {
+            const command = require(path);
+            command.execute();
+            embedMsg.delete();
+          }
+
           if (reaction.emoji.name === "1️⃣") {
             menuWalk(embedMsg, msg);
           } else if (reaction.emoji.name === "3️⃣") {
             playerProfileMenu(embedMsg, msg);
           } else if (reaction.emoji.name === "4️⃣") {
-            const pokedex = require("../profile/pokedex");
-            pokedex.getPokedex(msg).then((pokedexEmbed) => {
-              embedMsg.delete();
-              msg.channel.send({ embed: pokedexEmbed });
-            });
+            runCommand("../profile/pokedex");
           } else if (reaction.emoji.name === "") {
-            const help = require("../misc/help");
-            help.execute();
-            embedMsg.delete();
+            runCommand("../misc/help");
           } else {
             msg.reply("sadge");
           }
