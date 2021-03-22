@@ -36,8 +36,8 @@ client.on("message", (msg) => {
 
   // Disect the message, get the args and command name.
   const args = msg.content.slice(PREFIX.length).trim().split(/ +/);
-  const commandName = args.shift().toLowerCase();
 
+  const commandName = args.shift().toLowerCase();
   // Check if the command exists.
   if (!client.commands.has(commandName)) return;
   const command = client.commands.get(commandName);
@@ -55,7 +55,11 @@ client.on("message", (msg) => {
 
   // Execute the command.
   try {
-    command.execute(msg, args);
+    if (command.name === "help") {
+      command.execute(client.commands);
+    } else {
+      command.execute(msg, args);
+    }
   } catch (err) {
     console.error(err);
     msg.reply("Error: " + err);

@@ -1,5 +1,3 @@
-const { getPokedex } = require("../profile/pokedex");
-
 module.exports = {
   name: "menu",
   description: "Open the GUI menu",
@@ -54,6 +52,8 @@ function openMenuGUI(msg) {
 
           if (reaction.emoji.name === "1️⃣") {
             menuWalk(embedMsg, msg);
+          } else if (reaction.emoji.name === "3️⃣") {
+            playerProfileMenu(embedMsg, msg);
           } else if (reaction.emoji.name === "4️⃣") {
             const pokedex = require("../profile/pokedex");
             pokedex.getPokedex(msg).then((pokedexEmbed) => {
@@ -79,4 +79,18 @@ function menuWalk(botMsg, userMsg) {
     color: 53380,
   };
   botMsg.edit({ embed: walkEmbed });
+}
+
+function playerProfileMenu(botMsg, userMsg) {
+  const Discord = require("discord.js");
+
+  //const menuGUI =
+  // "<playerprofile menu here>";
+  const profileEmbed = new Discord.MessageEmbed()
+    .setTitle("Profile Menu")
+    .setDescription(userMsg.author.toString() + "'s Player profile")
+    .setColor(53380);
+  //.setImage(menuGUI);
+
+  botMsg.edit({ embed: profileEmbed });
 }
