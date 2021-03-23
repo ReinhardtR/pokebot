@@ -13,6 +13,7 @@ const db = firebase.firestore();
 
 function createUserProfile(userId) {
   const userRef = db.collection("users").doc(userId);
+  if (userRef.exists) return;
   userRef.set({
     level: 1,
     xp: 0,
@@ -29,15 +30,21 @@ function givePokemonToUser(userId, pokemon) {
 async function getUserPokemons(userId) {
   const userRef = db.collection("users").doc(userId);
   const snapshot = await userRef.collection("pokemons").get();
-  const pokemons = snapshot.docs.map((doc) => doc.data());
-  return pokemons;
+  if (snapshot.exists) {
+    const pokemons = snapshot.docs.map((doc) => doc.data());
+    return pokemons;
+  }
+  return [];
 }
 
 async function getUserPokedex(userId) {
   const userRef = db.collection("users").doc(userId);
   const doc = await userRef.get();
-  const pokedex = doc.data().pokedex;
-  return pokedex;
+  if (doc.exists) {
+    const pokedex = doc.data().pokedex;
+    return pokedex;
+  }
+  return [];
 }
 
 module.exports = {

@@ -1,6 +1,7 @@
 module.exports = {
   name: "menu",
-  description: "Open the GUI menu",
+  description:
+    "Open a menu, that will help you navigate through diffrent commands.",
   execute(msg, args) {
     sendMenu(msg, args);
   },

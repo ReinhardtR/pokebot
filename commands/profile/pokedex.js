@@ -1,6 +1,6 @@
 module.exports = {
   name: "pokedex",
-  description: "Get data from a user, and visualize their pokedex.",
+  description: "See what Pokémons, you or someone else has caught.",
   usage: "[user-tag]",
   execute(msg, args) {
     var user = msg.author;
@@ -12,13 +12,21 @@ module.exports = {
 };
 
 async function sendPokedex(msg, user) {
-  console.log("in function", user);
+  const db = require("../../database");
+  const userPokedex = await db.getUserPokedex(user.id);
+
+  if (!userPokedex) {
+    return msg.reply(
+      `it looks like ${user} doesn't have a profile. Encourage him to create one!`
+    );
+  }
+
+  console.log("Yo");
+
   const Discord = require("discord.js");
   const Canvas = require("canvas");
   const pokemons = require("../../constants/pokemons.json");
-  const db = require("../../database");
-  const userPokedex = await db.getUserPokedex(user.id);
-  console.log(userPokedex);
+
   // Create canvas
   const canvas = Canvas.createCanvas(2500, 3200);
   const ctx = canvas.getContext("2d");
