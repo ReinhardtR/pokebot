@@ -21,8 +21,6 @@ async function sendPokedex(msg, user) {
     );
   }
 
-  console.log("Yo");
-
   const Discord = require("discord.js");
   const Canvas = require("canvas");
   const pokemons = require("../../constants/pokemons.json");
@@ -68,9 +66,8 @@ async function sendPokedex(msg, user) {
         const isCaught = userPokedex ? userPokedex.includes(pokemon.id) : false;
 
         // Capitalize pokemon name
-        const name = isCaught
-          ? pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
-          : "???";
+        const upperCaseString = require("../../utils/upperCaseString");
+        const name = isCaught ? upperCaseString(pokemon.name) : "???";
 
         // Text settings
         ctx.font = "32px sans-serif";

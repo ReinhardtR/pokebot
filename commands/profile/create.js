@@ -6,12 +6,13 @@ module.exports = {
   },
 };
 
-function createProfile(msg) {
-  const db = require("../../database");
-  const profile = db.createUserProfile(msg.author.id);
+const createProfile = async (msg) => {
+  const { getUserProfile, createUserProfile } = require("../../database");
+  const profile = await getUserProfile(msg.author.id);
   if (profile) {
-    msg.reply("I've created profile for you!");
-  } else {
     msg.reply("looks like you already have a profile.");
+  } else {
+    createUserProfile(msg.author.id);
+    msg.reply("I've created profile for you!");
   }
-}
+};

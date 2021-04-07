@@ -11,7 +11,7 @@ firebase.initializeApp({
 
 const db = firebase.firestore();
 
-function createUserProfile(userId) {
+const createUserProfile = (userId) => {
   const userRef = db.collection("users").doc(userId);
   if (userRef.exists) return;
   userRef.set({
@@ -20,14 +20,20 @@ function createUserProfile(userId) {
     pokedex: [],
   });
   userRef.collection("pokemons").add({});
-}
+};
 
-function givePokemonToUser(userId, pokemon) {
+const getUserProfile = async (userId) => {
+  const userRef = db.collection("users").doc(userId);
+  const userDoc = await userRef.get();
+  return userDoc.exists;
+};
+
+const givePokemonToUser = (userId, pokemon) => {
   const userRef = db.collection("users").doc(userId);
   userRef.collection("pokemons").add(pokemon);
-}
+};
 
-async function getUserPokemons(userId) {
+const getUserPokemons = async (userId) => {
   const userRef = db.collection("users").doc(userId);
   const snapshot = await userRef.collection("pokemons").get();
   if (snapshot.exists) {
@@ -35,21 +41,48 @@ async function getUserPokemons(userId) {
     return pokemons;
   }
   return [];
-}
+};
 
-async function getUserPokedex(userId) {
+const updateUserPokedex = (userId, pokedexArray) => {
+  const userRef = db.collection("users").doc(userId);
+  userRef.set({
+    pokedex: pokedexArray,
+  });
+};
+
+const getUserPokedex = async (userId) => {
   const userRef = db.collection("users").doc(userId);
   const doc = await userRef.get();
   if (doc.exists) {
     const pokedex = doc.data().pokedex;
     return pokedex;
   }
-  return [];
-}
+};
+
+const isUserWalking = async (userId) => {
+  const userRef = db.collection("users").doc(userId);
+  const doc = await userRef.get();
+  if (doc.exists) {
+    const isWalking = doc.data().isWalking;
+    return isWalking;
+  }
+  return false;
+};
+
+const setIsUserWalking = async (userId) => {
+  const userRef = db.collection("users").doc(userId);
+  userRef.set({
+    isWalking: true,
+  });
+};
 
 module.exports = {
   createUserProfile,
+  getUserProfile,
   givePokemonToUser,
   getUserPokemons,
+  updateUserPokedex,
   getUserPokedex,
+  isUserWalking,
+  setIsUserWalking,
 };
