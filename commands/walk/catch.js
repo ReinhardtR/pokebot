@@ -60,7 +60,7 @@ module.exports = {
     givePokemonToUser(msg.author.id, caughtPokemon);
 
     const pokemonName = toUpperCaseString(caughtPokemon.name);
-    msg.reply(`you've caught a **${pokemonName}**!`);
+    msg.reply(`you've caught **${pokemonName}**!`);
 
     // Add to user pokedex if the pokemon is new.
     const userPokedex = await getUserPokedex(msg.author.id);

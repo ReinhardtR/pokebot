@@ -16,9 +16,6 @@ const getRandomNum = (min, max) => Math.random() * (max - min) + min;
 
 const getRandomPokemon = () => {
   const num = getRandomNum(0, maxRarity);
-  console.log(intervals[intervals.length - 3]);
-  console.log(intervals[intervals.length - 2]);
-  console.log(intervals[intervals.length - 1]);
 
   for (let i = 0; i <= intervals.length; i++) {
     const start = intervals[i - 1] || 0;
