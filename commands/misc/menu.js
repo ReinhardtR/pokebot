@@ -63,7 +63,7 @@ function sendMenu(msg, args) {
             // Player Profile Menu
           } else if (reaction.emoji.name === "4️⃣") {
             runCommand("../profile/pokedex", msg);
-          } else if (reaction.emoji.name === "") {
+          } else if (reaction.emoji.name === "5️⃣") {
             runCommand("../misc/help", msg);
           } else {
             msg.reply("Sadge");

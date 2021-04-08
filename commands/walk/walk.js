@@ -1,6 +1,7 @@
 module.exports = {
   name: "walk",
-  description: "Go on a walk, and look for Pokémons!",
+  description:
+    "Creates a private channel, for finding pokemons! Invite friends ",
   args: true,
   guildOnly: true,
   usage: "<start or stop>",
