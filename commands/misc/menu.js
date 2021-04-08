@@ -85,17 +85,3 @@ function menuWalk(botMsg, userMsg) {
   };
   botMsg.edit({ embed: walkEmbed });
 }
-
-function playerProfileMenu(botMsg, userMsg) {
-  const Discord = require("discord.js");
-
-  //const menuGUI =
-  // "<playerprofile menu here>";
-  const profileEmbed = new Discord.MessageEmbed()
-    .setTitle("Profile Menu")
-    .setDescription(userMsg.author.toString() + "'s Player profile")
-    .setColor(53380);
-  //.setImage(menuGUI);
-
-  botMsg.edit({ embed: profileEmbed });
-}
