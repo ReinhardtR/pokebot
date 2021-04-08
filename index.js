@@ -60,6 +60,7 @@ client.on("message", async (msg) => {
     if (!authorPerms || !authorPerms.has(command.permissions)) {
       return msg.reply("you don't have permission to use this command.");
     }
+    x;
   }
 
   // Check if you need a profile to run this command.
