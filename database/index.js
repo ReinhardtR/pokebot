@@ -25,7 +25,9 @@ const createUserProfile = (userId) => {
 const getUserProfile = async (userId) => {
   const userRef = db.collection("users").doc(userId);
   const userDoc = await userRef.get();
-  return userDoc.exists;
+  const pokemonsRef = await userRef.collection("pokemons").get();
+  const pokemons = pokemonsRef.docs.map((doc) => doc.data());
+  return { ...userDoc.data(), pokemons };
 };
 
 const givePokemonToUser = (userId, pokemon) => {
@@ -45,7 +47,7 @@ const getUserPokemons = async (userId) => {
 
 const updateUserPokedex = (userId, pokedexArray) => {
   const userRef = db.collection("users").doc(userId);
-  userRef.set({
+  userRef.update({
     pokedex: pokedexArray,
   });
 };
