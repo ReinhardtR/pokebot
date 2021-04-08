@@ -2,12 +2,12 @@ module.exports = {
   name: "pokedex",
   description: "See what Pokémons, you or someone else has caught.",
   usage: "[user-tag]",
-  execute(msg, args) {
+  async execute(msg, args) {
     var user = msg.author;
     if (msg.mentions.members.size) {
       user = msg.mentions.members.first().user;
     }
-    sendPokedex(msg, user);
+    return await sendPokedex(msg, user);
   },
 };
 
@@ -123,6 +123,6 @@ async function sendPokedex(msg, user) {
         .setImage(`attachment://${attachment.name}`)
         .setThumbnail(user.avatarURL());
 
-      msg.channel.send({ embed });
+      return msg.channel.send({ embed });
     });
 }
