@@ -37,13 +37,18 @@ to get all dependencies. You will also need to have [node](https://nodejs.org/en
 ## To-Do-List
 - [x] Setup
 - [x] Infrastructure
-- [ ] Profile-system (Name, Level, Pokemons)
-- [ ] Pokemon-System (Name, Level, Type, Stats)
+- [x] Profile-system; Name
+- [ ] Profile-system; Level
+- [x] Profile-system; Pokemons
+- [x] Pokemon-System; Name
+- [ ] Pokemon-System; Stats
+- [ ] Pokemon-System; Type
+- [ ] Pokemon-System; Level
 - [x] Pokedex (List of undiscovered, discovered and caught Pokemons)
 - [ ] Pokemon-Battles (Battkes against wild Pokemons)
 - [ ] Player-Battles (Battles against other players)
-- [ ] Walks (to catch Pokemons with friends)
-- [ ] Commands (menues and such)
+- [x] Walks (to catch Pokemons with friends)
+- [x] Commands (menues and navigation)
 
 ## Contact
 You can contact one of the editors through either one of these sources:
