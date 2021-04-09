@@ -41,7 +41,7 @@ async function sendPokedex(msg, user) {
   var y = 64;
 
   // Preload images
-  Promise.all(
+  return await Promise.all(
     pokemons.map((pokemon) => {
       return new Promise((resolve, reject) => {
         const img = new Canvas.Image();
