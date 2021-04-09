@@ -72,16 +72,3 @@ function sendMenu(msg, args) {
     });
   });
 }
-
-function menuWalk(botMsg, userMsg) {
-  const walkEmbed = {
-    description:
-      userMsg.author.toString() +
-      " here is a complete list of all walk commands!",
-    author: {
-      name: "Walk Commands",
-    },
-    color: 53380,
-  };
-  botMsg.edit({ embed: walkEmbed });
-}
