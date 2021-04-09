@@ -50,6 +50,11 @@ to get all dependencies. You will also need to have [node](https://nodejs.org/en
 - [x] Walks (to catch Pokemons with friends)
 - [x] Commands (menues and navigation)
 
+## Potential changes
+Show Bot status for example; "Opening Pokedex", "Starting walk" etc.
+Automute walk channels
+
+
 ## Contact
 You can contact one of the editors through either one of these sources:
 #### ReinhardtR 🐧
