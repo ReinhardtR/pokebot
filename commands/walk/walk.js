@@ -1,10 +1,9 @@
 module.exports = {
   name: "walk",
-  description:
-    "Creates a private channel, for finding pokemons! Invite friends ",
+  description: "Creates a private channel, for finding pokémon!",
   args: true,
-  guildOnly: true,
   usage: "<start or stop>",
+  guildOnly: true,
   async execute(msg, args) {
     const { walks } = msg.client;
     const userWalk = walks.get(msg.author.id);
@@ -85,8 +84,8 @@ const stopWalk = (msg) => {
   clearInterval(walk.interval);
   walks.delete(msg.author.id);
 
-  msg.channel.send(
-    `${msg.author}, the walk has stopped, this channel will self-destruct in 4 seconds.`
+  msg.reply(
+    "the walk has stopped, this channel will self-destruct in 4 seconds."
   );
   setTimeout(() => {
     msg.channel.delete();
