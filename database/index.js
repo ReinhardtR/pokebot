@@ -18,6 +18,8 @@ const createUserProfile = (userId) => {
     level: 1,
     xp: 0,
     pokedex: [],
+    trainer:
+      "https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/pixelTrainersRescaled/pixelTrainer_0001_row-1-col-2.png",
   });
   userRef.collection("pokemons").add({});
 };
