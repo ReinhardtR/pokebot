@@ -25,8 +25,13 @@ async function sendPokedex(msg, user) {
   const Canvas = require("canvas");
   const pokemons = require("../../constants/pokemons.json");
 
+  //Import registerFont to use custom fonts
+  const { registerFont } = require("canvas");
+  //Register the pokemon font
+  registerFont("./fonts/Pokemon Classic.ttf", { family: "pokemonFont" });
+
   // Create canvas
-  const canvas = Canvas.createCanvas(3200, 2500);
+  const canvas = Canvas.createCanvas(3400, 2500);
   const ctx = canvas.getContext("2d");
 
   // Draw background color
@@ -55,7 +60,7 @@ async function sendPokedex(msg, user) {
       // Draw pokemon sprites and names
       pokemons.map(async (pokemon, index) => {
         // Adjust position
-        if (x + spriteSize + gap > canvas.width) {
+        if (x + spriteSize * 2 + gap > canvas.width) {
           y += spriteSize + gap * 3.3;
           x = 10;
         } else if (index !== 0) {
@@ -70,7 +75,7 @@ async function sendPokedex(msg, user) {
         const name = isCaught ? upperCaseString(pokemon.name) : "???";
 
         // Text settings
-        ctx.font = "32px sans-serif";
+        ctx.font = "20px pokemonFont";
         ctx.fillStyle = "#ffffff";
         ctx.textAlign = "center";
         // Calculate text position, needed because of textAlign
@@ -95,7 +100,7 @@ async function sendPokedex(msg, user) {
     })
     .then(() => {
       // Text settings
-      ctx.font = "100px sans-serif";
+      ctx.font = "75px pokemonFont";
       ctx.fillStyle = "#ffffff";
       ctx.textAlign = "end";
       ctx.textBaseline = "bottom";

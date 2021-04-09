@@ -14,7 +14,7 @@ module.exports = {
 //Function to change thousands to "K" in xp and xpneeded
 function kFormatter(num) {
   return Math.abs(num) > 999
-    ? Math.sign(num) * (Math.abs(num) / 1000).toFixed(1) + "K"
+    ? Math.sign(num) * (Math.abs(num) / 1000).toFixed(1) + "k"
     : Math.sign(num) * Math.abs(num);
 }
 
@@ -25,8 +25,15 @@ async function sendProfile(msg, user, args) {
   const Discord = require("discord.js");
   const userDoc = await getUserProfile(msg.author.id);
 
-  //Setup canvas and ctx
+  //Setup canvas
   const Canvas = require("canvas");
+
+  //Import registerFont to use custom fonts
+  const { registerFont } = require("canvas");
+  //Register the pokemon font
+  registerFont("./fonts/Pokemon Classic.ttf", { family: "pokemonFont" });
+
+  //Make canvas
   const canvas = Canvas.createCanvas(2500, 1500);
   const ctx = canvas.getContext("2d");
 
@@ -52,7 +59,7 @@ async function sendProfile(msg, user, args) {
 
   //Trainer image
   const trainerTemp =
-    "./images/pixelTrainersRescaled/pixelTrainer_0013_row-1-col-4.png";
+    "https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/pixelTrainersRescaled/pixelTrainer_0001_row-1-col-2.png";
   const trainer = await Canvas.loadImage(trainerTemp);
 
   //Drawing -------------------------------------------------
@@ -81,25 +88,24 @@ async function sendProfile(msg, user, args) {
   ctx.strokeRect(XPbarX, XPbarY, WS, HS);
 
   // User tag
-  ctx.font = "125px ../../fonts/pokemon_pixel_font.ttf";
+  ctx.font = '70px "pokemonFont"';
   ctx.fillStyle = textCol;
   ctx.textBaseline = "top";
   ctx.fillText(user.tag, XPbarX, ch * 0.05);
 
-  //XP
-  ctx.font = "100px ../../fonts/pokemon_pixel_font.ttf";
-  ctx.textAlign = "end";
-  const XPText = kFormatter(userDoc.xp);
-  XPNeededText = kFormatter(XPNeeded);
-  ctx.fillText(XPText + "/" + XPNeededText + " XP", WS, ch * 0.05 + 250);
-
   //Level and pokemon amount
-  ctx.font = "125px ../../fonts/pokemon_pixel_font.ttf";
+  ctx.textAlign = "end";
   ctx.fillText(
     `Pokémon: ${userDoc.pokemons.length}  Lv: ${userDoc.level}`,
     WS,
     XPbarX
   );
+
+  //XP
+  ctx.font = '50px "pokemonFont"';
+  const XPText = kFormatter(userDoc.xp);
+  XPNeededText = kFormatter(XPNeeded);
+  ctx.fillText(XPText + "/" + XPNeededText + " xp", WS, ch * 0.05 + 250);
 
   ctx.drawImage(trainer, XPbarX, XPbarY + ch * 0.05);
 
