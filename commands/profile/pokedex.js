@@ -26,7 +26,7 @@ async function sendPokedex(msg, user) {
   const pokemons = require("../../constants/pokemons.json");
 
   // Create canvas
-  const canvas = Canvas.createCanvas(2500, 3200);
+  const canvas = Canvas.createCanvas(3200, 2500);
   const ctx = canvas.getContext("2d");
 
   // Draw background color

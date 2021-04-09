@@ -51,22 +51,30 @@ function sendMenu(msg, args) {
           const reaction = collected.first();
           embedMsg.reactions.removeAll();
 
-          async function runCommand(path, msg, args) {
+          async function runCommand(path) {
             const command = require(path);
-            await command.execute(msg, args);
+            await command.execute(msg);
             embedMsg.delete();
           }
 
-          if (reaction.emoji.name === "1️⃣") {
-            runCommand("./walkMenu", msg);
-          } else if (reaction.emoji.name === "3️⃣") {
-            // Player Profile Menu
-          } else if (reaction.emoji.name === "4️⃣") {
-            runCommand("../profile/pokedex", msg);
-          } else if (reaction.emoji.name === "5️⃣") {
-            runCommand("../misc/help", msg);
-          } else {
-            msg.reply("Sadge");
+          switch (reaction.emoji.name) {
+            case "1️⃣":
+              runCommand("./walkMenu");
+              break;
+            case "2️⃣":
+              console.log("Arena");
+              break;
+            case "3️⃣":
+              console.log("Player");
+              break;
+            case "4️⃣":
+              runCommand("../profile/pokedex");
+              break;
+            case "5️⃣":
+              runCommand("../misc/help");
+              break;
+            default:
+              console.log("Sadge");
           }
         });
     });
