@@ -15,7 +15,7 @@ async function sendHelpMenu(msg, args) {
 
   const embed = new Discord.MessageEmbed().setColor(53380);
 
-  if (!args.length) {
+  if (!args) {
     embed
       .setTitle("Help Menu")
       .setDescription(

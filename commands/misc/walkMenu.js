@@ -1,13 +1,12 @@
 module.exports = {
   name: "walkmenu",
   description: "A menu that contains information about the walk command.",
-  execute(msg, args) {
-    sendMenu(msg, args);
+  async execute(msg, args) {
+    return await sendMenu(msg);
   },
 };
 
-function sendMenu(msg) {
-  console.log("yo");
+async function sendMenu(msg) {
   const Discord = require("discord.js");
   const walkMenuGUI =
     "https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/PokemonWalk.png";
@@ -15,5 +14,5 @@ function sendMenu(msg) {
     .setTitle("Walk Menu")
     .setColor(53380)
     .setImage(walkMenuGUI);
-  msg.channel.send({ embed });
+  return await msg.channel.send({ embed });
 }
