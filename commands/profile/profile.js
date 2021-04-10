@@ -39,7 +39,8 @@ async function sendProfile(msg, user, args) {
 
   //XP math (can be moved to dedicated script)
   const XPRise = 1200;
-  const XPNeeded = Math.floor(userDoc.level * XPRise);
+  const level = Math.floor(userDoc.xp / XPRise) || 1;
+  const XPNeeded = Math.floor(level * XPRise);
 
   //Coordinate variables
   const cw = canvas.width;
@@ -59,7 +60,7 @@ async function sendProfile(msg, user, args) {
 
   //Trainer image
   const trainerTemp =
-    "https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/pixelTrainersRescaled/pixelTrainer_0001_row-1-col-2.png";
+    "https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/pixelTrainersRescaled/pixelTrainer1.png";
   const trainer = await Canvas.loadImage(trainerTemp);
 
   //Drawing -------------------------------------------------
@@ -95,11 +96,7 @@ async function sendProfile(msg, user, args) {
 
   //Level and pokemon amount
   ctx.textAlign = "end";
-  ctx.fillText(
-    `Pokémon: ${userDoc.pokemons.length}  Lv: ${userDoc.level}`,
-    WS,
-    XPbarX
-  );
+  ctx.fillText(`Pokémon: ${userDoc.pokemons.length}  Lv: ${level}`, WS, XPbarX);
 
   //XP
   ctx.font = '50px "pokemonFont"';
@@ -107,6 +104,7 @@ async function sendProfile(msg, user, args) {
   XPNeededText = kFormatter(XPNeeded);
   ctx.fillText(XPText + "/" + XPNeededText + " xp", WS, ch * 0.05 + 250);
 
+  //Trainer icon
   ctx.drawImage(trainer, XPbarX, XPbarY + ch * 0.05);
 
   //Make attachment from canvas

@@ -49,6 +49,7 @@ module.exports = {
       givePokemonToUser,
       getUserPokedex,
       updateUserPokedex,
+      updateUserXP,
     } = require("../../database");
 
     // Give pokemon to the user.
@@ -59,8 +60,12 @@ module.exports = {
     };
     givePokemonToUser(msg.author.id, caughtPokemon);
 
+    //Give user xp, relative to pokemon rarity
+    const xpGain = Math.pow(pokemonToCatch.rarity, 2) * 10;
+    updateUserXP(msg.author.id, xpGain);
+
     const pokemonName = toUpperCaseString(caughtPokemon.name);
-    msg.reply(`you've caught **${pokemonName}**!`);
+    msg.reply(`you've caught **${pokemonName}**! **+${xpGain} XP**`);
 
     // Add to user pokedex if the pokemon is new.
     const userPokedex = await getUserPokedex(msg.author.id);
@@ -68,8 +73,13 @@ module.exports = {
       userPokedex.push(caughtPokemon.id);
       userPokedex.sort((a, b) => a - b);
       updateUserPokedex(msg.author.id, userPokedex);
+
+      //Give user xp, relative to pokemon rarity
+      const xpGainNewPokemon = 100;
+      updateUserXP(msg.author.id, xpGainNewPokemon);
+
       msg.reply(
-        `you've discovered a new Pokémon, **${pokemonName}** has been added to your Pokédex!`
+        `you've discovered a new Pokémon, **${pokemonName}** has been added to your Pokédex! **+${xpGainNewPokemon} XP**`
       );
     }
   },

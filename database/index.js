@@ -27,8 +27,8 @@ const createUserProfile = (userId) => {
 const getUserProfile = async (userId) => {
   const userRef = db.collection("users").doc(userId);
   const userDoc = await userRef.get();
-  const pokemonsRef = await userRef.collection("pokemons").get();
-  const pokemons = pokemonsRef.docs.map((doc) => doc.data());
+  //const pokemonsRef = await userRef.collection("pokemons").get();
+  //const pokemons = pokemonsRef.docs.map((doc) => doc.data());
   return { ...userDoc.data(), pokemons };
 };
 
@@ -80,6 +80,21 @@ const setIsUserWalking = async (userId) => {
   });
 };
 
+const updateUserXP = async (userId, xpGain) => {
+  const userDoc = await getUserProfile(userId);
+  const userRef = db.collection("users").doc(userId);
+  userRef.update({
+    xp: userDoc.xp + xpGain,
+  });
+};
+
+const updateUserIcon = async (userId, icon) => {
+  const userRef = db.collection("users").doc(userId);
+  userRef.update({
+    trainer: icon,
+  });
+};
+
 module.exports = {
   createUserProfile,
   getUserProfile,
@@ -89,4 +104,6 @@ module.exports = {
   getUserPokedex,
   isUserWalking,
   setIsUserWalking,
+  updateUserXP,
+  updateUserIcon,
 };
