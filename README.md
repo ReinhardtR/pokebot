@@ -32,7 +32,7 @@ to get all dependencies. You will also need to have [node](https://nodejs.org/en
 | --- | --- |
 | `p!help` | Shows help table |
 | `p!menu` | Shows menu |
-| `p!example` | Exanple text |
+| `p!example` | Example text |
 
 ## To-Do-List
 - [x] Setup
@@ -53,6 +53,7 @@ to get all dependencies. You will also need to have [node](https://nodejs.org/en
 ## Potential changes
 - Show Bot status for example; "Opening Pokedex", "Starting walk" etc.
 - Automute walk channels
+- Change bot picture (to updated (zoomed in) render)
 
 ## Contact
 You can contact one of the editors through either one of these sources:
