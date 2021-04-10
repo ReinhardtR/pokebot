@@ -22,9 +22,8 @@ async function editProfileIcon(msg, args) {
       .setColor(53380)
       .setImage(trainerIcon)
       .setThumbnail(msg.author.avatarURL());
-
     msg.channel.send({ embed });
-  } catch {
+  } catch (err) {
     msg.channel.send("That's not a valid icon nunmer");
   }
 }
