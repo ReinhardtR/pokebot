@@ -12,9 +12,8 @@ async function editProfileIcon(msg, args) {
   const Discord = require("discord.js");
   const { updateUserIcon, getUserProfile } = require("../../database");
   const userDoc = await getUserProfile(msg.author.id);
-  iconGet: try {
-    iconNumber = args[0].toLowerCase();
-    console.log(userDoc.level);
+  iconNumber = args[0].toLowerCase();
+  if (!isNaN(iconNumber) && iconNumber < 14) {
     if (iconNumber * 2 < userDoc.level) {
       const trainerIcon = `https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/pixelTrainersRescaled/pixelTrainer${iconNumber}.png`;
       updateUserIcon(msg.author.id, trainerIcon);
@@ -29,10 +28,8 @@ async function editProfileIcon(msg, args) {
       msg.channel.send({ embed });
     } else {
       msg.channel.send("You have not unlocked that icon yet");
-      break iconGet;
     }
-  } catch (err) {
-    msg.channel.send("That's not a valid icon number");
-    console.log(err);
+  } else {
+    msg.channel.send("That's not a valud icon number");
   }
 }
