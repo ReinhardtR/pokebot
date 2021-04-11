@@ -2,8 +2,13 @@ module.exports = {
   name: "profile",
   description: "Show Player Profile; xp, level, name, guild and character icon",
   usage: "[user-tag]",
+  needProfile: true,
   execute(msg, args) {
-    sendProfile(msg);
+    var user = msg.author;
+    if (msg.mentions.members.size) {
+      user = msg.mentions.members.first().user;
+    }
+    sendProfile(msg, user);
   },
 };
 
@@ -14,12 +19,12 @@ function kFormatter(num) {
     : Math.sign(num) * Math.abs(num);
 }
 
-async function sendProfile(msg, args) {
+async function sendProfile(msg, user) {
   //Setup and variables -------------------------------------
   //Setup discord, database and profile data
   const { getUserProfile, sortLevelsAndReturnRank } = require("../../database");
   const Discord = require("discord.js");
-  const userDoc = await getUserProfile(msg.author.id);
+  const userDoc = await getUserProfile(user.id);
 
   //Setup canvas
   const Canvas = require("canvas");
@@ -60,7 +65,7 @@ async function sendProfile(msg, args) {
   const trainer = await Canvas.loadImage(userDoc.trainer);
 
   //Get rank
-  const rank = await sortLevelsAndReturnRank(msg.author.id);
+  const rank = await sortLevelsAndReturnRank(user.id);
 
   //Drawing -------------------------------------------------
   //Background
@@ -96,7 +101,7 @@ async function sendProfile(msg, args) {
   ctx.font = '70px "pokemonFont"';
   ctx.fillStyle = textCol;
   ctx.textBaseline = "top";
-  ctx.fillText(msg.author.tag, XPbarX, ch * 0.05);
+  ctx.fillText(user.tag, XPbarX, ch * 0.05);
 
   //Level and pokemon amount
   ctx.textAlign = "end";
@@ -105,7 +110,7 @@ async function sendProfile(msg, args) {
   //XP
   ctx.font = '50px "pokemonFont"';
   const XPText = kFormatter(xpDisplayed);
-  XPNeededText = kFormatter(XPNeeded);
+  const XPNeededText = kFormatter(XPNeeded);
   ctx.fillText(XPText + "/" + XPNeededText + " xp", WS, ch * 0.05 + 250);
 
   //Trainer icon
@@ -120,10 +125,10 @@ async function sendProfile(msg, args) {
   //Embed ---------------------------------------------------
   const embed = new Discord.MessageEmbed()
     .setTitle("User Profile")
-    .setDescription(msg.author.toString())
+    .setDescription(user.toString())
     .setColor(53380)
     .attachFiles(attachment)
     .setImage(`attachment://${attachment.name}`)
-    .setThumbnail(msg.author.avatarURL());
+    .setThumbnail(user.avatarURL());
   msg.channel.send({ embed });
 }
