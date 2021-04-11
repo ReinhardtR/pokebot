@@ -38,7 +38,7 @@ to get all dependencies. You will also need to have [node](https://nodejs.org/en
 - [x] Setup
 - [x] Infrastructure
 - [x] Profile-system; Name
-- [ ] Profile-system; Level
+- [x] Profile-system; Level
 - [x] Profile-system; Pokemons
 - [x] Pokemon-System; Name
 - [ ] Pokemon-System; Stats
