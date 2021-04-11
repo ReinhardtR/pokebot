@@ -3,11 +3,7 @@ module.exports = {
   description: "Show Player Profile; xp, level, name, guild and character icon",
   usage: "[user-tag]",
   execute(msg, args) {
-    var user = msg.author;
-    if (msg.mentions.members.size) {
-      user = msg.mentions.members.first().user;
-    }
-    sendProfile(msg, user);
+    sendProfile(msg);
   },
 };
 
@@ -18,10 +14,10 @@ function kFormatter(num) {
     : Math.sign(num) * Math.abs(num);
 }
 
-async function sendProfile(msg, user, args) {
+async function sendProfile(msg, args) {
   //Setup and variables -------------------------------------
   //Setup discord, database and profile data
-  const { getUserProfile, updateLevel } = require("../../database");
+  const { getUserProfile, sortLevelsAndReturnRank } = require("../../database");
   const Discord = require("discord.js");
   const userDoc = await getUserProfile(msg.author.id);
 
@@ -40,8 +36,9 @@ async function sendProfile(msg, user, args) {
   //XP math (can be moved to dedicated script)
   const XPRise = 1200;
   const level = Math.floor(userDoc.xp / XPRise) || 1;
-  updateLevel(msg.author.id, level);
+  //updateLevel(msg.author.id, level);
   const XPNeeded = Math.floor(level * XPRise);
+  const xpDisplayed = Math.floor(userDoc.xp % XPRise);
 
   //Coordinate variables
   const cw = canvas.width;
@@ -62,6 +59,9 @@ async function sendProfile(msg, user, args) {
   //Get trainer image
   const trainer = await Canvas.loadImage(userDoc.trainer);
 
+  //Get rank
+  const rank = await sortLevelsAndReturnRank(msg.author.id);
+
   //Drawing -------------------------------------------------
   //Background
   ctx.fillStyle = backgroundCol;
@@ -81,7 +81,12 @@ async function sendProfile(msg, user, args) {
   ctx.fillRect(XPbarX, XPbarY, WS, HS);
   //Progress bar
   ctx.fillStyle = progressBarCol;
-  ctx.fillRect(XPbarX, XPbarY, WS * 0.01 * (100 * (userDoc.xp / XPNeeded)), HS);
+  ctx.fillRect(
+    XPbarX,
+    XPbarY,
+    WS * 0.01 * (100 * (xpDisplayed / XPNeeded)),
+    HS
+  );
   //XP bar outline
   ctx.strokeStyle = progressBarOutlineCol;
   ctx.lineWidth = 15;
@@ -91,15 +96,15 @@ async function sendProfile(msg, user, args) {
   ctx.font = '70px "pokemonFont"';
   ctx.fillStyle = textCol;
   ctx.textBaseline = "top";
-  ctx.fillText(user.tag, XPbarX, ch * 0.05);
+  ctx.fillText(msg.author.tag, XPbarX, ch * 0.05);
 
   //Level and pokemon amount
   ctx.textAlign = "end";
-  ctx.fillText(`Rank: 0  Lv: ${level}`, WS, XPbarX);
+  ctx.fillText(`Rank: ${rank}  Lv: ${level}`, WS, XPbarX);
 
   //XP
   ctx.font = '50px "pokemonFont"';
-  const XPText = kFormatter(userDoc.xp);
+  const XPText = kFormatter(xpDisplayed);
   XPNeededText = kFormatter(XPNeeded);
   ctx.fillText(XPText + "/" + XPNeededText + " xp", WS, ch * 0.05 + 250);
 

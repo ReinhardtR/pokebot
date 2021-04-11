@@ -95,11 +95,24 @@ const updateUserIcon = async (userId, icon) => {
   });
 };
 
-const updateLevel = async (userId, newLevel) => {
+/*const updateLevel = async (userId, newLevel) => {
   const userRef = db.collection("users").doc(userId);
   userRef.update({
     level: newLevel,
   });
+};*/
+
+const sortLevelsAndReturnRank = async (userId) => {
+  const userRef = db.collection("users");
+  const snapshot = await userRef.get();
+  const users = snapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
+  const sortedUsers = users.sort((user1, user2) => user2.xp - user1.xp);
+  const rank = sortedUsers.findIndex((user) => user.id === userId) + 1;
+
+  return rank;
 };
 
 module.exports = {
@@ -113,5 +126,5 @@ module.exports = {
   setIsUserWalking,
   updateUserXP,
   updateUserIcon,
-  updateLevel,
+  sortLevelsAndReturnRank,
 };
