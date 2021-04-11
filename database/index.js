@@ -29,7 +29,7 @@ const getUserProfile = async (userId) => {
   const userDoc = await userRef.get();
   //const pokemonsRef = await userRef.collection("pokemons").get();
   //const pokemons = pokemonsRef.docs.map((doc) => doc.data());
-  return { ...userDoc.data(), pokemons };
+  return { ...userDoc.data() };
 };
 
 const givePokemonToUser = (userId, pokemon) => {
@@ -95,6 +95,13 @@ const updateUserIcon = async (userId, icon) => {
   });
 };
 
+const updateLevel = async (userId, newLevel) => {
+  const userRef = db.collection("users").doc(userId);
+  userRef.update({
+    level: newLevel,
+  });
+};
+
 module.exports = {
   createUserProfile,
   getUserProfile,
@@ -106,4 +113,5 @@ module.exports = {
   setIsUserWalking,
   updateUserXP,
   updateUserIcon,
+  updateLevel,
 };

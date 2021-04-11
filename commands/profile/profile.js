@@ -21,7 +21,7 @@ function kFormatter(num) {
 async function sendProfile(msg, user, args) {
   //Setup and variables -------------------------------------
   //Setup discord, database and profile data
-  const { getUserProfile } = require("../../database");
+  const { getUserProfile, updateLevel } = require("../../database");
   const Discord = require("discord.js");
   const userDoc = await getUserProfile(msg.author.id);
 
@@ -40,6 +40,7 @@ async function sendProfile(msg, user, args) {
   //XP math (can be moved to dedicated script)
   const XPRise = 1200;
   const level = Math.floor(userDoc.xp / XPRise) || 1;
+  updateLevel(msg.author.id, level);
   const XPNeeded = Math.floor(level * XPRise);
 
   //Coordinate variables
@@ -58,10 +59,8 @@ async function sendProfile(msg, user, args) {
   const progressBarOutlineCol = "#2C350A";
   const textCol = "#F3FCFF";
 
-  //Trainer image
-  const trainerTemp =
-    "https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/pixelTrainersRescaled/pixelTrainer1.png";
-  const trainer = await Canvas.loadImage(trainerTemp);
+  //Get trainer image
+  const trainer = await Canvas.loadImage(userDoc.trainer);
 
   //Drawing -------------------------------------------------
   //Background
@@ -96,7 +95,7 @@ async function sendProfile(msg, user, args) {
 
   //Level and pokemon amount
   ctx.textAlign = "end";
-  ctx.fillText(`Pokémon: ${userDoc.pokemons.length}  Lv: ${level}`, WS, XPbarX);
+  ctx.fillText(`Rank: 0  Lv: ${level}`, WS, XPbarX);
 
   //XP
   ctx.font = '50px "pokemonFont"';
