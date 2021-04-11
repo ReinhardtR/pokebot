@@ -61,7 +61,7 @@ async function sendPokedex(msg, user) {
       pokemons.map(async (pokemon, index) => {
         // Adjust position
         if (x + spriteSize * 2 + gap > canvas.width) {
-          y += spriteSize + gap * 3.3;
+          y += spriteSize + gap;
           x = 10;
         } else if (index !== 0) {
           x += spriteSize + gap;
