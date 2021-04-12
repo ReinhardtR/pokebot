@@ -95,13 +95,6 @@ const updateUserIcon = async (userId, icon) => {
   });
 };
 
-/*const updateLevel = async (userId, newLevel) => {
-  const userRef = db.collection("users").doc(userId);
-  userRef.update({
-    level: newLevel,
-  });
-};*/
-
 const sortLevelsAndReturnRank = async (userId) => {
   const userRef = db.collection("users");
   const snapshot = await userRef.get();

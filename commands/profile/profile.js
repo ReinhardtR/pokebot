@@ -103,7 +103,7 @@ async function sendProfile(msg, user) {
   //XP
   ctx.font = '50px "pokemonFont"';
   const XPText = kFormatter(xpDisplayed);
-  const XPNeededText = kFormatter(XPNeeded);
+  const XPNeededText = kFormatter(XPRise);
   ctx.fillText(XPText + "/" + XPNeededText + " xp", WS, ch * 0.05 + 250);
 
   //Trainer icon
