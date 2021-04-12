@@ -16,3 +16,14 @@ async function sendMenu(msg) {
     .setImage(walkMenuGUI);
   return await msg.channel.send({ embed });
 }
+
+/*
+async function sendMenu(msg) {
+  const Discord = require("discord.js");
+  const embed = new Discord.MessageEmbed()
+    .setTitle("Embed Title")
+    .setColor(53380)
+    .setDescription("Embed Description");
+  return await msg.channel.send({ embed });
+}
+*/

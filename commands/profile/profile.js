@@ -38,13 +38,6 @@ async function sendProfile(msg, user) {
   const canvas = Canvas.createCanvas(2500, 1500);
   const ctx = canvas.getContext("2d");
 
-  //XP math (can be moved to dedicated script)
-  const XPRise = 1200;
-  const level = Math.floor(userDoc.xp / XPRise) || 1;
-  //updateLevel(msg.author.id, level);
-  const XPNeeded = Math.floor(level * XPRise);
-  const xpDisplayed = Math.floor(userDoc.xp % XPRise);
-
   //Coordinate variables
   const cw = canvas.width;
   const ch = canvas.height;
@@ -66,6 +59,12 @@ async function sendProfile(msg, user) {
 
   //Get rank
   const rank = await sortLevelsAndReturnRank(user.id);
+
+  //Get level and xp
+  const { getXPNeeded, getLevel, getXPDisplayed } = require("./levelAndXP");
+  const level = getLevel(userDoc.xp);
+  const xpNeeded = getXPNeeded(level);
+  const xpDisplayed = getXPDisplayed(userDoc.xp);
 
   //Drawing -------------------------------------------------
   //Background
@@ -89,7 +88,7 @@ async function sendProfile(msg, user) {
   ctx.fillRect(
     XPbarX,
     XPbarY,
-    WS * 0.01 * (100 * (xpDisplayed / XPNeeded)),
+    WS * 0.01 * (100 * (xpDisplayed / xpNeeded)),
     HS
   );
   //XP bar outline
@@ -110,7 +109,7 @@ async function sendProfile(msg, user) {
   //XP
   ctx.font = '50px "pokemonFont"';
   const XPText = kFormatter(xpDisplayed);
-  const XPNeededText = kFormatter(XPNeeded);
+  const XPNeededText = kFormatter(xpNeeded);
   ctx.fillText(XPText + "/" + XPNeededText + " xp", WS, ch * 0.05 + 250);
 
   //Trainer icon

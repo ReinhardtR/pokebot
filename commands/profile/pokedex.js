@@ -1,12 +1,9 @@
 module.exports = {
   name: "pokedex",
-  description: "See what Pokémons, you or someone else has caught.",
+  description: "Display all icons",
   usage: "[user-tag]",
   async execute(msg, args) {
     var user = msg.author;
-    if (msg.mentions.members.size) {
-      user = msg.mentions.members.first().user;
-    }
     return await sendPokedex(msg, user);
   },
 };
@@ -61,7 +58,7 @@ async function sendPokedex(msg, user) {
       pokemons.map(async (pokemon, index) => {
         // Adjust position
         if (x + spriteSize * 2 + gap > canvas.width) {
-          y += spriteSize + gap * 3.3;
+          y += spriteSize + gap;
           x = 10;
         } else if (index !== 0) {
           x += spriteSize + gap;

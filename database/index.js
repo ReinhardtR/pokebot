@@ -19,7 +19,7 @@ const createUserProfile = (userId) => {
     xp: 0,
     pokedex: [],
     trainer:
-      "https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/pixelTrainersRescaled/pixelTrainer_0001_row-1-col-2.png",
+      "https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/pixelTrainersRescaled/pixelTrainer1.png",
   });
   userRef.collection("pokemons").add({});
 };
@@ -94,13 +94,6 @@ const updateUserIcon = async (userId, icon) => {
     trainer: icon,
   });
 };
-
-/*const updateLevel = async (userId, newLevel) => {
-  const userRef = db.collection("users").doc(userId);
-  userRef.update({
-    level: newLevel,
-  });
-};*/
 
 const sortLevelsAndReturnRank = async (userId) => {
   const userRef = db.collection("users");
