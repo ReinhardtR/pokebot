@@ -6,7 +6,9 @@ module.exports = {
   guildOnly: true,
   async execute(msg, args) {
     const { walks } = msg.client;
-    const userWalk = walks.get(msg.author.id);
+    const userWalk =
+      walks.get(msg.author.id) ||
+      (await walks.find((walk) => walk.members.includes(msg.author.id)));
     const channelWalk = await walks.find(
       (walk) => walk.channel.id === msg.channel.id
     );
@@ -56,25 +58,72 @@ const createChannel = async (msg) => {
 };
 
 const startWalk = async (msg) => {
+  const getRandomPokemons = require("./utils/getRandomPokemons");
+  const Discord = require("discord.js");
+  const Canvas = require("canvas");
   const channel = await createChannel(msg);
 
-  const spawnAmount = 1;
   const { walks } = msg.client;
 
-  const interval = setInterval(() => {
-    const pokemons = spawnPokemons(channel, spawnAmount);
-    const walk = walks.get(msg.author.id);
-    walk.pokemons = pokemons;
-  }, 5000);
+  const spawnPokemon = async () => {
+    const walk = await walks.get(msg.author.id);
+    const spawnAmount = walk.members.length;
+    // Get a list of random pokemons.
+    const pokemons = await getRandomPokemons(spawnAmount);
+
+    // Create canvas for the pokemons to be visualized on.
+    const pokemonWidth = 100;
+    const canvas = Canvas.createCanvas(pokemonWidth * spawnAmount, 128);
+    const ctx = canvas.getContext("2d");
+
+    // Draw the pokemons on the canvas.
+    pokemons.forEach((pokemon, index) => {
+      ctx.drawImage(pokemon.sprite, 100 * index, 16);
+    });
+
+    // Get the color of the pokemon with the highest rarity.
+    var highestRarityColor;
+    if (spawnAmount > 1) {
+      highestRarityColor = pokemons.sort(
+        (a, b) => b.rarity.tier - a.rarity.tier
+      )[0].rarity.color;
+    } else {
+      highestRarityColor = pokemons[0].rarity.color;
+    }
+
+    // Create a Discord message attachment of the canvas.
+    const attachment = new Discord.MessageAttachment(
+      canvas.toBuffer(),
+      "spawnedPokemons.png"
+    );
+
+    // Create a Discord embed and send the message.
+    const embed = new Discord.MessageEmbed()
+      .setTitle("Pokémon")
+      .setColor(highestRarityColor)
+      .attachFiles(attachment)
+      .setImage(`attachment://${attachment.name}`);
+    await channel.send({ embed });
+
+    // Add the pokémon to the walk, so they are catchable.
+    walk.pokemons = pokemons.map((pokemon) => ({
+      name: pokemon.name,
+      id: pokemon.id,
+    }));
+  };
 
   const walkObject = {
     channel,
-    interval,
+    members: [msg.author.id],
     pokemons: [],
+    interval: setInterval(spawnPokemon, 5000),
   };
 
   walks.set(msg.author.id, walkObject);
 
+  channel.setTopic(
+    `**Members**: 1 - **Interval**: 8000 ms - **Catchable**: last 1`
+  );
   channel.send(`${msg.author}, you've started walking!`);
 };
 
@@ -90,16 +139,4 @@ const stopWalk = (msg) => {
   setTimeout(() => {
     msg.channel.delete();
   }, 4000);
-};
-
-const getRandomPokemonEmbed = require("./utils/getRandomPokemonEmbed");
-
-const spawnPokemons = (channel, amount) => {
-  var pokemons = [];
-  for (let i = 0; i < amount; i++) {
-    const pokemonEmbed = getRandomPokemonEmbed();
-    channel.send({ embed: pokemonEmbed.embed });
-    pokemons.push(pokemonEmbed.pokemon);
-  }
-  return pokemons;
 };

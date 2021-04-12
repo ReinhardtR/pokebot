@@ -17,6 +17,10 @@ module.exports = {
       );
     }
 
+    if (!channelWalk.members.includes(msg.author.id)) {
+      return msg.reply("you're not a member of this walk.");
+    }
+
     const pokemons = require("../../constants/pokemons.json");
     const pokemonNameArg = args[0].toLowerCase();
     const pokemonToCatch = pokemons.find(

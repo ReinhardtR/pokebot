@@ -1,6 +1,5 @@
+const { loadImage } = require("canvas");
 const pokemons = require("../../../constants/pokemons.json");
-const upperCaseString = require("../../../utils/upperCaseString");
-const Discord = require("discord.js");
 
 const RARITY_INFLUENCE = 1.3;
 
@@ -42,24 +41,29 @@ const getColor = (rarity) => {
   }
 };
 
-const getRandomPokemonEmbed = () => {
-  const pokemon = getRandomPokemon();
-  const name = upperCaseString(pokemon.name);
-  const color = getColor(pokemon.rarity);
+const getRandomPokemons = async (amountOfPokemon) => {
+  const array = new Array(amountOfPokemon).fill(undefined);
 
-  const embed = new Discord.MessageEmbed()
-    .setTitle(name)
-    .setColor(color)
-    .setImage(pokemon.sprites.front)
-    .setFooter(`Rarity: ${pokemon.rarity}`);
+  console.log("started loading");
+  const randomPokemons = await Promise.all(
+    array.map(async () => {
+      const pokemon = getRandomPokemon();
+      const color = getColor(pokemon.rarity);
+      const sprite = await loadImage(pokemon.sprites.front);
 
-  return {
-    embed,
-    pokemon: {
-      name: pokemon.name,
-      id: pokemon.id,
-    },
-  };
+      return {
+        name: pokemon.name,
+        id: pokemon.id,
+        sprite,
+        rarity: {
+          tier: pokemon.rarity,
+          color,
+        },
+      };
+    })
+  );
+
+  return randomPokemons;
 };
 
-module.exports = getRandomPokemonEmbed;
+module.exports = getRandomPokemons;
