@@ -13,7 +13,7 @@ async function editProfileIcon(msg, args) {
   const userDoc = await getUserProfile(msg.author.id);
   const trainerAmount = 13;
   const { getLevel, getXPDisplayed } = require("./levelAndXP");
-  const level = getLevel(user.xp);
+  const level = getLevel(userDoc.xp);
   iconNumber = args[0];
   if (!isNaN(iconNumber) && iconNumber < trainerAmount) {
     if (iconNumber < level) {
