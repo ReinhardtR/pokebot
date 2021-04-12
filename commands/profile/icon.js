@@ -7,7 +7,7 @@ module.exports = {
   },
 };
 
-async function editProfileIcon(msg, args) {
+async function editProfileIcon(msg, level, args) {
   //Setup and variables -------------------------------------
   const Discord = require("discord.js");
   const { updateUserIcon, getUserProfile } = require("../../database");
@@ -16,7 +16,7 @@ async function editProfileIcon(msg, args) {
   if (args[0]) {
     iconNumber = args[0];
     if (!isNaN(iconNumber) && iconNumber < trainerAmount) {
-      if (iconNumber * 2 < userDoc.level) {
+      if (iconNumber * 2 < level) {
         const trainerIcon = `https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/pixelTrainersRescaled/pixelTrainer${iconNumber}.png`;
         updateUserIcon(msg.author.id, trainerIcon);
 
