@@ -41,8 +41,6 @@ async function sendProfile(msg, user) {
   //XP math (can be moved to dedicated script)
   const XPRise = 1200;
   const level = Math.floor(userDoc.xp / XPRise) || 1;
-  //updateLevel(msg.author.id, level);
-  const XPNeeded = Math.floor(level * XPRise);
   const xpDisplayed = Math.floor(userDoc.xp % XPRise);
 
   //Coordinate variables
@@ -86,12 +84,7 @@ async function sendProfile(msg, user) {
   ctx.fillRect(XPbarX, XPbarY, WS, HS);
   //Progress bar
   ctx.fillStyle = progressBarCol;
-  ctx.fillRect(
-    XPbarX,
-    XPbarY,
-    WS * 0.01 * (100 * (xpDisplayed / XPNeeded)),
-    HS
-  );
+  ctx.fillRect(XPbarX, XPbarY, WS * 0.01 * (100 * (xpDisplayed / XPRise)), HS);
   //XP bar outline
   ctx.strokeStyle = progressBarOutlineCol;
   ctx.lineWidth = 15;
