@@ -1,5 +1,18 @@
-const Discord = require("discord.js");
+const getLevel = (xp) => {
+  return Math.floor(0.2147300748 * Math.pow(xp, 1 / 3));
+};
 
-const getLevelAndXP = () => {};
+const getXPNeeded = (level) => {
+  return Math.pow(level, 3) + 2 * Math.pow(level, 3) * 50;
+};
 
-module.exports = getRandomPokemonEmbed;
+const getXPDisplayed = (xp) => {
+  var levels = [];
+  for (var i; i < getLevel(xp); i++) {
+    levels.push(getXPNeeded(i));
+  }
+  const col = xp - levels.reduce((a, b) => a + b, 0);
+  return col;
+};
+
+module.exports = { getXPNeeded, getLevel, getXPDisplayed };
