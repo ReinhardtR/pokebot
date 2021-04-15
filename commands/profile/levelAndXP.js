@@ -1,5 +1,17 @@
 const getLevel = (xp) => {
-  return Math.floor(0.2147300748 * Math.pow(xp, 1 / 3));
+  var colXP = 0;
+  var index = 1;
+  dance: while (xp > 0) {
+    colXP += getXPNeeded(index);
+    if (xp - colXP < 0) {
+      break dance;
+    } else {
+      xp -= colXP;
+    }
+    index++;
+  }
+  const level = Math.floor(0.2147300748 * Math.pow(colXP, 1 / 3));
+  return level;
 };
 
 const getXPNeeded = (level) => {
@@ -7,12 +19,17 @@ const getXPNeeded = (level) => {
 };
 
 const getXPDisplayed = (xp) => {
-  var levels = [];
-  for (var i = 0; i < getLevel(xp); i++) {
-    levels.push(getXPNeeded(i));
+  var colXP = 0;
+  var t = 1;
+  while (xp > 0) {
+    colXP += getXPNeeded(t);
+    if (xp - colXP < 0) {
+      return xp;
+    } else {
+      xp -= colXP;
+    }
+    t++;
   }
-  console.log(levels.reduce((a, b) => a + b, 0));
-  return col;
 };
 
 module.exports = { getXPNeeded, getLevel, getXPDisplayed };
