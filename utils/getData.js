@@ -1,28 +1,25 @@
-const Pokedex = require("pokedex-promise-v2");
-const P = new Pokedex();
+// const Pokedex = require("pokedex-promise-v2");
+// const P = new Pokedex();
+// const pokemonsData = require("../constants/pokemons.json");
 
-const getData = new Promise(async (resolve, reject) => {
-  const data = [];
-  for (let i = 1; i <= 151; i++) {
-    await P.resource(`api/v2/pokemon/${i}`).then((pokemon) => {
-      console.log(pokemon.name, pokemon.id);
-      data.push({
-        name: pokemon.name,
-        id: pokemon.id,
-        sprites: {
-          front: pokemon.sprites.front_default,
-          back: pokemon.sprites.back_default,
-        },
-      });
-    });
-  }
-  return resolve(Promise.all(data));
-});
+// const getData = async () => {
+//   const newPokemonData = await Promise.all(
+//     pokemonsData.map(async (pokemon) => {
+//       const pokemonData = await P.resource(`api/v2/pokemon/${pokemon.name}`);
 
-getData.then((pokemons) => {
-  const fs = require("fs");
+//       const pokemonTypes = pokemonData.types.map(({ type }) => {
+//         return type.name;
+//       });
 
-  const json = JSON.stringify(pokemons);
+//       return { ...pokemon, types: pokemonTypes };
+//     })
+//   );
 
-  fs.writeFile("pokemons.json", json, "utf8", () => {});
-});
+//   const fs = require("fs");
+
+//   const json = JSON.stringify(newPokemonData);
+
+//   fs.writeFile("pokemons2.json", json, "utf8", () => {});
+// };
+
+// getData();

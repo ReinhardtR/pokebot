@@ -3,7 +3,7 @@ const walk = require("./walk");
 module.exports = {
   name: "invite",
   description:
-    "Invite a user to your walk. This increases the chance of encountering rare pokémon while walking.",
+    "Invite a user to your walk. This increases the chance of encountering rare Pokémon while walking.",
   args: true,
   usage: "<user-tag>",
   guildOnly: true,
