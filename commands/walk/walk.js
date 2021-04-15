@@ -1,6 +1,6 @@
 module.exports = {
   name: "walk",
-  description: "Creates a private channel, for finding pokémon!",
+  description: "Creates a private channel, for finding Pokémon!",
   args: true,
   usage: "<start or stop>",
   guildOnly: true,

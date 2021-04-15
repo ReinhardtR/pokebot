@@ -14,7 +14,7 @@ module.exports = {
     );
 
     if (!pokemonToCheck) {
-      return msg.reply("you didn't provide a valid pokémon id or name.");
+      return msg.reply("you didn't provide a valid Pokémon ID or name.");
     }
 
     const {getUserPokedex} = require("../../database");

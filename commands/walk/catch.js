@@ -4,7 +4,7 @@ module.exports = {
   args: true,
   needProfile: true,
   guildOnly: true,
-  usage: "<pokemon-name",
+  usage: "<Pokémon-name>",
   async execute(msg, args) {
     const { walks } = msg.client;
     const channelWalk = await walks.find(

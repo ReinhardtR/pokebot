@@ -10,9 +10,9 @@ const createProfile = async (msg) => {
   const { getUserProfile, createUserProfile } = require("../../database");
   const profile = await getUserProfile(msg.author.id);
   if (profile) {
-    msg.reply("looks like you already have a profile.");
+    msg.reply("Looks like you already have a profile.");
   } else {
     createUserProfile(msg.author.id);
-    msg.reply("I've created profile for you!");
+    msg.reply("I've created a profile for you!");
   }
 };
