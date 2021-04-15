@@ -55,7 +55,6 @@ const getColor = (rarity) => {
 const getRandomPokemons = async (amountOfPokemon) => {
   const array = new Array(amountOfPokemon).fill(undefined);
 
-  console.log("started loading");
   const randomPokemons = await Promise.all(
     array.map(async () => {
       const pokemon = getRandomPokemon();

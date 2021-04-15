@@ -3,7 +3,7 @@ module.exports = {
   description:
     "Look up information about a specific pokémon, by providing its name or ID.",
   args: true,
-  usage: "<id or name of a pokémon>",
+  usage: "<id or name of a pokémon> [user-tag]",
   async execute(msg, args) {
     // List of pokemons.
     const pokemons = require("../../constants/pokemons.json");
@@ -21,14 +21,27 @@ module.exports = {
       return msg.reply("you didn't provide a valid pokémon id or name.");
     }
 
-    // Dependencies.
-    const Discord = require("discord.js");
-    const { getUserPokedex } = require("../../database");
-    const upperCaseString = require("../../utils/upperCaseString");
+    // Check if the message provides a 2nd argument, and if that arg is a user mention.
+    var user = msg.author;
+    if (args[1] && msg.mentions.members.size) {
+      user = msg.mentions.members.first().user;
+    }
 
-    // Check if the user typing the command, has that Pokémon in his pokedex.
-    const userPokedex = await getUserPokedex(msg.author.id);
+    // Get the user Pokédex.
+    const { getUserPokedex } = require("../../database");
+    const userPokedex = await getUserPokedex(user.id);
+
+    // If the user doesn't have a Pokédex, return an error message.
+    if (!userPokedex) {
+      return msg.reply("the user you mentioned doesn't have a profile.");
+    }
+
+    // If the user does have a Pokédex, check if the user has the provided Pokémon.
     const hasCaughtPokemon = userPokedex.includes(pokemon.id);
+
+    // Require Discord.js and a function to capitalize strings.
+    const Discord = require("discord.js");
+    const upperCaseString = require("../../utils/upperCaseString");
 
     // Get image of Pokémon types.
     const pokemonTypesImage = await getImageOfPokemonTypes(pokemon.types);

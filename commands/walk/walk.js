@@ -79,7 +79,7 @@ const startWalk = async (msg) => {
 
     // Canvas pokemon position constants.
     const pokemonSize = 96;
-    const pokemonGap = 10;
+    const pokemonGap = 16;
     const canvasWidth = pokemonGap + (pokemonGap + pokemonSize) * spawnAmount;
 
     // Create canvas for the pokemons to be visualized on.
@@ -91,7 +91,7 @@ const startWalk = async (msg) => {
       // Draw the pokémon sprite.
       const pokemonPos = {
         x: pokemonGap + (pokemonGap + pokemonSize) * index,
-        y: pokemonGap * 3,
+        y: pokemonGap * 2,
       };
       ctx.drawImage(pokemon.sprite, pokemonPos.x, pokemonPos.y);
 
@@ -103,16 +103,16 @@ const startWalk = async (msg) => {
         x: pokemonPos.x + pokemonSize / 2,
         y: pokemonGap * 2,
       };
-      ctx.font = "bold 15px";
+      ctx.font = "bold 16px Sans-Serif";
       ctx.fillStyle = "#ffffff";
       ctx.fillText(upperCaseString(pokemon.name), namePos.x, namePos.y);
 
       // Draw pokémon rarity.
       const rarityPos = {
         x: namePos.x,
-        y: pokemonSize + pokemonGap,
+        y: pokemonSize + pokemonGap * 2,
       };
-      ctx.font = "bold 12px";
+      ctx.font = "bold 14px Sans-Serif";
       ctx.fillStyle = pokemon.rarity.color;
       ctx.fillText(pokemon.rarity.tier, rarityPos.x, rarityPos.y);
     });
