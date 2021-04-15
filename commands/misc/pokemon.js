@@ -1,4 +1,4 @@
-module.exports = {
+/*module.exports = {
   name: "pokemon",
   description:
     "Look up information about a specific pokémon, by providing its id or name.",
@@ -24,4 +24,4 @@ module.exports = {
 
 
   },
-};
+};*/
