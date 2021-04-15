@@ -12,11 +12,9 @@ module.exports = {
     const pokemonArg = args[0].toLowerCase();
 
     // Check if the arg, results in a valid Pokémon.
-    console.log(pokemonArg);
     const pokemon = pokemons.find(
       (pkmn) => pkmn.name === pokemonArg || pkmn.id == pokemonArg
     );
-    console.log(pokemon);
 
     // If there is no Pokémon found, from the provided arg, reply with a feedback message.
     if (!pokemon) {
