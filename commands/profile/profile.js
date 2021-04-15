@@ -22,7 +22,11 @@ function kFormatter(num) {
 async function sendProfile(msg, user) {
   //Setup and variables -------------------------------------
   //Setup discord, database and profile data
-  const { getUserProfile, sortLevelsAndReturnRank } = require("../../database");
+  const {
+    getUserProfile,
+    sortLevelsAndReturnRank,
+    getUserPokedex,
+  } = require("../../database");
   const Discord = require("discord.js");
   const userDoc = await getUserProfile(user.id);
 
@@ -114,6 +118,40 @@ async function sendProfile(msg, user) {
 
   //Trainer icon
   ctx.drawImage(trainer, XPbarX, XPbarY + ch * 0.05);
+
+  //Badges
+  const userPokedex = await getUserPokedex(user.id);
+  const badges = require("../../constants/badges.json");
+  const badgeSize = 128;
+  const badgeGap = 25;
+  const y = XPbarY + ch * 0.05;
+  const xPos = 350;
+  await Promise.all(
+    badges.map(async (badge, index) => {
+      var hasBadge;
+      const x = index * (badgeSize + badgeGap) + xPos;
+      if (badge.requirement.type == "length") {
+        hasBadge = userPokedex.length == badge.requirement.value;
+      } else if (badge.requirement.type == "includes") {
+        hasBadge = userPokedex.includes(badge.requirement.values);
+      }
+
+      const image = await Canvas.loadImage(badge.badgeURL);
+      ctx.drawImage(image, x, y, badgeSize, badgeSize);
+
+      if (!hasBadge) {
+        const pixels = ctx.getImageData(x, y, badgeSize, badgeSize);
+        for (var i = 0; i < pixels.data.length; i += 4) {
+          for (var j = 0; j < 3; j++) {
+            if (pixels.data[i + j] == 0) {
+              pixels.data[i + j] = 5;
+            }
+          }
+        }
+        ctx.putImageData(pixels, x, y);
+      }
+    })
+  );
 
   //Make attachment from canvas
   const attachment = new Discord.MessageAttachment(

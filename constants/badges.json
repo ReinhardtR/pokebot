@@ -1,0 +1,30 @@
+[
+  {
+    "requirement": {
+      "type": "length",
+      "value": 151
+    },
+    "badgeURL": "https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/badges/badge1.png"
+  },
+  {
+    "requirement": {
+      "type": "includes",
+      "values": [144, 145, 146]
+    },
+    "badgeURL": "https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/badges/badge2.png"
+  },
+  {
+    "requirement": {
+      "type": "includes",
+      "values": [1, 4, 7]
+    },
+    "badgeURL": "https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/badges/badge3.png"
+  },
+  {
+    "requirement": {
+      "type": "includes",
+      "values": [150]
+    },
+    "badgeURL": "https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/badges/badge4.png"
+  }
+]
