@@ -8,10 +8,10 @@ const getXPNeeded = (level) => {
 
 const getXPDisplayed = (xp) => {
   var levels = [];
-  for (var i; i < getLevel(xp); i++) {
+  for (var i = 0; i < getLevel(xp); i++) {
     levels.push(getXPNeeded(i));
   }
-  const col = xp - levels.reduce((a, b) => a + b, 0);
+  console.log(levels.reduce((a, b) => a + b, 0));
   return col;
 };
 
