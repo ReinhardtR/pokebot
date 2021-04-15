@@ -26,19 +26,30 @@ const getRandomPokemon = () => {
 };
 
 const getColor = (rarity) => {
-  if (rarity <= 3) {
-    return "#5f6061"; // GREY
-  } else if (rarity <= 6) {
-    return "#3dab2c"; // GREEN
-  } else if (rarity <= 9) {
-    return "#05a3ff"; // BLUE
-  } else if (rarity <= 14) {
-    return "#d707f7"; // PURPLE
-  } else if (rarity <= 18) {
-    return "#f7071b"; // RED
-  } else if (rarity <= 20) {
-    return "#edcd2b"; // GOLD
-  }
+  const colorArray = [
+    "#5F6061",
+    "#5C6D5C",
+    "#587957",
+    "#508C4C",
+    "#479C3E",
+    "#3DAB2C",
+    "#2BA7BE",
+    "#1EA5E2",
+    "#05A3FF",
+    "#5399FE",
+    "#738FFD",
+    "#9E77FB",
+    "#BD56F9",
+    "#D707F7",
+    "#E007DA",
+    "#E807B7",
+    "#F00787",
+    "#F7071B",
+    "#F29624",
+    "#EDCD2B",
+    "#EDCD2B",
+  ];
+  return colorArray[rarity];
 };
 
 const getRandomPokemons = async (amountOfPokemon) => {
