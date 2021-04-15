@@ -4,6 +4,10 @@ module.exports = {
   usage: "[user-tag]",
   async execute(msg, args) {
     var user = msg.author;
+    if (msg.mentions.members.size) {
+      user = msg.mentions.members.first().user;
+    }
+
     return await sendPokedex(msg, user);
   },
 };
