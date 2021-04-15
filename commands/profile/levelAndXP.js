@@ -1,14 +1,14 @@
 const getLevel = (xp) => {
   var colXP = 0;
-  var t = 1;
+  var index = 1;
   dance: while (xp > 0) {
-    colXP += getXPNeeded(t);
+    colXP += getXPNeeded(index);
     if (xp - colXP < 0) {
       break dance;
     } else {
       xp -= colXP;
     }
-    t++;
+    index++;
   }
   const level = Math.floor(0.2147300748 * Math.pow(colXP, 1 / 3));
   return level;
