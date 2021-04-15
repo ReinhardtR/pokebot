@@ -12,9 +12,9 @@ async function editProfileIcon(msg, args) {
   const { updateUserIcon, getUserProfile } = require("../../database");
   const userDoc = await getUserProfile(msg.author.id);
   const trainerAmount = 13;
-  const { getLevel, getXPDisplayed } = require("./levelAndXP");
-  const level = getLevel(user.xp);
-  iconNumber = args[0];
+  const { getLevel } = require("./levelAndXP");
+  const level = getLevel(userDoc.xp);
+  const iconNumber = args[0];
   if (!isNaN(iconNumber) && iconNumber < trainerAmount) {
     if (iconNumber < level) {
       const trainerIcon = `https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/pixelTrainersRescaled/pixelTrainer${iconNumber}.png`;

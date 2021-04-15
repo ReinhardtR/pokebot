@@ -37,10 +37,10 @@ const sendIcons = async (msg) => {
   const columnAmount = 8;
   var t = 1;
 
-  dance: for (i = 1; i < rowAmount; i++) {
-    for (j = 1; j < columnAmount; j++) {
-      y = (i - 1) * (canvas.height / (rowAmount - 1));
-      textPosX = (j - 1) * (canvas.width / (columnAmount - 1));
+  dance: for (var i = 1; i < rowAmount; i++) {
+    for (var j = 1; j < columnAmount; j++) {
+      const y = (i - 1) * (canvas.height / (rowAmount - 1));
+      const textPosX = (j - 1) * (canvas.width / (columnAmount - 1));
 
       var trainer = 0;
       if (t > level) {
