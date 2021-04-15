@@ -11,7 +11,7 @@ const sendIcons = async (msg) => {
   const { getUserProfile } = require("../../database");
   const userDoc = await getUserProfile(msg.author.id);
   const trainerAmount = 13;
-  const { getXPNeeded, getLevel, getXPDisplayed } = require("./levelAndXP");
+  const { getLevel } = require("./levelAndXP");
   const level = getLevel(userDoc.xp);
 
   //Setup canvas
