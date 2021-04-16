@@ -65,7 +65,7 @@ function sendMenu(msg, args) {
               console.log("Arena");
               break;
             case "3️⃣":
-              console.log("Player");
+              runCommand("../profile/profile");
               break;
             case "4️⃣":
               runCommand("../profile/pokedex");
@@ -76,6 +76,9 @@ function sendMenu(msg, args) {
             default:
               console.log("Sadge");
           }
+        })
+        .catch((e) => {
+          embedMsg.delete();
         });
     });
   });
