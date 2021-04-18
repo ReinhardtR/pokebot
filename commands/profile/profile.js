@@ -131,25 +131,36 @@ async function sendProfile(msg, user) {
       var hasBadge;
       const x = index * (badgeSize + badgeGap) + xPos;
       if (badge.requirement.type == "length") {
-        hasBadge = userPokedex.length == badge.requirement.value;
+        hasBadge = userPokedex.length >= badge.requirement.value;
       } else if (badge.requirement.type == "includes") {
         hasBadge = userPokedex.includes(badge.requirement.values);
       }
 
-      const image = await Canvas.loadImage(badge.badgeURL);
-      ctx.drawImage(image, x, y, badgeSize, badgeSize);
+      //var image = await Canvas.loadImage(badge.badgeURL);
+      //ctx.drawImage(image, x, y, badgeSize, badgeSize);
 
       if (!hasBadge) {
-        const pixels = ctx.getImageData(x, y, badgeSize, badgeSize);
-        for (var i = 0; i < pixels.data.length; i += 4) {
-          for (var j = 0; j < 3; j++) {
-            if (pixels.data[i + j] == 0) {
-              pixels.data[i + j] = 5;
-            }
+        image = await Canvas.loadImage(
+          `https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/lock.png`
+        );
+        /*const pixels = ctx.getImageData(x, y, badgeSize, badgeSize);
+        const pixelData = pixels.data;
+        for (var i = 0; i < pixelData.length; i += 4) {
+          if (
+            pixelData[i + 0] != 103 &&
+            pixelData[i + 1] != 159 &&
+            pixelData[i + 2] != 158
+          ) {
+            // pixel is not same color as the background
+            pixelData[i + 0] = pixelData[i + 1] = pixelData[i + 2] = 0; // color black
           }
-        }
-        ctx.putImageData(pixels, x, y);
+          ctx.putImageData(pixels, x, y);
+        }*/
+      } else {
+        var image = await Canvas.loadImage(badge.badgeURL);
       }
+
+      ctx.drawImage(image, x, y, badgeSize, badgeSize);
     })
   );
 

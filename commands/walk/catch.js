@@ -66,7 +66,7 @@ module.exports = {
 
     //Give user xp, relative to pokemon rarity
     const xpGain = Math.pow(pokemonToCatch.rarity, 2) * 10;
-    updateUserXP(msg.author.id, xpGain);
+    updateUserXP(msg.author.id, xpGain, msg);
 
     const pokemonName = toUpperCaseString(caughtPokemon.name);
     msg.reply(`you've caught **${pokemonName}**! **+${xpGain} XP**`);
@@ -80,7 +80,7 @@ module.exports = {
 
       //Give user xp, relative to pokemon rarity
       const xpGainNewPokemon = 100;
-      updateUserXP(msg.author.id, xpGainNewPokemon);
+      updateUserXP(msg.author.id, xpGainNewPokemon, msg);
 
       msg.reply(
         `you've discovered a new Pokémon, **${pokemonName}** has been added to your Pokédex! **+${xpGainNewPokemon} XP**`

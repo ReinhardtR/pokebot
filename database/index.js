@@ -78,12 +78,26 @@ const setIsUserWalking = async (userId) => {
   });
 };
 
-const updateUserXP = async (userId, xpGain) => {
+const updateUserXP = async (userId, xpGain, msg) => {
   const userDoc = await getUserProfile(userId);
+  const userXP = userDoc.xp;
+  //Record old level
+  const { getLevel } = require("../commands/profile/levelAndXP");
+  const oldLevel = getLevel(userXP);
+  //get ref and update xp
   const userRef = db.collection("users").doc(userId);
   userRef.update({
-    xp: userDoc.xp + xpGain,
+    xp: userXP + xpGain,
   });
+  //Define new level (has to be userDoc.xp to get new xp)
+  const level = getLevel(userDoc.xp);
+  console.log(level, oldLevel);
+  if (oldLevel != level) {
+    console.log("level up");
+    msg.channel.send(
+      `Congratulations! You leveled up and you are now level: ${level}`
+    );
+  }
 };
 
 const updateUserIcon = async (userId, icon) => {
