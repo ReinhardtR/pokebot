@@ -29,7 +29,7 @@ const sendIcons = async (msg) => {
   const { registerFont } = require("canvas");
   //Register the pokemon font
   registerFont("./fonts/Pokemon Classic.ttf", { family: "pokemonFont" });
-  ctx.font = '70px "pokemonFont"';
+  ctx.font = '50px "pokemonFont"';
   ctx.fillStyle = "white";
   ctx.textBaseline = "top";
 
