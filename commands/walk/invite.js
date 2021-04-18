@@ -61,6 +61,7 @@ module.exports = {
           });
 
           userWalk.channel.setTopic(`**Members**: ${userWalk.members.length}`);
+          userWalk.channel.send(`${userWalk.members[0]}`);
         } else if (reaction.emoji.name === "❌") {
           msg.reply(`${invitedUser.toString()} didn't accept your invitation.`);
         }
