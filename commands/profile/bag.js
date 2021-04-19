@@ -4,10 +4,10 @@ module.exports = {
   execute(msg, args) {
     openBag(msg);
   },
-}
+};
 
-async function openBag(msg){
-  const {getBagContents} = require("../../index");
+async function openBag(msg) {
+  /*const {getBagContents} = require("../../index");
   //Setup canvas
   const Canvas = require("canvas");
 
@@ -23,7 +23,7 @@ async function openBag(msg){
 
   bag.forEach(item, index => {
       const image = await Canvas.loadImage(
-        `https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/items/pokeball.png`
+        `https://raw.githubusercontent.com/PokeAPI/sprites/9e153cefb7822564678646176cf847f64adbc028/sprites/items/poke-ball.png`
       );
     ctx.fillText(`${bag.amount}x`, textPosX, y);
     ctx.drawImage(image, textPosX, y + canvas.height / (rowAmount * 2));
@@ -43,5 +43,5 @@ async function openBag(msg){
     .attachFiles(attachment)
     .setImage(`attachment://${attachment.name}`)
     .setThumbnail(msg.author.avatarURL());
-  msg.channel.send({ embed });
+  msg.channel.send({ embed });*/
 }

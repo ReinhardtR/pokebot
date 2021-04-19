@@ -126,26 +126,26 @@ const getBagContents = async (userId) => {
   const doc = await userRef.get();
   const bagContents = doc.data().items;
   return bagContents;
-}
+};
 
 const updateBagContents = async (userId, ballAmount) => {
   const userRef = db.collection("users").doc(userId);
-  const admin = require('firebase-admin');
+  const admin = require("firebase-admin");
   await userRef.update({
-    balls: admin.firestore.FieldValue.increment(ballAmount)
+    balls: admin.firestore.FieldValue.increment(ballAmount),
   });
   return balls;
-}
+};
 
-const getBuddyId = (userId) => {
+const getBuddyId = async (userId) => {
   const userRef = db.collection("users").doc(userId);
   const userDoc = await userRef.get();
   const buddyId = userDoc.buddyId;
-  if (buddyId == 0){
-    return msg.channel.send(`You do not have a buddy yet!`)
+  if (buddyId == 0) {
+    return msg.channel.send(`You do not have a buddy yet!`);
   }
   return userDoc.pokemons.doc(buddyId).id;
-}
+};
 
 module.exports = {
   createUserProfile,
