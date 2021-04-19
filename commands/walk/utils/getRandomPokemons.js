@@ -52,26 +52,22 @@ const getColor = (rarity) => {
   return colorArray[rarity];
 };
 
-const getRandomPokemons = async (amountOfPokemon) => {
+const getRandomPokemons = (amountOfPokemon) => {
   const array = new Array(amountOfPokemon).fill(undefined);
 
-  const randomPokemons = await Promise.all(
-    array.map(async () => {
-      const pokemon = getRandomPokemon();
-      const color = getColor(pokemon.rarity);
-      const sprite = await loadImage(pokemon.sprites.front);
+  const randomPokemons = array.map(() => {
+    const pokemon = getRandomPokemon();
+    const color = getColor(pokemon.rarity);
 
-      return {
-        name: pokemon.name,
-        id: pokemon.id,
-        sprite,
-        rarity: {
-          tier: pokemon.rarity,
-          color,
-        },
-      };
-    })
-  );
+    return {
+      name: pokemon.name,
+      id: pokemon.id,
+      rarity: {
+        tier: pokemon.rarity,
+        color,
+      },
+    };
+  });
 
   return randomPokemons;
 };

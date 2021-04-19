@@ -4,6 +4,9 @@ require("dotenv").config();
 // File System
 const fs = require("fs");
 
+// Constants
+const { PREFIX } = require("./constants/config.json");
+
 // Discord.js
 const Discord = require("discord.js");
 const client = new Discord.Client();
@@ -24,10 +27,7 @@ commandFolders.forEach((folder) => {
   });
 });
 
-// Constants
-const { PREFIX } = require("./constants/config.json");
-
-client.once("ready", () => {
+client.once("ready", async () => {
   console.log("Ready!");
 });
 

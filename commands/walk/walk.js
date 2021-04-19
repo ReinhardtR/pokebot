@@ -59,9 +59,10 @@ const createChannel = async (msg) => {
 
 const startWalk = async (msg) => {
   // Dependencies
-  const getRandomPokemons = require("./utils/getRandomPokemons");
   const Discord = require("discord.js");
   const Canvas = require("canvas");
+  const drawPokemonImage = require("../../utils/drawPokemonImage");
+  const getRandomPokemons = require("./utils/getRandomPokemons");
   const upperCaseString = require("../../utils/upperCaseString");
 
   // Create a channel, where the walk is taking place.
@@ -75,7 +76,8 @@ const startWalk = async (msg) => {
     const walk = await walks.get(msg.author.id);
     const spawnAmount = Math.floor(walk.members.length * 1.5);
     // Get a list of random pokemons.
-    const pokemons = await getRandomPokemons(spawnAmount);
+    const pokemons = getRandomPokemons(spawnAmount);
+    console.log(pokemons);
 
     // Canvas pokemon position constants.
     const pokemonSize = 96;
@@ -93,7 +95,7 @@ const startWalk = async (msg) => {
         x: pokemonGap + (pokemonGap + pokemonSize) * index,
         y: pokemonGap * 2,
       };
-      ctx.drawImage(pokemon.sprite, pokemonPos.x, pokemonPos.y);
+      drawPokemonImage(ctx, pokemon.id, pokemonPos.x, pokemonPos.y);
 
       // Text style settings.
       ctx.textAlign = "center";
