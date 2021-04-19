@@ -7,7 +7,22 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png"
     },
     "rarity": 7,
-    "types": ["grass", "poison"]
+    "types": ["grass", "poison"],
+    "moves": [
+      { "name": "razor-wind", "power": 80, "accuracy": 100 },
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "vine-whip", "power": 45, "accuracy": 100 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "razor-leaf", "power": 55, "accuracy": 95 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "petal-dance", "power": 120, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "ivysaur",
@@ -17,7 +32,19 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/2.png"
     },
     "rarity": 9,
-    "types": ["grass", "poison"]
+    "types": ["grass", "poison"],
+    "moves": [
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "vine-whip", "power": 45, "accuracy": 100 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "razor-leaf", "power": 55, "accuracy": 95 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 }
+    ]
   },
   {
     "name": "venusaur",
@@ -27,7 +54,22 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/3.png"
     },
     "rarity": 13,
-    "types": ["grass", "poison"]
+    "types": ["grass", "poison"],
+    "moves": [
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "vine-whip", "power": 45, "accuracy": 100 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "razor-leaf", "power": 55, "accuracy": 95 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "petal-dance", "power": 120, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 }
+    ]
   },
   {
     "name": "charmander",
@@ -37,7 +79,24 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/4.png"
     },
     "rarity": 7,
-    "types": ["fire"]
+    "types": ["fire"],
+    "moves": [
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "scratch", "power": 40, "accuracy": 100 },
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "bite", "power": 60, "accuracy": 100 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 },
+      { "name": "slash", "power": 70, "accuracy": 100 }
+    ]
   },
   {
     "name": "charmeleon",
@@ -47,7 +106,23 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/5.png"
     },
     "rarity": 9,
-    "types": ["fire"]
+    "types": ["fire"],
+    "moves": [
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "scratch", "power": 40, "accuracy": 100 },
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 },
+      { "name": "slash", "power": 70, "accuracy": 100 }
+    ]
   },
   {
     "name": "charizard",
@@ -57,7 +132,28 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/6.png"
     },
     "rarity": 13,
-    "types": ["fire", "flying"]
+    "types": ["fire", "flying"],
+    "moves": [
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "scratch", "power": 40, "accuracy": 100 },
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "wing-attack", "power": 60, "accuracy": 100 },
+      { "name": "fly", "power": 90, "accuracy": 95 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 },
+      { "name": "slash", "power": 70, "accuracy": 100 }
+    ]
   },
   {
     "name": "squirtle",
@@ -67,7 +163,25 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/7.png"
     },
     "rarity": 7,
-    "types": ["water"]
+    "types": ["water"],
+    "moves": [
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "bite", "power": 60, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hydro-pump", "power": 110, "accuracy": 80 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "waterfall", "power": 80, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "wartortle",
@@ -77,7 +191,25 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/8.png"
     },
     "rarity": 9,
-    "types": ["water"]
+    "types": ["water"],
+    "moves": [
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "bite", "power": 60, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hydro-pump", "power": 110, "accuracy": 80 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "waterfall", "power": 80, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "blastoise",
@@ -87,7 +219,28 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/9.png"
     },
     "rarity": 13,
-    "types": ["water"]
+    "types": ["water"],
+    "moves": [
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "bite", "power": 60, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hydro-pump", "power": 110, "accuracy": 80 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "waterfall", "power": 80, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "caterpie",
@@ -97,7 +250,12 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/10.png"
     },
     "rarity": 1,
-    "types": ["bug"]
+    "types": ["bug"],
+    "moves": [
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "snore", "power": 50, "accuracy": 100 },
+      { "name": "bug-bite", "power": 60, "accuracy": 100 }
+    ]
   },
   {
     "name": "metapod",
@@ -107,7 +265,8 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/11.png"
     },
     "rarity": 3,
-    "types": ["bug"]
+    "types": ["bug"],
+    "moves": [{ "name": "bug-bite", "power": 60, "accuracy": 100 }]
   },
   {
     "name": "butterfree",
@@ -117,7 +276,16 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/12.png"
     },
     "rarity": 7,
-    "types": ["bug", "flying"]
+    "types": ["bug", "flying"],
+    "moves": [
+      { "name": "razor-wind", "power": 80, "accuracy": 100 },
+      { "name": "gust", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 }
+    ]
   },
   {
     "name": "weedle",
@@ -127,7 +295,8 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/13.png"
     },
     "rarity": 1,
-    "types": ["bug", "poison"]
+    "types": ["bug", "poison"],
+    "moves": [{ "name": "bug-bite", "power": 60, "accuracy": 100 }]
   },
   {
     "name": "kakuna",
@@ -137,7 +306,8 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/14.png"
     },
     "rarity": 3,
-    "types": ["bug", "poison"]
+    "types": ["bug", "poison"],
+    "moves": [{ "name": "bug-bite", "power": 60, "accuracy": 100 }]
   },
   {
     "name": "beedrill",
@@ -147,7 +317,18 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/15.png"
     },
     "rarity": 7,
-    "types": ["bug", "poison"]
+    "types": ["bug", "poison"],
+    "moves": [
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "fury-attack", "power": 15, "accuracy": 85 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "pin-missile", "power": 25, "accuracy": 95 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "pidgey",
@@ -157,7 +338,19 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/16.png"
     },
     "rarity": 1,
-    "types": ["normal", "flying"]
+    "types": ["normal", "flying"],
+    "moves": [
+      { "name": "razor-wind", "power": 80, "accuracy": 100 },
+      { "name": "gust", "power": 40, "accuracy": 100 },
+      { "name": "wing-attack", "power": 60, "accuracy": 100 },
+      { "name": "fly", "power": 90, "accuracy": 95 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "quick-attack", "power": 40, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "sky-attack", "power": 140, "accuracy": 90 }
+    ]
   },
   {
     "name": "pidgeotto",
@@ -167,7 +360,19 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/17.png"
     },
     "rarity": 3,
-    "types": ["normal", "flying"]
+    "types": ["normal", "flying"],
+    "moves": [
+      { "name": "razor-wind", "power": 80, "accuracy": 100 },
+      { "name": "gust", "power": 40, "accuracy": 100 },
+      { "name": "wing-attack", "power": 60, "accuracy": 100 },
+      { "name": "fly", "power": 90, "accuracy": 95 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "quick-attack", "power": 40, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "sky-attack", "power": 140, "accuracy": 90 }
+    ]
   },
   {
     "name": "pidgeot",
@@ -177,7 +382,20 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/18.png"
     },
     "rarity": 6,
-    "types": ["normal", "flying"]
+    "types": ["normal", "flying"],
+    "moves": [
+      { "name": "razor-wind", "power": 80, "accuracy": 100 },
+      { "name": "gust", "power": 40, "accuracy": 100 },
+      { "name": "wing-attack", "power": 60, "accuracy": 100 },
+      { "name": "fly", "power": 90, "accuracy": 95 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "quick-attack", "power": 40, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "sky-attack", "power": 140, "accuracy": 90 }
+    ]
   },
   {
     "name": "rattata",
@@ -187,7 +405,22 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/19.png"
     },
     "rarity": 1,
-    "types": ["normal"]
+    "types": ["normal"],
+    "moves": [
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "bite", "power": 60, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "quick-attack", "power": 40, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "fury-swipes", "power": 18, "accuracy": 80 },
+      { "name": "hyper-fang", "power": 80, "accuracy": 90 }
+    ]
   },
   {
     "name": "raticate",
@@ -197,7 +430,23 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/20.png"
     },
     "rarity": 5,
-    "types": ["normal"]
+    "types": ["normal"],
+    "moves": [
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "bite", "power": 60, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "quick-attack", "power": 40, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "hyper-fang", "power": 80, "accuracy": 90 }
+    ]
   },
   {
     "name": "spearow",
@@ -207,7 +456,19 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/21.png"
     },
     "rarity": 1,
-    "types": ["normal", "flying"]
+    "types": ["normal", "flying"],
+    "moves": [
+      { "name": "razor-wind", "power": 80, "accuracy": 100 },
+      { "name": "fly", "power": 90, "accuracy": 95 },
+      { "name": "fury-attack", "power": 15, "accuracy": 85 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "peck", "power": 35, "accuracy": 100 },
+      { "name": "drill-peck", "power": 80, "accuracy": 100 },
+      { "name": "quick-attack", "power": 40, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "sky-attack", "power": 140, "accuracy": 90 }
+    ]
   },
   {
     "name": "fearow",
@@ -217,7 +478,19 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/22.png"
     },
     "rarity": 5,
-    "types": ["normal", "flying"]
+    "types": ["normal", "flying"],
+    "moves": [
+      { "name": "razor-wind", "power": 80, "accuracy": 100 },
+      { "name": "fly", "power": 90, "accuracy": 95 },
+      { "name": "fury-attack", "power": 15, "accuracy": 85 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "peck", "power": 35, "accuracy": 100 },
+      { "name": "drill-peck", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "sky-attack", "power": 140, "accuracy": 90 }
+    ]
   },
   {
     "name": "ekans",
@@ -227,7 +500,20 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/23.png"
     },
     "rarity": 2,
-    "types": ["poison"]
+    "types": ["poison"],
+    "moves": [
+      { "name": "slam", "power": 80, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "bite", "power": 60, "accuracy": 100 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "arbok",
@@ -237,7 +523,20 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/24.png"
     },
     "rarity": 6,
-    "types": ["poison"]
+    "types": ["poison"],
+    "moves": [
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "bite", "power": 60, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "pikachu",
@@ -247,7 +546,23 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/25.png"
     },
     "rarity": 5,
-    "types": ["electric"]
+    "types": ["electric"],
+    "moves": [
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "pay-day", "power": 40, "accuracy": 100 },
+      { "name": "slam", "power": 80, "accuracy": 75 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "quick-attack", "power": 40, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "raichu",
@@ -257,7 +572,22 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/26.png"
     },
     "rarity": 10,
-    "types": ["electric"]
+    "types": ["electric"],
+    "moves": [
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "pay-day", "power": 40, "accuracy": 100 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "quick-attack", "power": 40, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "sandshrew",
@@ -267,7 +597,23 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/27.png"
     },
     "rarity": 2,
-    "types": ["ground"]
+    "types": ["ground"],
+    "moves": [
+      { "name": "scratch", "power": 40, "accuracy": 100 },
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "fury-swipes", "power": 18, "accuracy": 80 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 },
+      { "name": "slash", "power": 70, "accuracy": 100 }
+    ]
   },
   {
     "name": "sandslash",
@@ -277,7 +623,24 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/28.png"
     },
     "rarity": 6,
-    "types": ["ground"]
+    "types": ["ground"],
+    "moves": [
+      { "name": "scratch", "power": 40, "accuracy": 100 },
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "fury-swipes", "power": 18, "accuracy": 80 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 },
+      { "name": "slash", "power": 70, "accuracy": 100 }
+    ]
   },
   {
     "name": "nidoran-f",
@@ -287,7 +650,22 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/29.png"
     },
     "rarity": 1,
-    "types": ["poison"]
+    "types": ["poison"],
+    "moves": [
+      { "name": "scratch", "power": 40, "accuracy": 100 },
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "double-kick", "power": 30, "accuracy": 100 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "bite", "power": 60, "accuracy": 100 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "fury-swipes", "power": 18, "accuracy": 80 }
+    ]
   },
   {
     "name": "nidorina",
@@ -297,7 +675,23 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/30.png"
     },
     "rarity": 4,
-    "types": ["poison"]
+    "types": ["poison"],
+    "moves": [
+      { "name": "scratch", "power": 40, "accuracy": 100 },
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "double-kick", "power": 30, "accuracy": 100 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "bite", "power": 60, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "fury-swipes", "power": 18, "accuracy": 80 }
+    ]
   },
   {
     "name": "nidoqueen",
@@ -307,7 +701,29 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/31.png"
     },
     "rarity": 9,
-    "types": ["poison", "ground"]
+    "types": ["poison", "ground"],
+    "moves": [
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "pay-day", "power": 40, "accuracy": 100 },
+      { "name": "scratch", "power": 40, "accuracy": 100 },
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "double-kick", "power": 30, "accuracy": 100 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "nidoran-m",
@@ -317,7 +733,22 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/32.png"
     },
     "rarity": 1,
-    "types": ["poison"]
+    "types": ["poison"],
+    "moves": [
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "double-kick", "power": 30, "accuracy": 100 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "horn-attack", "power": 65, "accuracy": 100 },
+      { "name": "fury-attack", "power": 15, "accuracy": 85 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "peck", "power": 35, "accuracy": 100 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "nidorino",
@@ -327,7 +758,23 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/33.png"
     },
     "rarity": 4,
-    "types": ["poison"]
+    "types": ["poison"],
+    "moves": [
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "double-kick", "power": 30, "accuracy": 100 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "horn-attack", "power": 65, "accuracy": 100 },
+      { "name": "fury-attack", "power": 15, "accuracy": 85 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "peck", "power": 35, "accuracy": 100 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "nidoking",
@@ -337,7 +784,31 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/34.png"
     },
     "rarity": 9,
-    "types": ["poison", "ground"]
+    "types": ["poison", "ground"],
+    "moves": [
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "pay-day", "power": 40, "accuracy": 100 },
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "double-kick", "power": 30, "accuracy": 100 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "horn-attack", "power": 65, "accuracy": 100 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "thrash", "power": 120, "accuracy": 100 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "peck", "power": 35, "accuracy": 100 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "clefairy",
@@ -347,7 +818,23 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/35.png"
     },
     "rarity": 3,
-    "types": ["fairy"]
+    "types": ["fairy"],
+    "moves": [
+      { "name": "pound", "power": 40, "accuracy": 100 },
+      { "name": "double-slap", "power": 15, "accuracy": 85 },
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "clefable",
@@ -357,7 +844,23 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/36.png"
     },
     "rarity": 6,
-    "types": ["fairy"]
+    "types": ["fairy"],
+    "moves": [
+      { "name": "double-slap", "power": 15, "accuracy": 85 },
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "vulpix",
@@ -367,7 +870,16 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/37.png"
     },
     "rarity": 4,
-    "types": ["fire"]
+    "types": ["fire"],
+    "moves": [
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "quick-attack", "power": 40, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "ninetales",
@@ -377,7 +889,18 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/38.png"
     },
     "rarity": 10,
-    "types": ["fire"]
+    "types": ["fire"],
+    "moves": [
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "quick-attack", "power": 40, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "jigglypuff",
@@ -387,7 +910,23 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/39.png"
     },
     "rarity": 3,
-    "types": ["normal", "fairy"]
+    "types": ["normal", "fairy"],
+    "moves": [
+      { "name": "pound", "power": 40, "accuracy": 100 },
+      { "name": "double-slap", "power": 15, "accuracy": 85 },
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "wigglytuff",
@@ -397,7 +936,23 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/40.png"
     },
     "rarity": 8,
-    "types": ["normal", "fairy"]
+    "types": ["normal", "fairy"],
+    "moves": [
+      { "name": "double-slap", "power": 15, "accuracy": 85 },
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "zubat",
@@ -407,7 +962,18 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/41.png"
     },
     "rarity": 1,
-    "types": ["poison", "flying"]
+    "types": ["poison", "flying"],
+    "moves": [
+      { "name": "razor-wind", "power": 80, "accuracy": 100 },
+      { "name": "gust", "power": 40, "accuracy": 100 },
+      { "name": "wing-attack", "power": 60, "accuracy": 100 },
+      { "name": "fly", "power": 90, "accuracy": 95 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "bite", "power": 60, "accuracy": 100 },
+      { "name": "quick-attack", "power": 40, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 }
+    ]
   },
   {
     "name": "golbat",
@@ -417,7 +983,17 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/42.png"
     },
     "rarity": 5,
-    "types": ["poison", "flying"]
+    "types": ["poison", "flying"],
+    "moves": [
+      { "name": "razor-wind", "power": 80, "accuracy": 100 },
+      { "name": "wing-attack", "power": 60, "accuracy": 100 },
+      { "name": "fly", "power": 90, "accuracy": 95 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "bite", "power": 60, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "rage", "power": 20, "accuracy": 100 }
+    ]
   },
   {
     "name": "oddish",
@@ -427,7 +1003,16 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/43.png"
     },
     "rarity": 1,
-    "types": ["grass", "poison"]
+    "types": ["grass", "poison"],
+    "moves": [
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "razor-leaf", "power": 55, "accuracy": 95 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "petal-dance", "power": 120, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 }
+    ]
   },
   {
     "name": "gloom",
@@ -437,7 +1022,15 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/44.png"
     },
     "rarity": 3,
-    "types": ["grass", "poison"]
+    "types": ["grass", "poison"],
+    "moves": [
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "petal-dance", "power": 120, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 }
+    ]
   },
   {
     "name": "vileplume",
@@ -447,7 +1040,16 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/45.png"
     },
     "rarity": 7,
-    "types": ["grass", "poison"]
+    "types": ["grass", "poison"],
+    "moves": [
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "petal-dance", "power": 120, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 }
+    ]
   },
   {
     "name": "paras",
@@ -457,7 +1059,18 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/46.png"
     },
     "rarity": 1,
-    "types": ["bug", "grass"]
+    "types": ["bug", "grass"],
+    "moves": [
+      { "name": "scratch", "power": 40, "accuracy": 100 },
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "slash", "power": 70, "accuracy": 100 }
+    ]
   },
   {
     "name": "parasect",
@@ -467,7 +1080,19 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/47.png"
     },
     "rarity": 6,
-    "types": ["bug", "grass"]
+    "types": ["bug", "grass"],
+    "moves": [
+      { "name": "scratch", "power": 40, "accuracy": 100 },
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "slash", "power": 70, "accuracy": 100 }
+    ]
   },
   {
     "name": "venonat",
@@ -477,7 +1102,14 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/48.png"
     },
     "rarity": 1,
-    "types": ["bug", "poison"]
+    "types": ["bug", "poison"],
+    "moves": [
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 }
+    ]
   },
   {
     "name": "venomoth",
@@ -487,7 +1119,17 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/49.png"
     },
     "rarity": 6,
-    "types": ["bug", "poison"]
+    "types": ["bug", "poison"],
+    "moves": [
+      { "name": "razor-wind", "power": 80, "accuracy": 100 },
+      { "name": "gust", "power": 40, "accuracy": 100 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 }
+    ]
   },
   {
     "name": "diglett",
@@ -497,7 +1139,20 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/50.png"
     },
     "rarity": 2,
-    "types": ["ground"]
+    "types": ["ground"],
+    "moves": [
+      { "name": "scratch", "power": 40, "accuracy": 100 },
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "fury-swipes", "power": 18, "accuracy": 80 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 },
+      { "name": "slash", "power": 70, "accuracy": 100 }
+    ]
   },
   {
     "name": "dugtrio",
@@ -507,7 +1162,20 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/51.png"
     },
     "rarity": 6,
-    "types": ["ground"]
+    "types": ["ground"],
+    "moves": [
+      { "name": "scratch", "power": 40, "accuracy": 100 },
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "fury-swipes", "power": 18, "accuracy": 80 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 },
+      { "name": "slash", "power": 70, "accuracy": 100 }
+    ]
   },
   {
     "name": "meowth",
@@ -517,7 +1185,22 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/52.png"
     },
     "rarity": 2,
-    "types": ["normal"]
+    "types": ["normal"],
+    "moves": [
+      { "name": "pay-day", "power": 40, "accuracy": 100 },
+      { "name": "scratch", "power": 40, "accuracy": 100 },
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "bite", "power": 60, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "fury-swipes", "power": 18, "accuracy": 80 },
+      { "name": "slash", "power": 70, "accuracy": 100 }
+    ]
   },
   {
     "name": "persian",
@@ -527,7 +1210,23 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/53.png"
     },
     "rarity": 7,
-    "types": ["normal"]
+    "types": ["normal"],
+    "moves": [
+      { "name": "pay-day", "power": 40, "accuracy": 100 },
+      { "name": "scratch", "power": 40, "accuracy": 100 },
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "bite", "power": 60, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "fury-swipes", "power": 18, "accuracy": 80 },
+      { "name": "slash", "power": 70, "accuracy": 100 }
+    ]
   },
   {
     "name": "psyduck",
@@ -537,7 +1236,26 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/54.png"
     },
     "rarity": 3,
-    "types": ["water"]
+    "types": ["water"],
+    "moves": [
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "pay-day", "power": 40, "accuracy": 100 },
+      { "name": "scratch", "power": 40, "accuracy": 100 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hydro-pump", "power": 110, "accuracy": 80 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "waterfall", "power": 80, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "fury-swipes", "power": 18, "accuracy": 80 }
+    ]
   },
   {
     "name": "golduck",
@@ -547,7 +1265,27 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/55.png"
     },
     "rarity": 8,
-    "types": ["water"]
+    "types": ["water"],
+    "moves": [
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "pay-day", "power": 40, "accuracy": 100 },
+      { "name": "scratch", "power": 40, "accuracy": 100 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hydro-pump", "power": 110, "accuracy": 80 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "waterfall", "power": 80, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "fury-swipes", "power": 18, "accuracy": 80 }
+    ]
   },
   {
     "name": "mankey",
@@ -557,7 +1295,26 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/56.png"
     },
     "rarity": 2,
-    "types": ["fighting"]
+    "types": ["fighting"],
+    "moves": [
+      { "name": "karate-chop", "power": 50, "accuracy": 100 },
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "pay-day", "power": 40, "accuracy": 100 },
+      { "name": "scratch", "power": 40, "accuracy": 100 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "thrash", "power": 120, "accuracy": 100 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "fury-swipes", "power": 18, "accuracy": 80 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "primeape",
@@ -567,7 +1324,27 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/57.png"
     },
     "rarity": 8,
-    "types": ["fighting"]
+    "types": ["fighting"],
+    "moves": [
+      { "name": "karate-chop", "power": 50, "accuracy": 100 },
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "pay-day", "power": 40, "accuracy": 100 },
+      { "name": "scratch", "power": 40, "accuracy": 100 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "thrash", "power": 120, "accuracy": 100 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "fury-swipes", "power": 18, "accuracy": 80 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "growlithe",
@@ -577,7 +1354,19 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/58.png"
     },
     "rarity": 4,
-    "types": ["fire"]
+    "types": ["fire"],
+    "moves": [
+      { "name": "double-kick", "power": 30, "accuracy": 100 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "thrash", "power": 120, "accuracy": 100 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "bite", "power": 60, "accuracy": 100 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "arcanine",
@@ -587,7 +1376,19 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/59.png"
     },
     "rarity": 10,
-    "types": ["fire"]
+    "types": ["fire"],
+    "moves": [
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "bite", "power": 60, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "poliwag",
@@ -597,7 +1398,20 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/60.png"
     },
     "rarity": 2,
-    "types": ["water"]
+    "types": ["water"],
+    "moves": [
+      { "name": "double-slap", "power": 15, "accuracy": 85 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hydro-pump", "power": 110, "accuracy": 80 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "waterfall", "power": 80, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "poliwhirl",
@@ -607,7 +1421,25 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/61.png"
     },
     "rarity": 5,
-    "types": ["water"]
+    "types": ["water"],
+    "moves": [
+      { "name": "double-slap", "power": 15, "accuracy": 85 },
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hydro-pump", "power": 110, "accuracy": 80 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "waterfall", "power": 80, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "poliwrath",
@@ -617,7 +1449,26 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/62.png"
     },
     "rarity": 10,
-    "types": ["water", "fighting"]
+    "types": ["water", "fighting"],
+    "moves": [
+      { "name": "double-slap", "power": 15, "accuracy": 85 },
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "waterfall", "power": 80, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "abra",
@@ -627,7 +1478,17 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/63.png"
     },
     "rarity": 4,
-    "types": ["psychic"]
+    "types": ["psychic"],
+    "moves": [
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "kadabra",
@@ -637,7 +1498,18 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/64.png"
     },
     "rarity": 8,
-    "types": ["psychic"]
+    "types": ["psychic"],
+    "moves": [
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "alakazam",
@@ -647,7 +1519,19 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/65.png"
     },
     "rarity": 11,
-    "types": ["psychic"]
+    "types": ["psychic"],
+    "moves": [
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "machop",
@@ -657,7 +1541,23 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/66.png"
     },
     "rarity": 2,
-    "types": ["fighting"]
+    "types": ["fighting"],
+    "moves": [
+      { "name": "karate-chop", "power": 50, "accuracy": 100 },
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "rolling-kick", "power": 60, "accuracy": 85 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "machoke",
@@ -667,7 +1567,22 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/67.png"
     },
     "rarity": 5,
-    "types": ["fighting"]
+    "types": ["fighting"],
+    "moves": [
+      { "name": "karate-chop", "power": 50, "accuracy": 100 },
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "machamp",
@@ -677,7 +1592,23 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/68.png"
     },
     "rarity": 10,
-    "types": ["fighting"]
+    "types": ["fighting"],
+    "moves": [
+      { "name": "karate-chop", "power": 50, "accuracy": 100 },
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "bellsprout",
@@ -687,7 +1618,17 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/69.png"
     },
     "rarity": 2,
-    "types": ["grass", "poison"]
+    "types": ["grass", "poison"],
+    "moves": [
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "slam", "power": 80, "accuracy": 75 },
+      { "name": "vine-whip", "power": 45, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "razor-leaf", "power": 55, "accuracy": 95 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 }
+    ]
   },
   {
     "name": "weepinbell",
@@ -697,7 +1638,17 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/70.png"
     },
     "rarity": 6,
-    "types": ["grass", "poison"]
+    "types": ["grass", "poison"],
+    "moves": [
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "slam", "power": 80, "accuracy": 75 },
+      { "name": "vine-whip", "power": 45, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "razor-leaf", "power": 55, "accuracy": 95 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 }
+    ]
   },
   {
     "name": "victreebel",
@@ -707,7 +1658,17 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/71.png"
     },
     "rarity": 9,
-    "types": ["grass", "poison"]
+    "types": ["grass", "poison"],
+    "moves": [
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "vine-whip", "power": 45, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "razor-leaf", "power": 55, "accuracy": 95 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 }
+    ]
   },
   {
     "name": "tentacool",
@@ -717,7 +1678,18 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/72.png"
     },
     "rarity": 2,
-    "types": ["water", "poison"]
+    "types": ["water", "poison"],
+    "moves": [
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hydro-pump", "power": 110, "accuracy": 80 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "waterfall", "power": 80, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "tentacruel",
@@ -727,7 +1699,19 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/73.png"
     },
     "rarity": 8,
-    "types": ["water", "poison"]
+    "types": ["water", "poison"],
+    "moves": [
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hydro-pump", "power": 110, "accuracy": 80 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "waterfall", "power": 80, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "geodude",
@@ -737,7 +1721,23 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/74.png"
     },
     "rarity": 2,
-    "types": ["rock", "ground"]
+    "types": ["rock", "ground"],
+    "moves": [
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "rock-throw", "power": 50, "accuracy": 90 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "self-destruct", "power": 200, "accuracy": 100 },
+      { "name": "explosion", "power": 250, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "graveler",
@@ -747,7 +1747,23 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/75.png"
     },
     "rarity": 6,
-    "types": ["rock", "ground"]
+    "types": ["rock", "ground"],
+    "moves": [
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "rock-throw", "power": 50, "accuracy": 90 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "self-destruct", "power": 200, "accuracy": 100 },
+      { "name": "explosion", "power": 250, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "golem",
@@ -757,7 +1773,25 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/76.png"
     },
     "rarity": 9,
-    "types": ["rock", "ground"]
+    "types": ["rock", "ground"],
+    "moves": [
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "rock-throw", "power": 50, "accuracy": 90 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "self-destruct", "power": 200, "accuracy": 100 },
+      { "name": "explosion", "power": 250, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "ponyta",
@@ -767,7 +1801,21 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/77.png"
     },
     "rarity": 4,
-    "types": ["fire"]
+    "types": ["fire"],
+    "moves": [
+      { "name": "stomp", "power": 65, "accuracy": 100 },
+      { "name": "double-kick", "power": 30, "accuracy": 100 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "thrash", "power": 120, "accuracy": 100 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "quick-attack", "power": 40, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "rapidash",
@@ -777,7 +1825,21 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/78.png"
     },
     "rarity": 9,
-    "types": ["fire"]
+    "types": ["fire"],
+    "moves": [
+      { "name": "stomp", "power": 65, "accuracy": 100 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "fury-attack", "power": 15, "accuracy": 85 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "quick-attack", "power": 40, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "slowpoke",
@@ -787,7 +1849,22 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/79.png"
     },
     "rarity": 2,
-    "types": ["water", "psychic"]
+    "types": ["water", "psychic"],
+    "moves": [
+      { "name": "pay-day", "power": 40, "accuracy": 100 },
+      { "name": "stomp", "power": 65, "accuracy": 100 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "slowbro",
@@ -797,7 +1874,25 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/80.png"
     },
     "rarity": 9,
-    "types": ["water", "psychic"]
+    "types": ["water", "psychic"],
+    "moves": [
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "pay-day", "power": 40, "accuracy": 100 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "magnemite",
@@ -807,7 +1902,14 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/81.png"
     },
     "rarity": 3,
-    "types": ["electric", "steel"]
+    "types": ["electric", "steel"],
+    "moves": [
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "explosion", "power": 250, "accuracy": 100 }
+    ]
   },
   {
     "name": "magneton",
@@ -817,7 +1919,15 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/82.png"
     },
     "rarity": 9,
-    "types": ["electric", "steel"]
+    "types": ["electric", "steel"],
+    "moves": [
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "explosion", "power": 250, "accuracy": 100 }
+    ]
   },
   {
     "name": "farfetchd",
@@ -827,7 +1937,23 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/83.png"
     },
     "rarity": 7,
-    "types": ["normal", "flying"]
+    "types": ["normal", "flying"],
+    "moves": [
+      { "name": "razor-wind", "power": 80, "accuracy": 100 },
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "gust", "power": 40, "accuracy": 100 },
+      { "name": "fly", "power": 90, "accuracy": 95 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "fury-attack", "power": 15, "accuracy": 85 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "peck", "power": 35, "accuracy": 100 },
+      { "name": "quick-attack", "power": 40, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "sky-attack", "power": 140, "accuracy": 90 },
+      { "name": "slash", "power": 70, "accuracy": 100 }
+    ]
   },
   {
     "name": "doduo",
@@ -837,7 +1963,21 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/84.png"
     },
     "rarity": 2,
-    "types": ["normal", "flying"]
+    "types": ["normal", "flying"],
+    "moves": [
+      { "name": "fly", "power": 90, "accuracy": 95 },
+      { "name": "jump-kick", "power": 100, "accuracy": 95 },
+      { "name": "fury-attack", "power": 15, "accuracy": 85 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "thrash", "power": 120, "accuracy": 100 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "peck", "power": 35, "accuracy": 100 },
+      { "name": "drill-peck", "power": 80, "accuracy": 100 },
+      { "name": "quick-attack", "power": 40, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "sky-attack", "power": 140, "accuracy": 90 }
+    ]
   },
   {
     "name": "dodrio",
@@ -847,7 +1987,22 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/85.png"
     },
     "rarity": 7,
-    "types": ["normal", "flying"]
+    "types": ["normal", "flying"],
+    "moves": [
+      { "name": "fly", "power": 90, "accuracy": 95 },
+      { "name": "jump-kick", "power": 100, "accuracy": 95 },
+      { "name": "fury-attack", "power": 15, "accuracy": 85 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "thrash", "power": 120, "accuracy": 100 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "peck", "power": 35, "accuracy": 100 },
+      { "name": "drill-peck", "power": 80, "accuracy": 100 },
+      { "name": "quick-attack", "power": 40, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "sky-attack", "power": 140, "accuracy": 90 }
+    ]
   },
   {
     "name": "seel",
@@ -857,7 +2012,21 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/86.png"
     },
     "rarity": 2,
-    "types": ["water"]
+    "types": ["water"],
+    "moves": [
+      { "name": "pay-day", "power": 40, "accuracy": 100 },
+      { "name": "slam", "power": 80, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "peck", "power": 35, "accuracy": 100 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "waterfall", "power": 80, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "dewgong",
@@ -867,7 +2036,20 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/87.png"
     },
     "rarity": 7,
-    "types": ["water", "ice"]
+    "types": ["water", "ice"],
+    "moves": [
+      { "name": "pay-day", "power": 40, "accuracy": 100 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "waterfall", "power": 80, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "grimer",
@@ -877,7 +2059,16 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/88.png"
     },
     "rarity": 2,
-    "types": ["poison"]
+    "types": ["poison"],
+    "moves": [
+      { "name": "pound", "power": 40, "accuracy": 100 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "self-destruct", "power": 200, "accuracy": 100 },
+      { "name": "explosion", "power": 250, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "muk",
@@ -887,7 +2078,17 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/89.png"
     },
     "rarity": 7,
-    "types": ["poison"]
+    "types": ["poison"],
+    "moves": [
+      { "name": "pound", "power": 40, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "self-destruct", "power": 200, "accuracy": 100 },
+      { "name": "explosion", "power": 250, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "shellder",
@@ -897,7 +2098,18 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/90.png"
     },
     "rarity": 4,
-    "types": ["water"]
+    "types": ["water"],
+    "moves": [
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hydro-pump", "power": 110, "accuracy": 80 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "self-destruct", "power": 200, "accuracy": 100 },
+      { "name": "explosion", "power": 250, "accuracy": 100 }
+    ]
   },
   {
     "name": "cloyster",
@@ -907,7 +2119,19 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/91.png"
     },
     "rarity": 10,
-    "types": ["water", "ice"]
+    "types": ["water", "ice"],
+    "moves": [
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hydro-pump", "power": 110, "accuracy": 80 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "self-destruct", "power": 200, "accuracy": 100 },
+      { "name": "spike-cannon", "power": 20, "accuracy": 100 },
+      { "name": "explosion", "power": 250, "accuracy": 100 }
+    ]
   },
   {
     "name": "gastly",
@@ -917,7 +2141,15 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/92.png"
     },
     "rarity": 2,
-    "types": ["ghost", "poison"]
+    "types": ["ghost", "poison"],
+    "moves": [
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "self-destruct", "power": 200, "accuracy": 100 },
+      { "name": "explosion", "power": 250, "accuracy": 100 },
+      { "name": "thief", "power": 60, "accuracy": 100 },
+      { "name": "snore", "power": 50, "accuracy": 100 },
+      { "name": "hidden-power", "power": 60, "accuracy": 100 }
+    ]
   },
   {
     "name": "haunter",
@@ -927,7 +2159,15 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/93.png"
     },
     "rarity": 6,
-    "types": ["ghost", "poison"]
+    "types": ["ghost", "poison"],
+    "moves": [
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "self-destruct", "power": 200, "accuracy": 100 },
+      { "name": "explosion", "power": 250, "accuracy": 100 },
+      { "name": "thief", "power": 60, "accuracy": 100 },
+      { "name": "snore", "power": 50, "accuracy": 100 },
+      { "name": "hidden-power", "power": 60, "accuracy": 100 }
+    ]
   },
   {
     "name": "gengar",
@@ -937,7 +2177,21 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/94.png"
     },
     "rarity": 10,
-    "types": ["ghost", "poison"]
+    "types": ["ghost", "poison"],
+    "moves": [
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "self-destruct", "power": 200, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "explosion", "power": 250, "accuracy": 100 }
+    ]
   },
   {
     "name": "onix",
@@ -947,7 +2201,23 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/95.png"
     },
     "rarity": 5,
-    "types": ["rock", "ground"]
+    "types": ["rock", "ground"],
+    "moves": [
+      { "name": "slam", "power": 80, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "rock-throw", "power": 50, "accuracy": 90 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "self-destruct", "power": 200, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "explosion", "power": 250, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "drowzee",
@@ -957,7 +2227,18 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/96.png"
     },
     "rarity": 2,
-    "types": ["psychic"]
+    "types": ["psychic"],
+    "moves": [
+      { "name": "pound", "power": 40, "accuracy": 100 },
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "hypno",
@@ -967,7 +2248,19 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/97.png"
     },
     "rarity": 8,
-    "types": ["psychic"]
+    "types": ["psychic"],
+    "moves": [
+      { "name": "pound", "power": 40, "accuracy": 100 },
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "krabby",
@@ -977,7 +2270,22 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/98.png"
     },
     "rarity": 2,
-    "types": ["water"]
+    "types": ["water"],
+    "moves": [
+      { "name": "vice-grip", "power": 55, "accuracy": 100 },
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "slam", "power": 80, "accuracy": 75 },
+      { "name": "stomp", "power": 65, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "crabhammer", "power": 100, "accuracy": 90 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "kingler",
@@ -987,7 +2295,23 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/99.png"
     },
     "rarity": 8,
-    "types": ["water"]
+    "types": ["water"],
+    "moves": [
+      { "name": "vice-grip", "power": 55, "accuracy": 100 },
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "slam", "power": 80, "accuracy": 75 },
+      { "name": "stomp", "power": 65, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "crabhammer", "power": 100, "accuracy": 90 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "voltorb",
@@ -997,7 +2321,15 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/100.png"
     },
     "rarity": 2,
-    "types": ["electric"]
+    "types": ["electric"],
+    "moves": [
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "self-destruct", "power": 200, "accuracy": 100 },
+      { "name": "explosion", "power": 250, "accuracy": 100 }
+    ]
   },
   {
     "name": "electrode",
@@ -1007,7 +2339,17 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/101.png"
     },
     "rarity": 8,
-    "types": ["electric"]
+    "types": ["electric"],
+    "moves": [
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "self-destruct", "power": 200, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "explosion", "power": 250, "accuracy": 100 }
+    ]
   },
   {
     "name": "exeggcute",
@@ -1017,7 +2359,18 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/102.png"
     },
     "rarity": 4,
-    "types": ["grass", "psychic"]
+    "types": ["grass", "psychic"],
+    "moves": [
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "self-destruct", "power": 200, "accuracy": 100 },
+      { "name": "egg-bomb", "power": 100, "accuracy": 75 },
+      { "name": "barrage", "power": 15, "accuracy": 85 },
+      { "name": "explosion", "power": 250, "accuracy": 100 }
+    ]
   },
   {
     "name": "exeggutor",
@@ -1027,7 +2380,21 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/103.png"
     },
     "rarity": 10,
-    "types": ["grass", "psychic"]
+    "types": ["grass", "psychic"],
+    "moves": [
+      { "name": "stomp", "power": 65, "accuracy": 100 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "self-destruct", "power": 200, "accuracy": 100 },
+      { "name": "egg-bomb", "power": 100, "accuracy": 75 },
+      { "name": "barrage", "power": 15, "accuracy": 85 },
+      { "name": "explosion", "power": 250, "accuracy": 100 }
+    ]
   },
   {
     "name": "cubone",
@@ -1037,7 +2404,26 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/104.png"
     },
     "rarity": 5,
-    "types": ["ground"]
+    "types": ["ground"],
+    "moves": [
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "double-kick", "power": 30, "accuracy": 100 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "thrash", "power": 120, "accuracy": 100 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "bone-club", "power": 65, "accuracy": 85 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "bonemerang", "power": 50, "accuracy": 90 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "marowak",
@@ -1047,7 +2433,26 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/105.png"
     },
     "rarity": 10,
-    "types": ["ground"]
+    "types": ["ground"],
+    "moves": [
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "thrash", "power": 120, "accuracy": 100 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "bone-club", "power": 65, "accuracy": 85 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "bonemerang", "power": 50, "accuracy": 90 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "hitmonlee",
@@ -1057,7 +2462,24 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/106.png"
     },
     "rarity": 9,
-    "types": ["fighting"]
+    "types": ["fighting"],
+    "moves": [
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "double-kick", "power": 30, "accuracy": 100 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "jump-kick", "power": 100, "accuracy": 95 },
+      { "name": "rolling-kick", "power": 60, "accuracy": 85 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "high-jump-kick", "power": 130, "accuracy": 90 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "hitmonchan",
@@ -1067,7 +2489,21 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/107.png"
     },
     "rarity": 9,
-    "types": ["fighting"]
+    "types": ["fighting"],
+    "moves": [
+      { "name": "comet-punch", "power": 18, "accuracy": 85 },
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "lickitung",
@@ -1077,7 +2513,29 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/108.png"
     },
     "rarity": 9,
-    "types": ["normal"]
+    "types": ["normal"],
+    "moves": [
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "slam", "power": 80, "accuracy": 75 },
+      { "name": "stomp", "power": 65, "accuracy": 100 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "thrash", "power": 120, "accuracy": 100 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "koffing",
@@ -1087,7 +2545,17 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/109.png"
     },
     "rarity": 2,
-    "types": ["poison"]
+    "types": ["poison"],
+    "moves": [
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "self-destruct", "power": 200, "accuracy": 100 },
+      { "name": "explosion", "power": 250, "accuracy": 100 },
+      { "name": "thief", "power": 60, "accuracy": 100 },
+      { "name": "snore", "power": 50, "accuracy": 100 },
+      { "name": "rollout", "power": 30, "accuracy": 90 },
+      { "name": "hidden-power", "power": 60, "accuracy": 100 }
+    ]
   },
   {
     "name": "weezing",
@@ -1097,7 +2565,14 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/110.png"
     },
     "rarity": 7,
-    "types": ["poison"]
+    "types": ["poison"],
+    "moves": [
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "self-destruct", "power": 200, "accuracy": 100 },
+      { "name": "explosion", "power": 250, "accuracy": 100 }
+    ]
   },
   {
     "name": "rhyhorn",
@@ -1107,7 +2582,22 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/111.png"
     },
     "rarity": 4,
-    "types": ["ground", "rock"]
+    "types": ["ground", "rock"],
+    "moves": [
+      { "name": "stomp", "power": 65, "accuracy": 100 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "horn-attack", "power": 65, "accuracy": 100 },
+      { "name": "fury-attack", "power": 15, "accuracy": 85 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "thrash", "power": 120, "accuracy": 100 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "rhydon",
@@ -1117,7 +2607,29 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/112.png"
     },
     "rarity": 9,
-    "types": ["ground", "rock"]
+    "types": ["ground", "rock"],
+    "moves": [
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "pay-day", "power": 40, "accuracy": 100 },
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "stomp", "power": 65, "accuracy": 100 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "horn-attack", "power": 65, "accuracy": 100 },
+      { "name": "fury-attack", "power": 15, "accuracy": 85 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "chansey",
@@ -1127,7 +2639,26 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/113.png"
     },
     "rarity": 9,
-    "types": ["normal"]
+    "types": ["normal"],
+    "moves": [
+      { "name": "pound", "power": 40, "accuracy": 100 },
+      { "name": "double-slap", "power": 15, "accuracy": 85 },
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "egg-bomb", "power": 100, "accuracy": 75 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "tangela",
@@ -1137,7 +2668,19 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/114.png"
     },
     "rarity": 7,
-    "types": ["grass"]
+    "types": ["grass"],
+    "moves": [
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "slam", "power": 80, "accuracy": 75 },
+      { "name": "vine-whip", "power": 45, "accuracy": 100 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "kangaskhan",
@@ -1147,7 +2690,29 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/115.png"
     },
     "rarity": 8,
-    "types": ["normal"]
+    "types": ["normal"],
+    "moves": [
+      { "name": "comet-punch", "power": 18, "accuracy": 85 },
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "stomp", "power": 65, "accuracy": 100 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "bite", "power": 60, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "horsea",
@@ -1157,7 +2722,19 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/116.png"
     },
     "rarity": 2,
-    "types": ["water"]
+    "types": ["water"],
+    "moves": [
+      { "name": "razor-wind", "power": 80, "accuracy": 100 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hydro-pump", "power": 110, "accuracy": 80 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "waterfall", "power": 80, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "seadra",
@@ -1167,7 +2744,19 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/117.png"
     },
     "rarity": 8,
-    "types": ["water"]
+    "types": ["water"],
+    "moves": [
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hydro-pump", "power": 110, "accuracy": 80 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "waterfall", "power": 80, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "goldeen",
@@ -1177,7 +2766,20 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/118.png"
     },
     "rarity": 2,
-    "types": ["water"]
+    "types": ["water"],
+    "moves": [
+      { "name": "horn-attack", "power": 65, "accuracy": 100 },
+      { "name": "fury-attack", "power": 15, "accuracy": 85 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hydro-pump", "power": 110, "accuracy": 80 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "peck", "power": 35, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "waterfall", "power": 80, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "seaking",
@@ -1187,7 +2789,20 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/119.png"
     },
     "rarity": 7,
-    "types": ["water"]
+    "types": ["water"],
+    "moves": [
+      { "name": "horn-attack", "power": 65, "accuracy": 100 },
+      { "name": "fury-attack", "power": 15, "accuracy": 85 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "peck", "power": 35, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "waterfall", "power": 80, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "staryu",
@@ -1197,7 +2812,18 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/120.png"
     },
     "rarity": 4,
-    "types": ["water"]
+    "types": ["water"],
+    "moves": [
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hydro-pump", "power": 110, "accuracy": 80 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "waterfall", "power": 80, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "starmie",
@@ -1207,7 +2833,19 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/121.png"
     },
     "rarity": 10,
-    "types": ["water", "psychic"]
+    "types": ["water", "psychic"],
+    "moves": [
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hydro-pump", "power": 110, "accuracy": 80 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "waterfall", "power": 80, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "mr-mime",
@@ -1217,7 +2855,21 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/122.png"
     },
     "rarity": 8,
-    "types": ["psychic", "fairy"]
+    "types": ["psychic", "fairy"],
+    "moves": [
+      { "name": "pound", "power": 40, "accuracy": 100 },
+      { "name": "double-slap", "power": 15, "accuracy": 85 },
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "scyther",
@@ -1227,7 +2879,20 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/123.png"
     },
     "rarity": 9,
-    "types": ["bug", "flying"]
+    "types": ["bug", "flying"],
+    "moves": [
+      { "name": "razor-wind", "power": 80, "accuracy": 100 },
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "wing-attack", "power": 60, "accuracy": 100 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "quick-attack", "power": 40, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "slash", "power": 70, "accuracy": 100 }
+    ]
   },
   {
     "name": "jynx",
@@ -1237,7 +2902,22 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/124.png"
     },
     "rarity": 7,
-    "types": ["ice", "psychic"]
+    "types": ["ice", "psychic"],
+    "moves": [
+      { "name": "pound", "power": 40, "accuracy": 100 },
+      { "name": "double-slap", "power": 15, "accuracy": 85 },
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "thrash", "power": 120, "accuracy": 100 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "electabuzz",
@@ -1247,7 +2927,20 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/125.png"
     },
     "rarity": 10,
-    "types": ["electric"]
+    "types": ["electric"],
+    "moves": [
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "quick-attack", "power": 40, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "magmar",
@@ -1257,7 +2950,19 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/126.png"
     },
     "rarity": 10,
-    "types": ["fire"]
+    "types": ["fire"],
+    "moves": [
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "pinsir",
@@ -1267,7 +2972,25 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/127.png"
     },
     "rarity": 9,
-    "types": ["bug"]
+    "types": ["bug"],
+    "moves": [
+      { "name": "vice-grip", "power": 55, "accuracy": 100 },
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "fury-attack", "power": 15, "accuracy": 85 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "thrash", "power": 120, "accuracy": 100 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "quick-attack", "power": 40, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 },
+      { "name": "slash", "power": 70, "accuracy": 100 }
+    ]
   },
   {
     "name": "tauros",
@@ -1277,7 +3000,24 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/128.png"
     },
     "rarity": 9,
-    "types": ["normal"]
+    "types": ["normal"],
+    "moves": [
+      { "name": "stomp", "power": 65, "accuracy": 100 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "horn-attack", "power": 65, "accuracy": 100 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "thrash", "power": 120, "accuracy": 100 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "magikarp",
@@ -1287,7 +3027,8 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/129.png"
     },
     "rarity": 2,
-    "types": ["water"]
+    "types": ["water"],
+    "moves": [{ "name": "tackle", "power": 40, "accuracy": 100 }]
   },
   {
     "name": "gyarados",
@@ -1297,7 +3038,24 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/130.png"
     },
     "rarity": 10,
-    "types": ["water", "flying"]
+    "types": ["water", "flying"],
+    "moves": [
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "thrash", "power": 120, "accuracy": 100 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "bite", "power": 60, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hydro-pump", "power": 110, "accuracy": 80 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "waterfall", "power": 80, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "lapras",
@@ -1307,7 +3065,21 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/131.png"
     },
     "rarity": 11,
-    "types": ["water", "ice"]
+    "types": ["water", "ice"],
+    "moves": [
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hydro-pump", "power": 110, "accuracy": 80 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "waterfall", "power": 80, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "ditto",
@@ -1317,7 +3089,8 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/132.png"
     },
     "rarity": 16,
-    "types": ["normal"]
+    "types": ["normal"],
+    "moves": []
   },
   {
     "name": "eevee",
@@ -1327,7 +3100,18 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/133.png"
     },
     "rarity": 6,
-    "types": ["normal"]
+    "types": ["normal"],
+    "moves": [
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "bite", "power": 60, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "quick-attack", "power": 40, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "vaporeon",
@@ -1337,7 +3121,24 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/134.png"
     },
     "rarity": 13,
-    "types": ["water"]
+    "types": ["water"],
+    "moves": [
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "bite", "power": 60, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hydro-pump", "power": 110, "accuracy": 80 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "quick-attack", "power": 40, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "waterfall", "power": 80, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "jolteon",
@@ -1347,7 +3148,21 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/135.png"
     },
     "rarity": 13,
-    "types": ["electric"]
+    "types": ["electric"],
+    "moves": [
+      { "name": "double-kick", "power": 30, "accuracy": 100 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "pin-missile", "power": 25, "accuracy": 95 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "quick-attack", "power": 40, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "flareon",
@@ -1357,7 +3172,20 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/136.png"
     },
     "rarity": 13,
-    "types": ["fire"]
+    "types": ["fire"],
+    "moves": [
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "bite", "power": 60, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "quick-attack", "power": 40, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "porygon",
@@ -1367,7 +3195,16 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/137.png"
     },
     "rarity": 12,
-    "types": ["normal"]
+    "types": ["normal"],
+    "moves": [
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "omanyte",
@@ -1377,7 +3214,22 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/138.png"
     },
     "rarity": 6,
-    "types": ["rock", "water"]
+    "types": ["rock", "water"],
+    "moves": [
+      { "name": "slam", "power": 80, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "horn-attack", "power": 65, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "bite", "power": 60, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hydro-pump", "power": 110, "accuracy": 80 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "waterfall", "power": 80, "accuracy": 100 },
+      { "name": "spike-cannon", "power": 20, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "omastar",
@@ -1387,7 +3239,24 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/139.png"
     },
     "rarity": 12,
-    "types": ["rock", "water"]
+    "types": ["rock", "water"],
+    "moves": [
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "horn-attack", "power": 65, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "bite", "power": 60, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hydro-pump", "power": 110, "accuracy": 80 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "waterfall", "power": 80, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "spike-cannon", "power": 20, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "kabuto",
@@ -1397,7 +3266,20 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/140.png"
     },
     "rarity": 6,
-    "types": ["rock", "water"]
+    "types": ["rock", "water"],
+    "moves": [
+      { "name": "scratch", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hydro-pump", "power": 110, "accuracy": 80 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "waterfall", "power": 80, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 },
+      { "name": "slash", "power": 70, "accuracy": 100 }
+    ]
   },
   {
     "name": "kabutops",
@@ -1407,7 +3289,27 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/141.png"
     },
     "rarity": 12,
-    "types": ["rock", "water"]
+    "types": ["rock", "water"],
+    "moves": [
+      { "name": "scratch", "power": 40, "accuracy": 100 },
+      { "name": "razor-wind", "power": 80, "accuracy": 100 },
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hydro-pump", "power": 110, "accuracy": 80 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "waterfall", "power": 80, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 },
+      { "name": "slash", "power": 70, "accuracy": 100 }
+    ]
   },
   {
     "name": "aerodactyl",
@@ -1417,7 +3319,22 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/142.png"
     },
     "rarity": 12,
-    "types": ["rock", "flying"]
+    "types": ["rock", "flying"],
+    "moves": [
+      { "name": "razor-wind", "power": 80, "accuracy": 100 },
+      { "name": "wing-attack", "power": 60, "accuracy": 100 },
+      { "name": "fly", "power": 90, "accuracy": 95 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "bite", "power": 60, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "sky-attack", "power": 140, "accuracy": 90 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "snorlax",
@@ -1427,7 +3344,27 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/143.png"
     },
     "rarity": 15,
-    "types": ["normal"]
+    "types": ["normal"],
+    "moves": [
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "pay-day", "power": 40, "accuracy": 100 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "tackle", "power": 40, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "self-destruct", "power": 200, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "articuno",
@@ -1437,7 +3374,19 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/144.png"
     },
     "rarity": 18,
-    "types": ["ice", "flying"]
+    "types": ["ice", "flying"],
+    "moves": [
+      { "name": "razor-wind", "power": 80, "accuracy": 100 },
+      { "name": "gust", "power": 40, "accuracy": 100 },
+      { "name": "fly", "power": 90, "accuracy": 95 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "peck", "power": 35, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "sky-attack", "power": 140, "accuracy": 90 }
+    ]
   },
   {
     "name": "zapdos",
@@ -1447,7 +3396,18 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/145.png"
     },
     "rarity": 18,
-    "types": ["electric", "flying"]
+    "types": ["electric", "flying"],
+    "moves": [
+      { "name": "razor-wind", "power": 80, "accuracy": 100 },
+      { "name": "fly", "power": 90, "accuracy": 95 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "peck", "power": 35, "accuracy": 100 },
+      { "name": "drill-peck", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "sky-attack", "power": 140, "accuracy": 90 }
+    ]
   },
   {
     "name": "moltres",
@@ -1457,7 +3417,19 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/146.png"
     },
     "rarity": 18,
-    "types": ["fire", "flying"]
+    "types": ["fire", "flying"],
+    "moves": [
+      { "name": "razor-wind", "power": 80, "accuracy": 100 },
+      { "name": "wing-attack", "power": 60, "accuracy": 100 },
+      { "name": "fly", "power": 90, "accuracy": 95 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "peck", "power": 35, "accuracy": 100 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "sky-attack", "power": 140, "accuracy": 90 }
+    ]
   },
   {
     "name": "dratini",
@@ -1467,7 +3439,19 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/147.png"
     },
     "rarity": 6,
-    "types": ["dragon"]
+    "types": ["dragon"],
+    "moves": [
+      { "name": "slam", "power": 80, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "waterfall", "power": 80, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "dragonair",
@@ -1477,7 +3461,19 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/148.png"
     },
     "rarity": 11,
-    "types": ["dragon"]
+    "types": ["dragon"],
+    "moves": [
+      { "name": "slam", "power": 80, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "waterfall", "power": 80, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 }
+    ]
   },
   {
     "name": "dragonite",
@@ -1487,7 +3483,26 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/149.png"
     },
     "rarity": 15,
-    "types": ["dragon", "flying"]
+    "types": ["dragon", "flying"],
+    "moves": [
+      { "name": "razor-wind", "power": 80, "accuracy": 100 },
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "wing-attack", "power": 60, "accuracy": 100 },
+      { "name": "fly", "power": 90, "accuracy": 95 },
+      { "name": "slam", "power": 80, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "waterfall", "power": 80, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "mewtwo",
@@ -1497,7 +3512,25 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/150.png"
     },
     "rarity": 20,
-    "types": ["psychic"]
+    "types": ["psychic"],
+    "moves": [
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "pay-day", "power": 40, "accuracy": 100 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "self-destruct", "power": 200, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   },
   {
     "name": "mew",
@@ -1507,6 +3540,34 @@
       "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/151.png"
     },
     "rarity": 19,
-    "types": ["psychic"]
+    "types": ["psychic"],
+    "moves": [
+      { "name": "pound", "power": 40, "accuracy": 100 },
+      { "name": "mega-punch", "power": 80, "accuracy": 85 },
+      { "name": "pay-day", "power": 40, "accuracy": 100 },
+      { "name": "razor-wind", "power": 80, "accuracy": 100 },
+      { "name": "cut", "power": 50, "accuracy": 95 },
+      { "name": "fly", "power": 90, "accuracy": 95 },
+      { "name": "mega-kick", "power": 120, "accuracy": 75 },
+      { "name": "headbutt", "power": 70, "accuracy": 100 },
+      { "name": "take-down", "power": 90, "accuracy": 85 },
+      { "name": "double-edge", "power": 120, "accuracy": 100 },
+      { "name": "water-gun", "power": 40, "accuracy": 100 },
+      { "name": "surf", "power": 90, "accuracy": 100 },
+      { "name": "hyper-beam", "power": 150, "accuracy": 90 },
+      { "name": "submission", "power": 80, "accuracy": 80 },
+      { "name": "strength", "power": 80, "accuracy": 100 },
+      { "name": "solar-beam", "power": 120, "accuracy": 100 },
+      { "name": "earthquake", "power": 100, "accuracy": 100 },
+      { "name": "dig", "power": 80, "accuracy": 100 },
+      { "name": "rage", "power": 20, "accuracy": 100 },
+      { "name": "self-destruct", "power": 200, "accuracy": 100 },
+      { "name": "egg-bomb", "power": 100, "accuracy": 75 },
+      { "name": "waterfall", "power": 80, "accuracy": 100 },
+      { "name": "skull-bash", "power": 130, "accuracy": 100 },
+      { "name": "sky-attack", "power": 140, "accuracy": 90 },
+      { "name": "explosion", "power": 250, "accuracy": 100 },
+      { "name": "rock-slide", "power": 75, "accuracy": 90 }
+    ]
   }
 ]
