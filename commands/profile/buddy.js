@@ -8,13 +8,14 @@ module.exports = {
 
 async function pickBuddy(msg, args) {
   const Discord = require("discord.js");
-  const { getBuddyId, getUserPokemons } = require("../../database");
+  const { getBuddyId, getUserProfile } = require("../../database");
+  const userRef = getUserProfile(msg.author.id);
 
   //Setup canvas
   const Canvas = require("canvas");
 
   //Make canvas
-  const canvas = Canvas.createCanvas(2500, 1500);
+  const canvas = Canvas.createCanvas(2560, 1280);
   const ctx = canvas.getContext("2d");
 
   // Draw background
@@ -30,14 +31,23 @@ async function pickBuddy(msg, args) {
   ctx.textBaseline = "top";
 
   //Buddy
-  const pokemons = await getUserPokemons(msg.author.id);
+  ///////////////////////////////////////////////////////////Too many firebase calls
+  //const pokemons = await getUserPokemons(msg.author.id);
+  const acceptableKeywords = ["name", "id", "xp"];
+  const sortArg = args[0].toLowerCase();
+  if (!acceptableKeywords.indexOf(sortArg) >= 0) {
+    return msg.channel.send(
+      "That's not the right usage of sorting arguments. Use any of these:" +
+        acceptableKeywords
+    );
+  }
+
+  const pokemons = await userRef.orderBy(sortArg, "desc").limit(20).get();
   const buddyPokemonId = await getBuddyId(msg.author.id);
   const gap = 64;
   var y = 0;
   var columnStart = 0;
-  var columnAmount = 7;
-
-  console.log(pokemons);
+  var columnAmount = 10;
 
   pokemons.foreach((pokemon, index) => {
     if (buddyPokemonId != pokemon) {
