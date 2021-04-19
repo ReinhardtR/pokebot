@@ -165,6 +165,7 @@ async function sendProfile(msg, user) {
   );
 
   //Buddy
+  const { getBuddyId } = require("../../index");
   const buddyPokemonId = getBuddyId(msg.author.id);
   const { drawPokemonImage } = require("../walk/utils/getRandomPokemons");
   drawPokemonImage(ctx, buddyPokemonId, 100, 100);

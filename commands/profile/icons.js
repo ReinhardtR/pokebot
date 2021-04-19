@@ -21,7 +21,7 @@ const sendIcons = async (msg) => {
   const canvas = Canvas.createCanvas(2500, 1500);
   const ctx = canvas.getContext("2d");
 
-  // Draw background color
+  // Draw background
   ctx.fillStyle = "rgb(20,20,20)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 

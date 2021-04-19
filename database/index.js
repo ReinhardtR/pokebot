@@ -141,7 +141,10 @@ const getBuddyId = (userId) => {
   const userRef = db.collection("users").doc(userId);
   const userDoc = await userRef.get();
   const buddyId = userDoc.buddyId;
-  return userDoc.pokemons[buddyId].id;
+  if (buddyId == 0){
+    return msg.channel.send(`You do not have a buddy yet!`)
+  }
+  return userDoc.pokemons.doc(buddyId).id;
 }
 
 module.exports = {
