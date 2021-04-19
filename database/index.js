@@ -144,7 +144,11 @@ const getBuddyId = async (userId) => {
   if (buddyId == 0) {
     return msg.channel.send(`You do not have a buddy yet!`);
   }
-  return userDoc.pokemons.doc(buddyId).id;
+  const snapshot = await userRef.collection("pokemons").get();
+  if (snapshot.exists) {
+    return userDoc.collection("pokemons").doc(buddyId).id;
+  }
+  return [];
 };
 
 module.exports = {

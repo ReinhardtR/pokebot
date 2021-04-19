@@ -8,8 +8,7 @@ module.exports = {
 
 async function pickBuddy(msg, args) {
   const Discord = require("discord.js");
-  const { getUserProfile } = require("../../database");
-  const userDoc = await getUserProfile(msg.author.id);
+  const { getBuddyId, getUserPokemons } = require("../../database");
 
   //Setup canvas
   const Canvas = require("canvas");
@@ -30,28 +29,37 @@ async function pickBuddy(msg, args) {
   ctx.fillStyle = "white";
   ctx.textBaseline = "top";
 
-  const pokemons = userDoc.pokemons;
-
-  const buddyPokemonId = getBuddyId(msg.author.id);
+  //Buddy
+  const pokemons = await getUserPokemons(msg.author.id);
+  const buddyPokemonId = await getBuddyId(msg.author.id);
   const gap = 64;
-  const y = 0;
+  var y = 0;
+  var columnStart = 0;
+  var columnAmount = 7;
 
-  pokemons.forEach(pokemon, (index) => {
-    drawPokemonImage(ctx, pokemon.id, index * gap, y);
+  console.log(pokemons);
+
+  pokemons.foreach((pokemon, index) => {
     if (buddyPokemonId != pokemon) {
-      ctx.fillText("Current buddy", index * gap, y);
+      if (index * gap > ctx.width) {
+        y++;
+        columnStart += columnAmount;
+      }
+      ctx.textAlign = "center";
+      ctx.fillText("Buddy", index * gap - columnStart, y * gap);
     }
+    drawPokemonImage(ctx, pokemon.id, index * gap - columnStart, y * gap);
   });
 
   // Create image file
   const attachment = new Discord.MessageAttachment(
     canvas.toBuffer(),
-    "trainers.png"
+    "buddy.png"
   );
 
   // Create embed with image attached
   const embed = new Discord.MessageEmbed()
-    .setTitle("All Icons")
+    .setTitle("Buddies")
     .setDescription(msg.author.toString())
     .setColor(53380)
     .attachFiles(attachment)
