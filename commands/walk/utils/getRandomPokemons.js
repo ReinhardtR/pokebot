@@ -1,4 +1,3 @@
-const { loadImage } = require("canvas");
 const pokemons = require("../../../constants/pokemons.json");
 
 const RARITY_INFLUENCE = 1.3;

@@ -1,25 +1,32 @@
-// const Pokedex = require("pokedex-promise-v2");
-// const P = new Pokedex();
-// const pokemonsData = require("../constants/pokemons.json");
+const Pokedex = require("pokedex-promise-v2");
+const P = new Pokedex();
+const pokemonsData = require("../constants/pokemons.json");
 
-// const getData = async () => {
-//   const newPokemonData = await Promise.all(
-//     pokemonsData.map(async (pokemon) => {
-//       const pokemonData = await P.resource(`api/v2/pokemon/${pokemon.name}`);
+const getMoves = async () => {
+  const pokemon = await P.resource(`api/v2/pokemon/${150}`);
 
-//       const pokemonTypes = pokemonData.types.map(({ type }) => {
-//         return type.name;
-//       });
+  const pokemonMoves = await Promise.all(
+    pokemon.moves.map(async (pokemonMove) => {
+      const move = await P.resource(pokemonMove.move.url);
 
-//       return { ...pokemon, types: pokemonTypes };
-//     })
-//   );
+      if (
+        move.generation.name == "generation-i" &&
+        move.meta.category.name == "damage" &&
+        move.power &&
+        move.accuracy
+      ) {
+        return {
+          name: move.name,
+          accuracy: move.accuracy,
+          power: move.power,
+        };
+      }
+    })
+  );
 
-//   const fs = require("fs");
+  const validMoves = pokemonMoves.filter((move) => move);
 
-//   const json = JSON.stringify(newPokemonData);
+  return validMoves;
+};
 
-//   fs.writeFile("pokemons2.json", json, "utf8", () => {});
-// };
-
-// getData();
+getData();

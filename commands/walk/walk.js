@@ -75,20 +75,20 @@ const startWalk = async (msg) => {
   const spawnPokemon = async () => {
     const walk = await walks.get(msg.author.id);
     const spawnAmount = Math.floor(walk.members.length * 1.5);
+
     // Get a list of random pokemons.
     const pokemons = getRandomPokemons(spawnAmount);
-    console.log(pokemons);
 
     // Canvas pokemon position constants.
     const pokemonSize = 96;
     const pokemonGap = 16;
     const canvasWidth = pokemonGap + (pokemonGap + pokemonSize) * spawnAmount;
 
-    // Create canvas for the pokemons to be visualized on.
+    // Create canvas for the pokemon to be drawn on.
     const canvas = Canvas.createCanvas(canvasWidth, 128);
     const ctx = canvas.getContext("2d");
 
-    // Draw the pokemons on the canvas.
+    // Draw the pokemon on the canvas.
     pokemons.forEach((pokemon, index) => {
       // Draw the pokémon sprite.
       const pokemonPos = {
@@ -160,9 +160,7 @@ const startWalk = async (msg) => {
   walks.set(msg.author.id, walkObject);
 
   // Set the topic of the created channel.
-  channel.setTopic(
-    `**Members**: 1 - **Interval**: 8000 ms - **Catchable**: last 1`
-  );
+  channel.setTopic(`Members: **1**`);
 
   // Send a notification to the user, in the created channel.
   channel.send(`${msg.author}, you've started walking!`);

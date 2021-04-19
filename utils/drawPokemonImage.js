@@ -1,6 +1,9 @@
 const { loadImage } = require("canvas");
 
-const loadPokemonImage = async () => await loadImage("../images/pokemon.png");
+const loadPokemonImage = async () =>
+  await loadImage(
+    "https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/pokemon.png"
+  );
 
 var pokemonImage;
 loadPokemonImage().then((image) => {
@@ -16,8 +19,6 @@ const drawPokemonImage = (ctx, pokemonId, x, y) => {
     x: (pokemonId - 1) * pokemonSize,
     y: 0,
   };
-
-  console.log(pokemonImage);
 
   ctx.drawImage(
     pokemonImage,
