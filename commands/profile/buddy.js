@@ -1,18 +1,15 @@
 module.exports = {
-  name: "icons",
-  description: "Display all icons available",
+  name: "buddy",
+  description: "Pick a buddy for your journey!",
   execute(msg, args) {
-    sendIcons(msg);
+    pickBuddy(msg, args);
   },
 };
 
-const sendIcons = async (msg) => {
+async function pickBuddy(msg, args) {
   const Discord = require("discord.js");
   const { getUserProfile } = require("../../database");
   const userDoc = await getUserProfile(msg.author.id);
-  const trainerAmount = 13;
-  const { getLevel } = require("./levelAndXP");
-  const level = getLevel(userDoc.xp);
 
   //Setup canvas
   const Canvas = require("canvas");
@@ -33,33 +30,18 @@ const sendIcons = async (msg) => {
   ctx.fillStyle = "white";
   ctx.textBaseline = "top";
 
-  const rowAmount = 3;
-  const columnAmount = 8;
-  var t = 1;
+  const pokemons = userDoc.pokemons;
 
-  dance: for (var i = 1; i < rowAmount; i++) {
-    for (var j = 1; j < columnAmount; j++) {
-      const y = (i - 1) * (canvas.height / (rowAmount - 1));
-      const textPosX = (j - 1) * (canvas.width / (columnAmount - 1));
+  const buddyPokemonId = getBuddyId(msg.author.id);
+  const gap = 64;
+  const y = 0;
 
-      var trainer = 0;
-      if (t > level) {
-        trainer = await Canvas.loadImage(
-          `https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/lock.png`
-        );
-      } else {
-        trainer = await Canvas.loadImage(
-          `https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/pixelTrainersRescaled/pixelTrainer${t}.png`
-        );
-      }
-      ctx.fillText(`Lv: ${t}`, textPosX, y);
-      ctx.drawImage(trainer, textPosX, y + canvas.height / (rowAmount * 2));
-      t++;
-      if (t > trainerAmount) {
-        break dance;
-      }
+  pokemons.forEach(pokemon, (index) => {
+    drawPokemonImage(ctx, pokemon.id, index * gap, y);
+    if (buddyPokemonId != pokemon) {
+      ctx.fillText("Current buddy", index * gap, y);
     }
-  }
+  });
 
   // Create image file
   const attachment = new Discord.MessageAttachment(
@@ -76,4 +58,4 @@ const sendIcons = async (msg) => {
     .setImage(`attachment://${attachment.name}`)
     .setThumbnail(msg.author.avatarURL());
   msg.channel.send({ embed });
-};
+}
