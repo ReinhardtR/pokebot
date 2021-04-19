@@ -1,6 +1,6 @@
 const pokemons = require("../../../constants/pokemons.json");
 
-const RARITY_INFLUENCE = 1.3;
+const RARITY_INFLUENCE = 1.4;
 
 const rarities = pokemons.map((pokemon) => pokemon.rarity);
 const rarityInterval = rarities.map(
@@ -52,7 +52,7 @@ const getColor = (rarity) => {
 };
 
 const getRandomPokemons = (amountOfPokemon) => {
-  const array = new Array(amountOfPokemon).fill(undefined);
+  const array = new Array(amountOfPokemon).fill(0);
 
   const randomPokemons = array.map(() => {
     const pokemon = getRandomPokemon();

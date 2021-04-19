@@ -21,11 +21,10 @@ module.exports = {
       return msg.reply("you're not a member of this walk.");
     }
 
-    const { getBagContents, updateBagContents } = require("../../index");
+    const { getBagContents, updateBagContents } = require("../../database");
     const bagContent = getBagContents(msg.author.id);
 
     if (bagContent.balls <= 0) {
-      updateBagContents(msg.author.id, 1);
       return msg.reply("you do not have any pokeballs");
     }
 
@@ -68,7 +67,7 @@ module.exports = {
     const getPokemonMoves = require("./utils/getPokemonMoves");
 
     // Give pokemon to the user.
-    const pokemonMoves = getPokemonMoves(caughtPokemon.id);
+    const pokemonMoves = getPokemonMoves(pokemonInWalk.id);
     const caughtPokemon = {
       name: pokemonInWalk.name,
       id: pokemonInWalk.id,

@@ -20,7 +20,7 @@ const createUserProfile = (userId) => {
     pokedex: [],
     trainer:
       "https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/pixelTrainersRescaled/pixelTrainer1.png",
-    buddyId: 0,
+    buddy: undefined,
   });
   userRef.collection("pokemons").add({});
 };
