@@ -20,6 +20,7 @@ const createUserProfile = (userId) => {
     pokedex: [],
     trainer:
       "https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/pixelTrainersRescaled/pixelTrainer1.png",
+    buddyId: 0,
   });
   userRef.collection("pokemons").add({});
 };
@@ -120,6 +121,29 @@ const sortLevelsAndReturnRank = async (userId) => {
   return rank;
 };
 
+const getBagContents = async (userId) => {
+  const userRef = db.collection("users").doc(userId);
+  const doc = await userRef.get();
+  const bagContents = doc.data().items;
+  return bagContents;
+}
+
+const updateBagContents = async (userId, ballAmount) => {
+  const userRef = db.collection("users").doc(userId);
+  const admin = require('firebase-admin');
+  await userRef.update({
+    balls: admin.firestore.FieldValue.increment(ballAmount)
+  });
+  return balls;
+}
+
+const getBuddyId = (userId) => {
+  const userRef = db.collection("users").doc(userId);
+  const userDoc = await userRef.get();
+  const buddyId = userDoc.buddyId;
+  return userDoc.pokemons[buddyId].id;
+}
+
 module.exports = {
   createUserProfile,
   getUserProfile,
@@ -132,4 +156,7 @@ module.exports = {
   updateUserXP,
   updateUserIcon,
   sortLevelsAndReturnRank,
+  getBagContents,
+  updateBagContents,
+  getBuddyId,
 };

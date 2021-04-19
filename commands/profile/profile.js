@@ -164,6 +164,11 @@ async function sendProfile(msg, user) {
     })
   );
 
+  //Buddy
+  const buddyPokemonId = getBuddyId(msg.author.id);
+  const { drawPokemonImage } = require("../walk/utils/getRandomPokemons");
+  drawPokemonImage(ctx, buddyPokemonId, 100, 100);
+
   //Make attachment from canvas
   const attachment = new Discord.MessageAttachment(
     canvas.toBuffer(),

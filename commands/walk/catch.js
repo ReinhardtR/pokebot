@@ -21,6 +21,14 @@ module.exports = {
       return msg.reply("you're not a member of this walk.");
     }
 
+    const { getBagContents, updateBagContents } = require("../../index")
+    const bagContent = getBagContents(msg.author.id);
+
+    if (bagContent.balls <= 0){
+      updateBagContents(msg.author.id, 1);
+      return msg.reply("you do not have any pokeballs")
+    }
+
     const pokemons = require("../../constants/pokemons.json");
     const pokemonNameArg = args[0].toLowerCase();
     const pokemonToCatch = pokemons.find(
