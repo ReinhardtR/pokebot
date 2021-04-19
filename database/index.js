@@ -21,6 +21,7 @@ const createUserProfile = (userId) => {
     trainer:
       "https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/pixelTrainersRescaled/pixelTrainer1.png",
     buddy: undefined,
+    pokemonCount: 0,
   });
   userRef.collection("pokemons").add({});
 };
@@ -34,11 +35,28 @@ const getUserProfile = async (userId) => {
 const givePokemonToUser = (userId, pokemon) => {
   const userRef = db.collection("users").doc(userId);
   userRef.collection("pokemons").add(pokemon);
+  // userRef.update({ pokemonCount: FieldValue.increment(1) });
 };
 
-const getUserPokemons = async (userId) => {
+const incrementUserPokemonCount = (userId) => {
   const userRef = db.collection("users").doc(userId);
-  const snapshot = await userRef.collection("pokemons").get();
+  userRef.update({ pokemonCount: firebase.firestore.FieldValue.increment(1) });
+};
+
+const getUserPokemonCount = async (userId) => {
+  const userRef = db.collection("users").doc(userId);
+  const userDoc = await userRef.get();
+  return userDoc.data().pokemonCount;
+};
+
+const getUserPokemons = async (
+  userId,
+  limit,
+  value = "name",
+  order = "desc"
+) => {
+  const pokemonsRef = db.collection("users").doc(userId).collection("pokemons");
+  const snapshot = await pokemonsRef.orderBy(value, order).limit(limit).get();
   const pokemons = snapshot.docs.map((doc) => doc.data());
   return pokemons;
 };
@@ -163,4 +181,6 @@ module.exports = {
   getBagContents,
   updateBagContents,
   getBuddyId,
+  incrementUserPokemonCount,
+  getUserPokemonCount,
 };
