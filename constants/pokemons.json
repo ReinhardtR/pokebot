@@ -3090,7 +3090,7 @@
     },
     "rarity": 16,
     "types": ["normal"],
-    "moves": []
+    "moves": [{ "name": "transform", "power": 0, "accuracy": 100 }]
   },
   {
     "name": "eevee",
