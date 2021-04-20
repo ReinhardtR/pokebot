@@ -20,7 +20,7 @@ const createUserProfile = (userId) => {
     pokedex: [],
     trainer:
       "https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/pixelTrainersRescaled/pixelTrainer1.png",
-    buddy: undefined,
+    buddy: 0,
     pokemonCount: 0,
     pokeballs: 10,
   });
@@ -85,7 +85,7 @@ const getUserPokedex = async (userId) => {
 // User XP
 const updateUserXP = async (userId, xpGain, msg) => {
   const userRef = db.collection("users").doc(userId);
-  const userDoc = userRef.get();
+  const userDoc = await userRef.get();
   const userXP = userDoc.data().xp;
 
   // Record old level
@@ -101,8 +101,7 @@ const updateUserXP = async (userId, xpGain, msg) => {
   // Define new level (has to be userDoc.xp to get new xp)
   const level = getLevel(updatedXP);
   if (oldLevel != level) {
-    console.log("level up");
-    msg.channel.send(
+    msg.reply(
       `Congratulations! You leveled up and you are now level: ${level}`
     );
   }
@@ -131,17 +130,18 @@ const sortLevelsAndReturnRank = async (userId) => {
 };
 
 // User Bag
-const updateBagContents = (userId, amount) => {
+const updatePokeballs = (userId, amount) => {
   const userRef = db.collection("users").doc(userId);
   userRef.update({
-    pokeballs: firebase.firestore.FieldValue.increment(Amount),
+    pokeballs: firebase.firestore.FieldValue.increment(amount),
   });
 };
 
-const getBagContents = async (userId) => {
+const getPokeballs = async (userId) => {
   const userRef = db.collection("users").doc(userId);
   const doc = await userRef.get();
   const bagContents = doc.data().items;
+
   return bagContents;
 };
 
@@ -165,8 +165,8 @@ module.exports = {
   updateUserXP,
   updateUserIcon,
   sortLevelsAndReturnRank,
-  getBagContents,
-  updateBagContents,
+  updatePokeballs,
+  getPokeballs,
   getBuddy,
   updateUserPokemonCount,
   getUserPokemonCount,

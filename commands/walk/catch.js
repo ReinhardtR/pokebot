@@ -21,12 +21,12 @@ module.exports = {
       return msg.reply("you're not a member of this walk.");
     }
 
-    const { getBagContents, updateBagContents } = require("../../database");
-    const bagContent = getBagContents(msg.author.id);
+    // const { getBagContents, updateBagContents } = require("../../database");
+    // const bagContent = getBagContents(msg.author.id);
 
-    if (bagContent.balls <= 0) {
-      return msg.reply("you do not have any pokeballs");
-    }
+    // if (bagContent.balls <= 0) {
+    //   return msg.reply("you do not have any pokeballs");
+    // }
 
     const pokemons = require("../../constants/pokemons.json");
     const pokemonNameArg = args[0].toLowerCase();

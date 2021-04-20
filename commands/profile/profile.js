@@ -1,6 +1,6 @@
 module.exports = {
   name: "profile",
-  description: "Show Player Profile; xp, level, name, guild and character icon",
+  description: "Show Player Profile: xp, level, name, guild and character icon",
   usage: "[user-tag]",
   needProfile: true,
   execute(msg, args) {
@@ -27,8 +27,16 @@ async function sendProfile(msg, user) {
     sortLevelsAndReturnRank,
     getUserPokedex,
   } = require("../../database");
-  const Discord = require("discord.js");
   const userDoc = await getUserProfile(user.id);
+
+  if (!userDoc) {
+    return msg.reply(
+      `it looks like ${user} doesn't have a profile. Encourage him to create one!`
+    );
+  }
+
+  // discord.js
+  const Discord = require("discord.js");
 
   //Setup canvas
   const Canvas = require("canvas");
