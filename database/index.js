@@ -51,7 +51,7 @@ const getUserPokemonCount = async (userId) => {
 
 const getUserPokemons = async (
   userId,
-  limit,
+  limit = 20,
   value = "name",
   order = "desc"
 ) => {
@@ -75,23 +75,6 @@ const getUserPokedex = async (userId) => {
     const pokedex = doc.data().pokedex;
     return pokedex;
   }
-};
-
-const isUserWalking = async (userId) => {
-  const userRef = db.collection("users").doc(userId);
-  const doc = await userRef.get();
-  if (doc.exists) {
-    const isWalking = doc.data().isWalking;
-    return isWalking;
-  }
-  return false;
-};
-
-const setIsUserWalking = async (userId) => {
-  const userRef = db.collection("users").doc(userId);
-  userRef.set({
-    isWalking: true,
-  });
 };
 
 const updateUserXP = async (userId, xpGain, msg) => {
@@ -155,15 +138,10 @@ const updateBagContents = async (userId, ballAmount) => {
 const getBuddyId = async (userId) => {
   const userRef = db.collection("users").doc(userId);
   const userDoc = await userRef.get();
-  const buddyId = userDoc.buddyId;
-  if (buddyId == 0) {
-    return msg.channel.send(`You do not have a buddy yet!`);
-  }
-  const snapshot = await userRef.collection("pokemons").get();
-  if (snapshot.exists) {
-    return userDoc.collection("pokemons").doc(buddyId).id;
-  }
-  return [];
+  const buddyDocId = userDoc.buddyId;
+  const buddyDoc = await userRef.collection("pokemons").doc(buddyDocId).get();
+
+  return buddyDoc.data();
 };
 
 module.exports = {
@@ -173,8 +151,6 @@ module.exports = {
   getUserPokemons,
   updateUserPokedex,
   getUserPokedex,
-  isUserWalking,
-  setIsUserWalking,
   updateUserXP,
   updateUserIcon,
   sortLevelsAndReturnRank,
