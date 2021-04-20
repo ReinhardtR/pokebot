@@ -144,8 +144,7 @@ const getBagContents = async (userId) => {
   return bagContents;
 };
 
-// User Buddy
-const getBuddyId = async (userId) => {
+const getBuddy = async (userId) => {
   const userRef = db.collection("users").doc(userId);
   const userDoc = await userRef.get();
   const buddyDocId = userDoc.buddyId;
@@ -166,7 +165,7 @@ module.exports = {
   sortLevelsAndReturnRank,
   getBagContents,
   updateBagContents,
-  getBuddyId,
+  getBuddy,
   updateUserPokemonCount,
   getUserPokemonCount,
 };
