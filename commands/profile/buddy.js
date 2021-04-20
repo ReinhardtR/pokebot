@@ -32,7 +32,8 @@ async function pickBuddy(msg, args) {
   //const pokemons = await getUserPokemons(msg.author.id);
   const acceptableKeywords = ["name", "id", "xp"];
 
-  var sortArg = args[0]?.toLowerCase();
+  var sortArg = args[0] ? args[0].toLowerCase() : "id";
+  // var sortArg = args?.[0].toLowerCase();
 
   if (!acceptableKeywords.includes(sortArg)) {
     sortArg = "id";
@@ -65,20 +66,8 @@ async function pickBuddy(msg, args) {
       ctx.textAlign = "center";
       ctx.fillText("Buddy", index * gap - columnStart, y * gap);
     }
-    drawPokemonImage(ctx, pokemon.id, index * gap - columnStart, y * gap);
+    drawPokemonImage(ctx, pokemon.id, index * gap - columnStart, y * gap, 256);
   });
-
-  /*for (var i; i < pokemons.length; i++) {
-    if (buddyPokemonId != pokemons[i]) {
-      if (i * gap > ctx.width) {
-        y++;
-        columnStart += columnAmount;
-      }
-      ctx.textAlign = "center";
-      ctx.fillText("Buddy", i * gap - columnStart, y * gap);
-    }
-    drawPokemonImage(ctx, pokemons[i].id, i * gap - columnStart, y * gap);
-  }*/
 
   // Create image file
   const attachment = new Discord.MessageAttachment(

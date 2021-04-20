@@ -11,11 +11,11 @@ firebase.initializeApp({
 
 const db = firebase.firestore();
 
+// User Profile
 const createUserProfile = (userId) => {
   const userRef = db.collection("users").doc(userId);
   if (userRef.exists) return;
   userRef.set({
-    level: 1,
     xp: 0,
     pokedex: [],
     trainer:
@@ -32,21 +32,24 @@ const getUserProfile = async (userId) => {
   return userDoc.data();
 };
 
-const givePokemonToUser = (userId, pokemon) => {
+// Pokemon Count
+const updateUserPokemonCount = (userId, amount) => {
   const userRef = db.collection("users").doc(userId);
-  userRef.collection("pokemons").add(pokemon);
-  // userRef.update({ pokemonCount: FieldValue.increment(1) });
-};
-
-const incrementUserPokemonCount = (userId) => {
-  const userRef = db.collection("users").doc(userId);
-  userRef.update({ pokemonCount: firebase.firestore.FieldValue.increment(1) });
+  userRef.update({
+    pokemonCount: firebase.firestore.FieldValue.increment(amount),
+  });
 };
 
 const getUserPokemonCount = async (userId) => {
   const userRef = db.collection("users").doc(userId);
   const userDoc = await userRef.get();
   return userDoc.data().pokemonCount;
+};
+
+// User Pokemon
+const givePokemonToUser = (userId, pokemon) => {
+  const userRef = db.collection("users").doc(userId);
+  userRef.collection("pokemons").add(pokemon);
 };
 
 const getUserPokemons = async (
@@ -61,6 +64,7 @@ const getUserPokemons = async (
   return pokemons;
 };
 
+// User Pokedex
 const updateUserPokedex = (userId, pokedexArray) => {
   const userRef = db.collection("users").doc(userId);
   userRef.update({
@@ -77,20 +81,24 @@ const getUserPokedex = async (userId) => {
   }
 };
 
+// User XP
 const updateUserXP = async (userId, xpGain, msg) => {
-  const userDoc = await getUserProfile(userId);
-  const userXP = userDoc.xp;
-  //Record old level
-  const { getLevel } = require("../commands/profile/levelAndXP");
-  const oldLevel = getLevel(userXP);
-  //get ref and update xp
   const userRef = db.collection("users").doc(userId);
+  const userDoc = userRef.get();
+  const userXP = userDoc.data().xp;
+
+  // Record old level
+  const { getLevel } = require("../commands/profile/utils/levelAndXP");
+  const oldLevel = getLevel(userXP);
+
+  // Get ref and update xp
+  const updatedXP = userXP + xpGain;
   userRef.update({
-    xp: userXP + xpGain,
+    xp: updatedXP,
   });
-  //Define new level (has to be userDoc.xp to get new xp)
-  const level = getLevel(userDoc.xp);
-  console.log(level, oldLevel);
+
+  // Define new level (has to be userDoc.xp to get new xp)
+  const level = getLevel(updatedXP);
   if (oldLevel != level) {
     console.log("level up");
     msg.channel.send(
@@ -99,13 +107,15 @@ const updateUserXP = async (userId, xpGain, msg) => {
   }
 };
 
-const updateUserIcon = async (userId, icon) => {
+// User Icon
+const updateUserIcon = (userId, icon) => {
   const userRef = db.collection("users").doc(userId);
   userRef.update({
     trainer: icon,
   });
 };
 
+// User RAank
 const sortLevelsAndReturnRank = async (userId) => {
   const userRef = db.collection("users");
   const snapshot = await userRef.get();
@@ -119,6 +129,14 @@ const sortLevelsAndReturnRank = async (userId) => {
   return rank;
 };
 
+// User Bag
+const updateBagContents = (userId, ballAmount) => {
+  const userRef = db.collection("users").doc(userId);
+  userRef.update({
+    balls: firebase.firestore.FieldValue.increment(ballAmount),
+  });
+};
+
 const getBagContents = async (userId) => {
   const userRef = db.collection("users").doc(userId);
   const doc = await userRef.get();
@@ -126,15 +144,7 @@ const getBagContents = async (userId) => {
   return bagContents;
 };
 
-const updateBagContents = async (userId, ballAmount) => {
-  // const userRef = db.collection("users").doc(userId);
-  // const admin = require("firebase-admin");
-  // await userRef.update({
-  //   balls: admin.firestore.FieldValue.increment(ballAmount),
-  // });
-  // return balls;
-};
-
+// User Buddy
 const getBuddyId = async (userId) => {
   const userRef = db.collection("users").doc(userId);
   const userDoc = await userRef.get();
@@ -157,6 +167,6 @@ module.exports = {
   getBagContents,
   updateBagContents,
   getBuddyId,
-  incrementUserPokemonCount,
+  updateUserPokemonCount,
   getUserPokemonCount,
 };
