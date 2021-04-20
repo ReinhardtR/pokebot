@@ -22,6 +22,7 @@ const createUserProfile = (userId) => {
       "https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/pixelTrainersRescaled/pixelTrainer1.png",
     buddy: undefined,
     pokemonCount: 0,
+    pokeballs: 10,
   });
   userRef.collection("pokemons").add({});
 };
@@ -115,7 +116,7 @@ const updateUserIcon = (userId, icon) => {
   });
 };
 
-// User RAank
+// User Rank
 const sortLevelsAndReturnRank = async (userId) => {
   const userRef = db.collection("users");
   const snapshot = await userRef.get();
@@ -130,10 +131,10 @@ const sortLevelsAndReturnRank = async (userId) => {
 };
 
 // User Bag
-const updateBagContents = (userId, ballAmount) => {
+const updateBagContents = (userId, amount) => {
   const userRef = db.collection("users").doc(userId);
   userRef.update({
-    balls: firebase.firestore.FieldValue.increment(ballAmount),
+    pokeballs: firebase.firestore.FieldValue.increment(Amount),
   });
 };
 
