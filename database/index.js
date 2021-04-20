@@ -144,6 +144,7 @@ const getBagContents = async (userId) => {
   return bagContents;
 };
 
+// User Buddy
 const getBuddy = async (userId) => {
   const userRef = db.collection("users").doc(userId);
   const userDoc = await userRef.get();
