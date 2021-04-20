@@ -8,7 +8,7 @@ module.exports = {
 
 async function pickBuddy(msg, args) {
   const Discord = require("discord.js");
-  const { getBuddyId, getUserPokemons } = require("../../database");
+  const { getBuddy, getUserPokemons } = require("../../database");
 
   //Setup canvas
   const Canvas = require("canvas");
@@ -49,8 +49,7 @@ async function pickBuddy(msg, args) {
 
   const drawPokemonImage = require("../../utils/drawPokemonImage");
   // const pokemons = await getUserPokemons(msg.author.id, 20, sortArg, "desc");
-  const buddyPokemonId = await getBuddyId(msg.author.id);
-
+  const buddyPokemonId = await getBuddy(msg.author.id);
   const pokemons = [
     { level: 1, name: "mew", xp: 0, id: 151 },
     { xp: 0, id: 150, level: 1, name: "mewtwo" },
@@ -73,18 +72,6 @@ async function pickBuddy(msg, args) {
     }
     drawPokemonImage(ctx, pokemon.id, index * gap - columnStart, y * gap);
   });
-
-  /*for (var i; i < pokemons.length; i++) {
-    if (buddyPokemonId != pokemons[i]) {
-      if (i * gap > ctx.width) {
-        y++;
-        columnStart += columnAmount;
-      }
-      ctx.textAlign = "center";
-      ctx.fillText("Buddy", i * gap - columnStart, y * gap);
-    }
-    drawPokemonImage(ctx, pokemons[i].id, i * gap - columnStart, y * gap);
-  }*/
 
   // Create image file
   const attachment = new Discord.MessageAttachment(
