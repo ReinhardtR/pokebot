@@ -31,19 +31,13 @@ async function pickBuddy(msg, args) {
   ///////////////////////////////////////////////////////////Too many firebase calls
   //const pokemons = await getUserPokemons(msg.author.id);
   const acceptableKeywords = ["name", "id", "xp"];
-  try {
-    var sortArg = args[0].toLowerCase();
-    if (!acceptableKeywords.indexOf(sortArg) >= 0) {
-      sortArg = "id";
-      msg.channel.send(
-        "If you want to specify the order of sorting, use any of these arguments: " +
-          acceptableKeywords
-      );
-    }
-  } catch (err) {
+
+  var sortArg = args[0]?.toLowerCase();
+
+  if (!acceptableKeywords.includes(sortArg)) {
     sortArg = "id";
-    msg.channel.send(
-      "You did not define an suffix so it is automatically set to: " + sortArg
+    msg.reply(
+      `you did not define an suffix so it is automatically set to: ${sortArg}`
     );
   }
 

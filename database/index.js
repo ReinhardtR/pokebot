@@ -127,12 +127,12 @@ const getBagContents = async (userId) => {
 };
 
 const updateBagContents = async (userId, ballAmount) => {
-  const userRef = db.collection("users").doc(userId);
-  const admin = require("firebase-admin");
-  await userRef.update({
-    balls: admin.firestore.FieldValue.increment(ballAmount),
-  });
-  return balls;
+  // const userRef = db.collection("users").doc(userId);
+  // const admin = require("firebase-admin");
+  // await userRef.update({
+  //   balls: admin.firestore.FieldValue.increment(ballAmount),
+  // });
+  // return balls;
 };
 
 const getBuddyId = async (userId) => {
