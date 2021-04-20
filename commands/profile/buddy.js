@@ -56,15 +56,21 @@ async function pickBuddy(msg, args) {
   var columnAmount = 10;
 
   pokemons.forEach((pokemon, index) => {
-    if (buddyPokemonId != pokemon) {
-      if (index * gap > ctx.width) {
-        y++;
-        columnStart += columnAmount;
-      }
+    if (index * gap > ctx.width) {
+      y++;
+      columnStart += columnAmount;
+    }
+    if (buddyPokemonId === pokemon) {
       ctx.textAlign = "center";
       ctx.fillText("Buddy", index * gap - columnStart, y * gap);
     }
-    drawPokemonImage(ctx, pokemon.id, index * gap - columnStart, y * gap);
+    drawPokemonImage(
+      ctx,
+      pokemon.id,
+      index * gap - columnStart,
+      y * gap,
+      gap * 4
+    );
   });
 
   // Create image file
