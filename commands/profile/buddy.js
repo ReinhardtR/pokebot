@@ -1,6 +1,7 @@
 module.exports = {
   name: "buddy",
   description: "Pick a buddy for your journey!",
+  needProfile: true,
   execute(msg, args) {
     pickBuddy(msg, args);
   },

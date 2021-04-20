@@ -24,12 +24,12 @@ const createUserProfile = (userId) => {
     pokemonCount: 0,
     pokeballs: 10,
   });
-  userRef.collection("pokemons").add({});
 };
 
 const getUserProfile = async (userId) => {
   const userRef = db.collection("users").doc(userId);
   const userDoc = await userRef.get();
+
   return userDoc.data();
 };
 
@@ -44,6 +44,7 @@ const updateUserPokemonCount = (userId, amount) => {
 const getUserPokemonCount = async (userId) => {
   const userRef = db.collection("users").doc(userId);
   const userDoc = await userRef.get();
+
   return userDoc.data().pokemonCount;
 };
 
@@ -62,6 +63,7 @@ const getUserPokemons = async (
   const pokemonsRef = db.collection("users").doc(userId).collection("pokemons");
   const snapshot = await pokemonsRef.orderBy(value, order).limit(limit).get();
   const pokemons = snapshot.docs.map((doc) => doc.data());
+
   return pokemons;
 };
 
@@ -75,11 +77,9 @@ const updateUserPokedex = (userId, pokedexArray) => {
 
 const getUserPokedex = async (userId) => {
   const userRef = db.collection("users").doc(userId);
-  const doc = await userRef.get();
-  if (doc.exists) {
-    const pokedex = doc.data().pokedex;
-    return pokedex;
-  }
+  const userDoc = await userRef.get();
+
+  return userDoc.data().pokedex;
 };
 
 // User XP
@@ -139,10 +139,9 @@ const updatePokeballs = (userId, amount) => {
 
 const getPokeballs = async (userId) => {
   const userRef = db.collection("users").doc(userId);
-  const doc = await userRef.get();
-  const bagContents = doc.data().items;
+  const userDoc = await userRef.get();
 
-  return bagContents;
+  return userDoc.data().pokeballs;
 };
 
 // User Buddy
