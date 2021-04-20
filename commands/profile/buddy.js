@@ -8,17 +8,14 @@ module.exports = {
 
 async function pickBuddy(msg, args) {
   const Discord = require("discord.js");
-  const { getBuddyId, getUserProfile } = require("../../database");
-  const userRef = getUserProfile(msg.author.id);
+  const { getBuddyId, getUserPokemons } = require("../../database");
 
   //Setup canvas
   const Canvas = require("canvas");
-
   //Make canvas
   const canvas = Canvas.createCanvas(2560, 1280);
   const ctx = canvas.getContext("2d");
-
-  // Draw background
+  //Draw background
   ctx.fillStyle = "rgb(20,20,20)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -34,22 +31,37 @@ async function pickBuddy(msg, args) {
   ///////////////////////////////////////////////////////////Too many firebase calls
   //const pokemons = await getUserPokemons(msg.author.id);
   const acceptableKeywords = ["name", "id", "xp"];
-  const sortArg = args[0].toLowerCase();
-  if (!acceptableKeywords.indexOf(sortArg) >= 0) {
-    return msg.channel.send(
-      "That's not the right usage of sorting arguments. Use any of these:" +
-        acceptableKeywords
+  try {
+    var sortArg = args[0].toLowerCase();
+    if (!acceptableKeywords.indexOf(sortArg) >= 0) {
+      sortArg = "id";
+      msg.channel.send(
+        "If you want to specify the order of sorting, use any of these arguments: " +
+          acceptableKeywords
+      );
+    }
+  } catch (err) {
+    sortArg = "id";
+    msg.channel.send(
+      "You did not define an suffix so it is automatically set to: " + sortArg
     );
   }
 
-  const pokemons = await userRef.orderBy(sortArg, "desc").limit(20).get();
+  const drawPokemonImage = require("../../utils/drawPokemonImage");
+  //const pokemons = await getUserPokemons(msg.author.id, 20, sortArg, "desc");
   const buddyPokemonId = await getBuddyId(msg.author.id);
+  const pokemons = [
+    { level: 1, name: "mew", xp: 0, id: 151 },
+    { xp: 0, id: 150, level: 1, name: "mewtwo" },
+    { id: 149, name: "dragonite", level: 1, xp: 0 },
+    { id: 148, name: "dragonair", level: 1, xp: 0 },
+  ];
   const gap = 64;
   var y = 0;
   var columnStart = 0;
   var columnAmount = 10;
 
-  pokemons.foreach((pokemon, index) => {
+  pokemons.forEach((pokemon, index) => {
     if (buddyPokemonId != pokemon) {
       if (index * gap > ctx.width) {
         y++;
@@ -60,6 +72,18 @@ async function pickBuddy(msg, args) {
     }
     drawPokemonImage(ctx, pokemon.id, index * gap - columnStart, y * gap);
   });
+
+  /*for (var i; i < pokemons.length; i++) {
+    if (buddyPokemonId != pokemons[i]) {
+      if (i * gap > ctx.width) {
+        y++;
+        columnStart += columnAmount;
+      }
+      ctx.textAlign = "center";
+      ctx.fillText("Buddy", i * gap - columnStart, y * gap);
+    }
+    drawPokemonImage(ctx, pokemons[i].id, i * gap - columnStart, y * gap);
+  }*/
 
   // Create image file
   const attachment = new Discord.MessageAttachment(
