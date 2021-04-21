@@ -12,8 +12,6 @@ loadPokemonImage().then((image) => {
 
 const pokemonSize = 96;
 
-console.log(pokemonImage);
-
 const drawPokemonImage = (ctx, pokemonId, x, y, size = 96) => {
   const pokemonPos = {
     x: (pokemonId - 1) * pokemonSize,

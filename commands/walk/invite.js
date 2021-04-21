@@ -40,8 +40,8 @@ module.exports = {
     await botMsg.react("❌");
 
     const filter = (reaction, user) => {
-      const isIncluded = ["✅", "❌"].includes(reaction.emoji.name);
-      return isIncluded;
+      const validReaction = ["✅", "❌"].includes(reaction.emoji.name);
+      return validReaction;
     };
 
     botMsg
@@ -60,10 +60,18 @@ module.exports = {
           });
 
           userWalk.channel.setTopic(`**Members**: ${userWalk.members.length}`);
-          userWalk.channel.send(`${userWalk.members[0]}`);
+          userWalk.channel.send(
+            `${invitedUser.toString()} accepted your invitation, and joined the walk!`
+          );
         } else if (reaction.emoji.name === "❌") {
-          msg.reply(`${invitedUser.toString()} didn't accept your invitation.`);
+          msg.reply(`${invitedUser.toString()} rejected your invitation.`);
         }
+      })
+      .catch((error) => {
+        msg.reply(
+          `${invitedUser.toString()} didn't react to your invitation in time.`
+        );
+        botMsg.delete();
       });
   },
 };

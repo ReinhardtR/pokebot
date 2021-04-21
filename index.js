@@ -12,6 +12,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 client.walks = new Discord.Collection();
+client.battles = new Discord.Collection();
 
 // Find all command files
 const commandFolders = fs.readdirSync("./commands");
