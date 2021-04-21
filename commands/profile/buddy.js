@@ -32,7 +32,8 @@ async function pickBuddy(msg, args) {
   //const pokemons = await getUserPokemons(msg.author.id);
   const acceptableKeywords = ["name", "id", "xp"];
 
-  var sortArg = args[0]?.toLowerCase();
+  var sortArg = args[0] ? args[0].toLowerCase() : "id";
+  // var sortArg = args?.[0].toLowerCase();
 
   if (!acceptableKeywords.includes(sortArg)) {
     sortArg = "id";
@@ -64,13 +65,7 @@ async function pickBuddy(msg, args) {
       ctx.textAlign = "center";
       ctx.fillText("Buddy", index * gap - columnStart, y * gap);
     }
-    drawPokemonImage(
-      ctx,
-      pokemon.id,
-      index * gap - columnStart,
-      y * gap,
-      gap * 4
-    );
+    drawPokemonImage(ctx, pokemon.id, index * gap - columnStart, y * gap, 256);
   });
 
   // Create image file
