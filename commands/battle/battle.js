@@ -52,8 +52,6 @@ module.exports = {
       );
     }
 
-    const Discord = require("discord.js");
-
     const inviteEmbed = new Discord.MessageEmbed().setTitle(
       `${msg.author.username} challenged ${invitedUser.username}!`
     );
@@ -111,8 +109,9 @@ module.exports = {
 
       battles.set(channel.id, battle);
 
-      const player1Team = invitedUserProfile.team;
-      const player2Team = userProfile.team;
+      const { getTeam } = require("../../database");
+      const player1Team = await getTeam(battle.player1);
+      const player2Team = await getTeam(battle.player2);
 
       const player1 = {
         team: player1Team,
@@ -124,7 +123,11 @@ module.exports = {
         activePokemon: player2Team[0],
       };
 
-      const battleEmbed = getBattleEmbed([player1, player2]);
+      const background = await Canvas.loadImage(
+        "https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/battleBackground.png"
+      );
+
+      const battleEmbed = getBattleEmbed(background, [player1, player2]);
       battleEmbed.setTitle(`${msg.author.username} vs ${invitedUser.username}`);
 
       channel.send({ embed: battleEmbed });
@@ -132,60 +135,77 @@ module.exports = {
   },
 };
 
+const Discord = require("discord.js");
 const Canvas = require("canvas");
 const drawPokemonImage = require("../../utils/drawPokemonImage");
-const background = await Canvas.loadImage(
-  "https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/battleBackground.png"
-);
+const upperCaseString = require("../../utils/upperCaseString");
 
-const getBattleEmbed = (players) => {
+const getBattleEmbed = (background, players) => {
   const canvas = Canvas.createCanvas(background.width, background.height);
   const ctx = canvas.getContext("2d");
   ctx.drawImage(background, 0, 0);
 
   const pokemonSize = 128;
-
-  const styles = {
+  const pokemonStyles = {
     player1: {
-      pokemon: { x: 100 - pokemonSize / 2, y: 100, size: 128 },
-      name: {
-        x: 2,
-        y: 2,
+      pokemon: {
+        x: 100 - pokemonSize / 2,
+        y: 100,
+        size: 128,
+        showBack: true,
+        clipY: 45,
       },
-      showBack: false,
-      clipY: 45,
+      box: {
+        x: 25,
+        y: 15,
+      },
     },
     player2: {
       pokemon: {
         x: 300 - pokemonSize / 2,
         y: 30,
         size: 100,
+        showBack: false,
+        clipY: 0,
       },
-      name: {
-        x: 2,
-        y: 2,
+      box: {
+        x: 225,
+        y: 130,
       },
-      showBack: true,
-      clipY: 0,
     },
   };
-
-  ctx.font = "bold 16px Sans-Serif";
-  ctx.fillStyle = "#ffffff";
-  ctx.textAlign = "center";
+  const textPos = {
+    x: 16,
+    y: 40,
+  };
 
   players.forEach((player, index) => {
-    const style = styles[`${player}${index}`];
+    const style = pokemonStyles[`player${index + 1}`];
 
     drawPokemonImage(
       ctx,
       player.activePokemon.id,
-      style.x,
-      style.y,
-      style.size,
-      style.showBack,
-      style.clipY
+      style.pokemon.x,
+      style.pokemon.y,
+      style.pokemon.size,
+      style.pokemon.showBack,
+      style.pokemon.clipY
     );
+
+    const boxCanvas = Canvas.createCanvas(150, 60);
+    const boxCtx = textCanvas.getContext("2d");
+
+    boxCtx.font = "bold 16px Sans-Serif";
+    boxCtx.fillStyle = "#ffffff";
+    boxCtx.textAlign = "center";
+
+    boxCtx.fillText(
+      upperCaseString(player.activePokemon.name),
+      textPos.x,
+      textPos.y
+    );
+
+    ctx.drawImage(boxCanvas, style.box.x, style.box.y);
   });
 
   const attachment = new Discord.MessageAttachment(
