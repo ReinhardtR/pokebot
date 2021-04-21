@@ -110,6 +110,8 @@ module.exports = {
       const canvas = Canvas.createCanvas(400, 300);
       const ctx = canvas.getContext("2d");
 
+      const background = await Canvas.loadImage("");
+
       const pokemonSize = 128;
 
       players.forEach((team, teamIndex) => {
