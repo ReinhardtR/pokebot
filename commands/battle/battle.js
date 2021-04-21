@@ -105,7 +105,17 @@ module.exports = {
       const player1Team = await getTeam(battle.player1);
       const player2Team = await getTeam(battle.player2);
 
-      const players = [player1Team, player2Team];
+      const player1 = {
+        team: player1Team,
+        activePokemon: player1Team[0],
+      };
+
+      const player2 = {
+        team: player2Team,
+        activePokemon: player2Team[0],
+      };
+
+      const players = [player1, player2];
 
       const background = await Canvas.loadImage(
         "https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/battleBackground.png"
@@ -116,23 +126,33 @@ module.exports = {
 
       const pokemonSize = 128;
 
-      players.forEach((team, teamIndex) => {
-        const back = teamIndex == 0 ? true : false;
-        team.forEach((pokemon, pokemonIndex) => {
-          const pokemonPos = {
-            x: pokemonSize * pokemonIndex,
-            y: pokemonSize * teamIndex,
-          };
+      const pokemonPos = [
+        {
+          x: 100 - pokemonSize / 2,
+          y: 100,
+        },
+        {
+          x: 300,
+          y: 150,
+        },
+      ];
 
-          drawPokemonImage(
-            ctx,
-            pokemon.id,
-            pokemonPos.x,
-            pokemonPos.y,
-            pokemonSize,
-            back
-          );
-        });
+      players.forEach((player, index) => {
+        const showBack = index == 0;
+        const clipY = showBack ? 45 : 0;
+        const pos = pokemonPos[index];
+
+        if (!player.activePokemon) return;
+
+        drawPokemonImage(
+          ctx,
+          player.activePokemon.id,
+          pos.x,
+          pos.y,
+          pokemonSize,
+          showBack,
+          clipY
+        );
       });
 
       const attachment = new Discord.MessageAttachment(

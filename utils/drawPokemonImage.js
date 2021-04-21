@@ -18,7 +18,8 @@ const drawPokemonImage = (
   x,
   y,
   size = pokemonSize,
-  back = false
+  back = false,
+  clipY = 0
 ) => {
   const pokemonPos = {
     x: (pokemonId - 1) * pokemonSize,
@@ -30,11 +31,11 @@ const drawPokemonImage = (
     pokemonPos.x,
     pokemonPos.y,
     pokemonSize,
-    pokemonSize,
+    pokemonSize - clipY,
     x,
     y,
     size,
-    size
+    size - clipY
   );
 };
 

@@ -1,14 +1,14 @@
-const getPokemonTeam = async () => {
+const getPokemonTeam = async (id) => {
   const { getUserPokemons, updateTeam, getTeam } = require("../database");
 
-  const firstThreePokemons = await getUserPokemons("476302464493158400", 3);
+  const firstThreePokemons = await getUserPokemons(id, 3);
 
   firstThreePokemons.forEach((pokemon) => {
-    updateTeam("476302464493158400", 0, pokemon.docId);
+    updateTeam(id, 0, pokemon.docId);
   });
 
-  const team = await getTeam("476302464493158400");
+  const team = await getTeam(id);
   console.log(team);
 };
 
-getPokemonTeam();
+getPokemonTeam("223718005471838212");
