@@ -62,6 +62,7 @@ module.exports = {
       updateUserPokedex,
       updateUserXP,
       updatePokeballs,
+      updateUserPokemonCount,
     } = require("../../database");
 
     // Require function that returns random Pokémon moves.
