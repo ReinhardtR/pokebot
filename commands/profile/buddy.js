@@ -44,12 +44,12 @@ async function pickBuddy(msg, args) {
   }
 
   const drawPokemonImage = require("../../utils/drawPokemonImage");
-  // const pokemons = await getUserPokemons(msg.author.id, 20, sortArg, "desc");
+  const pokemons = await getUserPokemons(msg.author.id, 20, sortArg, "desc");
   const buddyPokemonId = await getBuddy(msg.author.id);
-  const pokemons = [
+  /*const pokemons = [
     { id: 102, moves: Array(4), xp: 0, name: "exeggcute" },
     { name: "vulpix", xp: 0, moves: Array(4), id: 37 },
-  ];
+  ];*/
   console.log(pokemons);
   const gap = 256;
   var y = 0;
