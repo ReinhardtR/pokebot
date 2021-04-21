@@ -100,14 +100,48 @@ module.exports = {
 
       battles.set(channel.id, battle);
 
+      const { getTeam } = require("../../database");
+
+      const player1Team = await getTeam(battle.player1);
+      const player2Team = await getTeam(battle.player2);
+
+      const players = [player1Team, player2Team];
+
       const canvas = Canvas.createCanvas(400, 300);
       const ctx = canvas.getContext("2d");
 
-      drawPokemonImage();
+      const pokemonSize = 128;
 
-      const battleEmbed = new Discord.MessageEmbed().setTitle(
-        `${msg.author.username} vs ${invitedUser.username}`
+      players.forEach((team, teamIndex) => {
+        const back = teamIndex == 0 ? true : false;
+        team.forEach((pokemon, pokemonIndex) => {
+          const pokemonPos = {
+            x: pokemonSize * pokemonIndex,
+            y: pokemonSize * teamIndex,
+          };
+
+          drawPokemonImage(
+            ctx,
+            pokemon.id,
+            pokemonPos.x,
+            pokemonPos.y,
+            pokemonSize,
+            back
+          );
+        });
+      });
+
+      const attachment = new Discord.MessageAttachment(
+        canvas.toBuffer(),
+        "player1Team.png"
       );
+
+      const battleEmbed = new Discord.MessageEmbed()
+        .setTitle(`${msg.author.username} vs ${invitedUser.username}`)
+        .attachFiles(attachment)
+        .setImage(`attachment://${attachment.name}`);
+
+      channel.send({ embed: battleEmbed });
     };
   },
 };

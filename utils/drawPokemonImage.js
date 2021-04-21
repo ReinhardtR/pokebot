@@ -22,7 +22,7 @@ const drawPokemonImage = (
 ) => {
   const pokemonPos = {
     x: (pokemonId - 1) * pokemonSize,
-    y: back ? size : 0,
+    y: back ? pokemonSize : 0,
   };
 
   ctx.drawImage(

@@ -79,7 +79,7 @@ module.exports = {
     updatePokeballs(msg.author.id, -1);
 
     //Give user xp, relative to pokemon rarity
-    const membersEffect = 1 + walk.members.length * 0.2;
+    const membersEffect = 1 + channelWalk.members.length * 0.2;
     const xpGain = Math.pow(pokemonToCatch.rarity, 2) * 10 * membersEffect;
     updateUserXP(msg.author.id, xpGain, msg);
 

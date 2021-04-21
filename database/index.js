@@ -170,6 +170,10 @@ const getTeam = async (userId) => {
   const userDoc = await userRef.get();
   const teamIds = userDoc.data().team;
 
+  if (!teamIds.length) {
+    return [];
+  }
+
   const pokemonsRef = userRef.collection("pokemons");
   const snapshot = await pokemonsRef
     .where(firebase.firestore.FieldPath.documentId(), "in", teamIds)

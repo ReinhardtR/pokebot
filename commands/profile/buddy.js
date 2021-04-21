@@ -35,12 +35,12 @@ async function pickBuddy(msg, args) {
 
   //Buddy
   ///////////////////////////////////////////////////////////Too many firebase calls
-  const acceptableKeywords = ["name", "id", "xp"];
+  const acceptableKeywords = ["name", "id", "xp", "rarity"];
 
-  const pokemonLength = getUserPokemonCount(msg.author.id);
+  const pokemonLength = await getUserPokemonCount(msg.author.id);
   var sortArg = args[0] ? args[0].toLowerCase() : "id";
   var choiceArg = args[1] ? args[1].toLowerCase() : "";
-  const pokemons = [
+  const userPokemonsData = [
     {
       docId: "AQAWEr9HBpWrLQ0V4ntp",
       moves: Array(4),
@@ -57,6 +57,17 @@ async function pickBuddy(msg, args) {
     },
   ];
 
+  const pokemons = require("../../constants/pokemons.json");
+
+  const userPokemons = userPokemonsData.map((userPokemon) => {
+    const pokemonData = pokemons[userPokemon.id - 1];
+
+    return {
+      rarity: pokemonData.rarity,
+      ...userPokemon,
+    };
+  });
+
   if (!acceptableKeywords.includes(sortArg)) {
     sortArg = "id";
     msg.reply(
@@ -64,11 +75,11 @@ async function pickBuddy(msg, args) {
     );
     if (!isNaN(sortArg) && sortArg < pokemonLength) {
       msg.reply(`you chose pokemon number: ${sortArg}`);
-      setBuddy(msg.author.id, pokemons[sortArg].docId);
+      setBuddy(msg.author.id, userPokemons[sortArg].docId);
     }
   } else if (!isNaN(choiceArg) && choiceArg < pokemonLength) {
     msg.reply(`you chose pokemon number: ${choiceArg}`);
-    setBuddy(msg.author.id, pokemons[choiceArg - 1].docId);
+    setBuddy(msg.author.id, userPokemons[choiceArg - 1].docId);
   }
 
   const drawPokemonImage = require("../../utils/drawPokemonImage");
@@ -79,7 +90,7 @@ async function pickBuddy(msg, args) {
   var columnStart = 0;
   var columnAmount = 10;
 
-  pokemons.forEach((pokemon, index) => {
+  userPokemons.forEach((pokemon, index) => {
     var loc = index * gap;
     if (loc > ctx.width) {
       y++;
