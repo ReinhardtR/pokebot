@@ -47,12 +47,11 @@ async function pickBuddy(msg, args) {
   // const pokemons = await getUserPokemons(msg.author.id, 20, sortArg, "desc");
   const buddyPokemonId = await getBuddy(msg.author.id);
   const pokemons = [
-    { level: 1, name: "mew", xp: 0, id: 151 },
-    { xp: 0, id: 150, level: 1, name: "mewtwo" },
-    { id: 149, name: "dragonite", level: 1, xp: 0 },
-    { id: 148, name: "dragonair", level: 1, xp: 0 },
+    { id: 102, moves: Array(4), xp: 0, name: "exeggcute" },
+    { name: "vulpix", xp: 0, moves: Array(4), id: 37 },
   ];
-  const gap = 64;
+  console.log(pokemons);
+  const gap = 256;
   var y = 0;
   var columnStart = 0;
   var columnAmount = 10;
@@ -66,8 +65,11 @@ async function pickBuddy(msg, args) {
       ctx.textAlign = "center";
       ctx.fillText("Buddy", index * gap - columnStart, y * gap);
     }
-    drawPokemonImage(ctx, pokemon.id, index * gap - columnStart, y * gap, 256);
+    drawPokemonImage(ctx, pokemon.id, index * gap - columnStart, y * gap, gap);
   });
+
+  const { setBuddy } = require("../../database");
+  setBuddy(msg.author.id, "AQAWEr9HBpWrLQ0V4ntp"); //Temporary manual set buddy id... Replace with a variable from buddyselection (when made)
 
   // Create image file
   const attachment = new Discord.MessageAttachment(

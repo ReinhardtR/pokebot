@@ -148,10 +148,16 @@ const getPokeballs = async (userId) => {
 const getBuddy = async (userId) => {
   const userRef = db.collection("users").doc(userId);
   const userDoc = await userRef.get();
-  const buddyDocId = userDoc.buddyId;
+  const buddyDocId = userDoc.data().buddy;
   const buddyDoc = await userRef.collection("pokemons").doc(buddyDocId).get();
-
   return buddyDoc.data();
+};
+
+const setBuddy = async (userId, pokemonId) => {
+  const userRef = db.collection("users").doc(userId);
+  userRef.update({
+    buddy: pokemonId,
+  });
 };
 
 module.exports = {
@@ -167,6 +173,7 @@ module.exports = {
   updatePokeballs,
   getPokeballs,
   getBuddy,
+  setBuddy,
   updateUserPokemonCount,
   getUserPokemonCount,
 };
