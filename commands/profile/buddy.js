@@ -9,7 +9,12 @@ module.exports = {
 
 async function pickBuddy(msg, args) {
   const Discord = require("discord.js");
-  const { getBuddy, getUserPokemons } = require("../../database");
+  const {
+    getBuddy,
+    getUserPokemons,
+    getUserPokemonCount,
+    setBuddy,
+  } = require("../../database");
 
   //Setup canvas
   const Canvas = require("canvas");
@@ -30,46 +35,63 @@ async function pickBuddy(msg, args) {
 
   //Buddy
   ///////////////////////////////////////////////////////////Too many firebase calls
-  //const pokemons = await getUserPokemons(msg.author.id);
   const acceptableKeywords = ["name", "id", "xp"];
 
+  const pokemonLength = getUserPokemonCount(msg.author.id);
   var sortArg = args[0] ? args[0].toLowerCase() : "id";
-  // var sortArg = args?.[0].toLowerCase();
+  var choiceArg = args[1] ? args[1].toLowerCase() : "";
+  const pokemons = [
+    {
+      docId: "AQAWEr9HBpWrLQ0V4ntp",
+      moves: Array(4),
+      xp: 0,
+      id: 102,
+      name: "exeggcute",
+    },
+    {
+      docId: "31ZgGtx7324d8knXFGat",
+      name: "vulpix",
+      moves: Array(4),
+      id: 37,
+      xp: 0,
+    },
+  ];
 
   if (!acceptableKeywords.includes(sortArg)) {
     sortArg = "id";
     msg.reply(
       `you did not define an suffix so it is automatically set to: ${sortArg}`
     );
+    if (!isNaN(sortArg) && sortArg < pokemonLength) {
+      msg.reply(`you chose pokemon number: ${sortArg}`);
+      setBuddy(msg.author.id, pokemons[sortArg].docId);
+    }
+  } else if (!isNaN(choiceArg) && choiceArg < pokemonLength) {
+    msg.reply(`you chose pokemon number: ${choiceArg}`);
+    setBuddy(msg.author.id, pokemons[choiceArg - 1].docId);
   }
 
   const drawPokemonImage = require("../../utils/drawPokemonImage");
-  // const pokemons = await getUserPokemons(msg.author.id, 20, sortArg, "desc");
+  //const pokemons = await getUserPokemons(msg.author.id, 20, sortArg, "desc");
   const buddyPokemonId = await getBuddy(msg.author.id);
-  const pokemons = [
-    { id: 102, moves: Array(4), xp: 0, name: "exeggcute" },
-    { name: "vulpix", xp: 0, moves: Array(4), id: 37 },
-  ];
-  console.log(pokemons);
   const gap = 256;
   var y = 0;
   var columnStart = 0;
   var columnAmount = 10;
 
   pokemons.forEach((pokemon, index) => {
-    if (index * gap > ctx.width) {
+    var loc = index * gap;
+    if (loc > ctx.width) {
       y++;
       columnStart += columnAmount;
     }
     if (buddyPokemonId === pokemon) {
       ctx.textAlign = "center";
-      ctx.fillText("Buddy", index * gap - columnStart, y * gap);
+      ctx.fillText("Buddy", loc - columnStart, y * gap);
     }
-    drawPokemonImage(ctx, pokemon.id, index * gap - columnStart, y * gap, gap);
+    ctx.fillText(pokemon[sortArg], loc - columnStart, y * gap);
+    drawPokemonImage(ctx, pokemon.id, loc - columnStart, y * gap, gap);
   });
-
-  const { setBuddy } = require("../../database");
-  setBuddy(msg.author.id, "AQAWEr9HBpWrLQ0V4ntp"); //Temporary manual set buddy id... Replace with a variable from buddyselection (when made)
 
   // Create image file
   const attachment = new Discord.MessageAttachment(
@@ -79,7 +101,7 @@ async function pickBuddy(msg, args) {
 
   // Create embed with image attached
   const embed = new Discord.MessageEmbed()
-    .setTitle("Buddies")
+    .setTitle("Buddy Selection")
     .setDescription(msg.author.toString())
     .setColor(53380)
     .attachFiles(attachment)
