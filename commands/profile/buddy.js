@@ -1,5 +1,5 @@
 module.exports = {
-  name: "buddy",
+  name: "bag",
   description: "Pick a buddy for your journey!",
   needProfile: true,
   execute(msg, args) {
@@ -38,32 +38,17 @@ async function pickBuddy(msg, args) {
   const pokemonsOnEachPage = 20;
 
   const acceptableKeywords = ["name", "id", "xp", "rarity"];
-
   const pokemonLength = await getUserPokemonCount(msg.author.id);
-  var sortArg = args[0] ? args[0].toLowerCase() : "rarity";
-  var choiceArg = args[1] ? args[1].toLowerCase() : "";
+
+  const drawPokemonImage = require("../../utils/drawPokemonImage");
+  const buddyPokemonId = await getBuddy(msg.author.id);
+  const gap = 256;
+
   const userPokemonsData = await getUserPokemons(
     msg.author.id,
-    pokemonsOnEachPage * pageNumber,
-    sortArg,
-    "desc"
+    pokemonsOnEachPage,
+    sortArg
   );
-  /*const userPokemonsData = [
-    {
-      docId: "AQAWEr9HBpWrLQ0V4ntp",
-      moves: Array(4),
-      xp: 0,
-      id: 102,
-      name: "exeggcute",
-    },
-    {
-      docId: "31ZgGtx7324d8knXFGat",
-      name: "vulpix",
-      moves: Array(4),
-      id: 37,
-      xp: 0,
-    },
-  ];*/
 
   const pokemons = require("../../constants/pokemons.json");
 
@@ -76,40 +61,60 @@ async function pickBuddy(msg, args) {
     };
   });
 
-  if (!acceptableKeywords.includes(sortArg)) {
-    sortArg = "id";
-    msg.reply(
-      `you did not define an suffix so it is automatically set to: ${sortArg}`
-    );
-    if (!isNaN(sortArg) && sortArg < pokemonLength) {
-      msg.reply(`you chose pokemon number: ${sortArg}`);
-      setBuddy(msg.author.id, userPokemons[sortArg].docId);
-    }
-  } else if (!isNaN(choiceArg) && choiceArg < pokemonLength) {
-    msg.reply(`you chose pokemon number: ${choiceArg}`);
-    setBuddy(msg.author.id, userPokemons[choiceArg - 1].docId);
-  }
-
-  const drawPokemonImage = require("../../utils/drawPokemonImage");
-  const buddyPokemonId = await getBuddy(msg.author.id);
-  const gap = 256;
   var y = 0;
   var columnStart = 0;
   var columnAmount = 10;
 
-  userPokemons.forEach((pokemon, index) => {
-    var loc = index * gap;
-    if (loc > ctx.width) {
-      y++;
-      columnStart += columnAmount;
+  const firstArg = args[0];
+
+  if (!firstArg || acceptableKeywords.includes(firstArg)) {
+    userPokemons.forEach((pokemon, index) => {
+      var loc = index * gap;
+      if (loc > ctx.width) {
+        y++;
+        columnStart += columnAmount;
+      }
+      ctx.fillText(pokemon[firstArg], loc - columnStart, y * gap);
+      drawPokemonImage(ctx, pokemon.id, loc - columnStart, y * gap, gap);
+    });
+  } else if (firstArg == "buddy") {
+    var sortArg = args[1] ? args[1].toLowerCase() : "id";
+    var choiceArg = args[2] ? args[2].toLowerCase() : "";
+
+    if (!acceptableKeywords.includes(sortArg)) {
+      sortArg = "id";
+      msg.reply(
+        `you did not define an suffix so it is automatically set to: ${sortArg}`
+      );
+      if (!isNaN(sortArg) && sortArg < pokemonLength) {
+        msg.reply(`you chose pokemon number: ${sortArg}`);
+        setBuddy(msg.author.id, userPokemons[sortArg].docId);
+      }
+    } else if (!isNaN(choiceArg) && choiceArg < pokemonLength) {
+      msg.reply(`you chose pokemon number: ${choiceArg}`);
+      setBuddy(msg.author.id, userPokemons[choiceArg - 1].docId);
     }
-    if (buddyPokemonId === pokemon) {
-      ctx.textAlign = "center";
-      ctx.fillText("Buddy", loc - columnStart, y * gap);
-    }
-    ctx.fillText(pokemon[sortArg], loc - columnStart, y * gap);
-    drawPokemonImage(ctx, pokemon.id, loc - columnStart, y * gap, gap);
-  });
+    userPokemons.forEach((pokemon, index) => {
+      var loc = index * gap;
+      if (loc > ctx.width) {
+        y++;
+        columnStart += columnAmount;
+      }
+      if (buddyPokemonId === pokemon) {
+        ctx.textAlign = "center";
+        ctx.fillText("Buddy", loc - columnStart, y * gap);
+      }
+      ctx.fillText(pokemon[sortArg], loc - columnStart, y * gap);
+      drawPokemonImage(ctx, pokemon.id, loc - columnStart, y * gap, gap);
+    });
+  } else if (firstArg == "switch") {
+    const fromNumber = args[1];
+    const toNumber = args[2];
+
+    const savePokemon = userPokemons[fromNumber];
+    userPokemons[fromNumber] = userPokemons[toNumber];
+    userPokemons[toNumber] = savePokemon;
+  }
 
   // Create image file
   const attachment = new Discord.MessageAttachment(
