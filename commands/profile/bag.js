@@ -9,7 +9,7 @@ module.exports = {
 };
 
 async function drawBag(userPokemons, sortArg, userId, ctx) {
-  var y = 0;
+  var posY = 0;
   var columnStart = 0;
   var columnAmount = 10;
   const spriteSize = 256;
@@ -18,21 +18,21 @@ async function drawBag(userPokemons, sortArg, userId, ctx) {
   const { getBuddy } = require("../../database");
   const buddyPokemonId = await getBuddy(userId);
   userPokemons.forEach((pokemon, index) => {
-    var loc = index * spriteSize;
-    if (loc > ctx.width) {
-      y++;
+    var posX = index * spriteSize;
+    if (posX > ctx.width) {
+      posY++;
       columnStart += columnAmount;
     }
     if (buddyPokemonId === pokemon) {
       ctx.textAlign = "center";
-      ctx.fillText("Buddy", loc - columnStart, y * spriteSize);
+      ctx.fillText("Buddy", posX - columnStart, posY * spriteSize);
     }
-    ctx.fillText(pokemon[sortArg], loc - columnStart, y * spriteSize);
+    ctx.fillText(pokemon[sortArg], posX - columnStart, posY * spriteSize);
     drawPokemonImage(
       ctx,
       pokemon.id,
-      loc - columnStart,
-      y * spriteSize,
+      posX - columnStart,
+      posY * spriteSize,
       spriteSize
     );
   });
@@ -84,28 +84,29 @@ async function pickBuddy(msg, userId, args) {
   const acceptableKeywords = ["name", "id", "xp", "rarity"];
   const pokemonLength = await getUserPokemonCount(userId);
   const firstArg = args[0];
-  var sortArg = args[1] ? args[1].toLowerCase() : "id";
+  const standardSort = "id";
+  var sortArg = args[1] ? args[1].toLowerCase() : standardSort;
 
   //User firstArg to check what the player wants, and dragBag based on the result
   if (!firstArg || acceptableKeywords.includes(firstArg)) {
-    drawBag(userPokemons, sortArg, userId, ctx);
+    await drawBag(userPokemons, sortArg, userId, ctx);
   } else if (firstArg == "buddy") {
-    if (!args[2]) {
+    if (!isNaN(args[2])) {
       var choiceArg = args[1];
     } else {
       choiceArg = args[2] ? args[2].toLowerCase() : "";
     }
     //Check what arguments were given, and send back the correct responds
-    if (!acceptableKeywords.includes(sortArg)) {
+    if (acceptableKeywords.includes(sortArg)) {
       msg.reply(
         `The correct way of using this command is (sortBy is optional): <p!bag buddy sortBy buddyNumber>`
       );
-    } else if (!isNaN(choiceArg) && choiceArg < pokemonLength) {
+    } else if (choiceArg && choiceArg < pokemonLength) {
       const buddy = userPokemons[choiceArg - 1];
       msg.reply(`you chose: ${buddy.name} as your buddy!`);
       setBuddy(userId, buddy.docId);
     }
-    drawBag(userPokemons, sortArg, userId, ctx);
+    await drawBag(userPokemons, standardSort, userId, ctx);
   } else if (firstArg == "switch") {
     //Define from and to numbers and use them to switch the pokemons
     const fromNumber = args[1];
@@ -113,7 +114,7 @@ async function pickBuddy(msg, userId, args) {
     const savePokemon = userPokemons[fromNumber];
     userPokemons[fromNumber] = userPokemons[toNumber];
     userPokemons[toNumber] = savePokemon;
-    drawBag(userPokemons, sortArg, userId, ctx);
+    await drawBag(userPokemons, sortArg, userId, ctx);
   } else {
     msg.reply(`The fuck you do, homeboy?`);
   }
