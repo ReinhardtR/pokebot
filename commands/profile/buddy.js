@@ -34,13 +34,22 @@ async function pickBuddy(msg, args) {
   ctx.textBaseline = "top";
 
   //Buddy
-  ///////////////////////////////////////////////////////////Too many firebase calls
+  var pageNumber = 1;
+  const pokemonsOnEachPage = 20;
+
   const acceptableKeywords = ["name", "id", "xp", "rarity"];
 
   const pokemonLength = await getUserPokemonCount(msg.author.id);
-  var sortArg = args[0] ? args[0].toLowerCase() : "id";
+  var sortArg = args[0] ? args[0].toLowerCase() : "rarity";
   var choiceArg = args[1] ? args[1].toLowerCase() : "";
-  const userPokemonsData = [
+  const userPokemonsData = await getUserPokemons(
+    msg.author.id,
+    pokemonsOnEachPage,
+    pageNumber * pokemonsOnEachPage,
+    sortArg,
+    "desc"
+  );
+  /*const userPokemonsData = [
     {
       docId: "AQAWEr9HBpWrLQ0V4ntp",
       moves: Array(4),
@@ -55,7 +64,7 @@ async function pickBuddy(msg, args) {
       id: 37,
       xp: 0,
     },
-  ];
+  ];*/
 
   const pokemons = require("../../constants/pokemons.json");
 
@@ -83,7 +92,6 @@ async function pickBuddy(msg, args) {
   }
 
   const drawPokemonImage = require("../../utils/drawPokemonImage");
-  //const pokemons = await getUserPokemons(msg.author.id, 20, sortArg, "desc");
   const buddyPokemonId = await getBuddy(msg.author.id);
   const gap = 256;
   var y = 0;
