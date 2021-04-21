@@ -76,6 +76,7 @@ const getUserPokemons = async (
     .startAfter(startDoc[value])
     .limit(limit)
     .get();
+
   const pokemons = snapshot.docs.map((doc) => ({
     docId: doc.id,
     ...doc.data(),

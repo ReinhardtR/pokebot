@@ -38,7 +38,19 @@ module.exports = {
       );
     }
 
-    const Discord = require("discord.js");
+    if (!invitedUserProfile.team.length) {
+      return msg.reply(
+        "your opponent doesn't have a Pokémon-team. Use p!bag to make a team."
+      );
+    }
+
+    const userProfile = await getUserProfile(msg.author.id);
+
+    if (!userProfile.team.length) {
+      return msg.reply(
+        "you don't have a Pokémon-team. Use p!bag to make a team."
+      );
+    }
 
     const inviteEmbed = new Discord.MessageEmbed().setTitle(
       `${msg.author.username} challenged ${invitedUser.username}!`
@@ -83,9 +95,6 @@ module.exports = {
         botInviteMsg.delete();
       });
 
-    const Canvas = require("canvas");
-    const drawPokemonImage = require("../../utils/drawPokemonImage");
-
     const startBattle = async () => {
       const channel = await createChannel(msg, invitedUser);
 
@@ -101,7 +110,6 @@ module.exports = {
       battles.set(channel.id, battle);
 
       const { getTeam } = require("../../database");
-
       const player1Team = await getTeam(battle.player1);
       const player2Team = await getTeam(battle.player2);
 
@@ -115,59 +123,101 @@ module.exports = {
         activePokemon: player2Team[0],
       };
 
-      const players = [player1, player2];
-
       const background = await Canvas.loadImage(
         "https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/battleBackground.png"
       );
-      const canvas = Canvas.createCanvas(background.width, background.height);
-      const ctx = canvas.getContext("2d");
-      ctx.drawImage(background, 0, 0);
 
-      const pokemonSize = 128;
-
-      const pokemonPos = [
-        {
-          x: 100 - pokemonSize / 2,
-          y: 100,
-        },
-        {
-          x: 300,
-          y: 150,
-        },
-      ];
-
-      players.forEach((player, index) => {
-        const showBack = index == 0;
-        const clipY = showBack ? 45 : 0;
-        const pos = pokemonPos[index];
-
-        if (!player.activePokemon) return;
-
-        drawPokemonImage(
-          ctx,
-          player.activePokemon.id,
-          pos.x,
-          pos.y,
-          pokemonSize,
-          showBack,
-          clipY
-        );
-      });
-
-      const attachment = new Discord.MessageAttachment(
-        canvas.toBuffer(),
-        "player1Team.png"
-      );
-
-      const battleEmbed = new Discord.MessageEmbed()
-        .setTitle(`${msg.author.username} vs ${invitedUser.username}`)
-        .attachFiles(attachment)
-        .setImage(`attachment://${attachment.name}`);
+      const battleEmbed = getBattleEmbed(background, [player1, player2]);
+      battleEmbed.setTitle(`${msg.author.username} vs ${invitedUser.username}`);
 
       channel.send({ embed: battleEmbed });
     };
   },
+};
+
+const Discord = require("discord.js");
+const Canvas = require("canvas");
+const drawPokemonImage = require("../../utils/drawPokemonImage");
+const upperCaseString = require("../../utils/upperCaseString");
+
+const getBattleEmbed = (background, players) => {
+  const canvas = Canvas.createCanvas(background.width, background.height);
+  const ctx = canvas.getContext("2d");
+  ctx.drawImage(background, 0, 0);
+
+  const pokemonSize = 128;
+  const pokemonStyles = {
+    player1: {
+      pokemon: {
+        x: 100 - pokemonSize / 2,
+        y: 100,
+        size: 128,
+        showBack: true,
+        clipY: 45,
+      },
+      box: {
+        x: 25,
+        y: 15,
+      },
+    },
+    player2: {
+      pokemon: {
+        x: 300 - pokemonSize / 2,
+        y: 30,
+        size: 100,
+        showBack: false,
+        clipY: 0,
+      },
+      box: {
+        x: 225,
+        y: 130,
+      },
+    },
+  };
+  const textPos = {
+    x: 16,
+    y: 40,
+  };
+
+  players.forEach((player, index) => {
+    const style = pokemonStyles[`player${index + 1}`];
+
+    drawPokemonImage(
+      ctx,
+      player.activePokemon.id,
+      style.pokemon.x,
+      style.pokemon.y,
+      style.pokemon.size,
+      style.pokemon.showBack,
+      style.pokemon.clipY
+    );
+
+    const boxCanvas = Canvas.createCanvas(150, 60);
+    const boxCtx = textCanvas.getContext("2d");
+
+    boxCtx.font = "bold 16px Sans-Serif";
+    boxCtx.fillStyle = "#ffffff";
+    boxCtx.textAlign = "center";
+
+    boxCtx.fillText(
+      upperCaseString(player.activePokemon.name),
+      textPos.x,
+      textPos.y
+    );
+
+    ctx.drawImage(boxCanvas, style.box.x, style.box.y);
+  });
+
+  const attachment = new Discord.MessageAttachment(
+    canvas.toBuffer(),
+    "player1Team.png"
+  );
+
+  const battleEmbed = new Discord.MessageEmbed()
+    .attachFiles(attachment)
+    .setImage(`attachment://${attachment.name}`);
+
+  return battleEmbed;
 };
 
 const createChannel = async (msg, invitedUser) => {
