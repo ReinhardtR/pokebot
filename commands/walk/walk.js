@@ -4,6 +4,7 @@ module.exports = {
   args: true,
   usage: "<start or stop>",
   guildOnly: true,
+  needProfile: true,
   async execute(msg, args) {
     const { walks } = msg.client;
 

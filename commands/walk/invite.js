@@ -1,5 +1,3 @@
-const walk = require("./walk");
-
 module.exports = {
   name: "invite",
   description:
@@ -7,6 +5,7 @@ module.exports = {
   args: true,
   usage: "<user-tag>",
   guildOnly: true,
+  needProfile: true,
   async execute(msg, args) {
     if (!msg.mentions.members.size) {
       return msg.reply("your argument wasn't a user-tag.");

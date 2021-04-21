@@ -21,11 +21,11 @@ module.exports = {
       return msg.reply("you're not a member of this walk.");
     }
 
-    const { getBagContents, updateBagContents } = require("../../database");
-    const bagContent = getBagContents(msg.author.id);
+    const { getPokeballs } = require("../../database");
+    const pokeballs = await getPokeballs(msg.author.id);
 
-    if (bagContent.balls <= 0) {
-      return msg.reply("you do not have any pokeballs");
+    if (pokeballs <= 0) {
+      return msg.reply("you do not have any pokeballs.");
     }
 
     const pokemons = require("../../constants/pokemons.json");
@@ -61,6 +61,7 @@ module.exports = {
       getUserPokedex,
       updateUserPokedex,
       updateUserXP,
+      updatePokeballs,
     } = require("../../database");
 
     // Require function that returns random Pokémon moves.
@@ -75,6 +76,7 @@ module.exports = {
       xp: 0,
     };
     givePokemonToUser(msg.author.id, caughtPokemon);
+    updatePokeballs(msg.author.id, -1);
 
     //Give user xp, relative to pokemon rarity
     const xpGain = Math.pow(pokemonToCatch.rarity, 2) * 10;
