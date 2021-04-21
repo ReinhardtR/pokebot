@@ -87,6 +87,7 @@ async function pickBuddy(msg, userId, args) {
   const standardSort = "id";
   var sortArg = args[1] ? args[1].toLowerCase() : standardSort;
   if (sortArg == "rarity") {
+    userPokemons.sort((a, b) => b.rarity - a.rarity);
   }
 
   if (firstArg == "buddy") {
