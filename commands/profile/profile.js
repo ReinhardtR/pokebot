@@ -73,7 +73,11 @@ async function sendProfile(msg, user) {
   const rank = await sortLevelsAndReturnRank(user.id);
 
   //Get level and xp
-  const { getXPNeeded, getLevel, getXPDisplayed } = require("./levelAndXP");
+  const {
+    getXPNeeded,
+    getLevel,
+    getXPDisplayed,
+  } = require("./utils/levelAndXP");
   const level = getLevel(userDoc.xp);
   const xpNeeded = getXPNeeded(level);
   const xpDisplayed = getXPDisplayed(userDoc.xp);
@@ -144,26 +148,10 @@ async function sendProfile(msg, user) {
         hasBadge = userPokedex.includes(badge.requirement.values);
       }
 
-      //var image = await Canvas.loadImage(badge.badgeURL);
-      //ctx.drawImage(image, x, y, badgeSize, badgeSize);
-
       if (!hasBadge) {
         image = await Canvas.loadImage(
           `https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/lock.png`
         );
-        /*const pixels = ctx.getImageData(x, y, badgeSize, badgeSize);
-        const pixelData = pixels.data;
-        for (var i = 0; i < pixelData.length; i += 4) {
-          if (
-            pixelData[i + 0] != 103 &&
-            pixelData[i + 1] != 159 &&
-            pixelData[i + 2] != 158
-          ) {
-            // pixel is not same color as the background
-            pixelData[i + 0] = pixelData[i + 1] = pixelData[i + 2] = 0; // color black
-          }
-          ctx.putImageData(pixels, x, y);
-        }*/
       } else {
         var image = await Canvas.loadImage(badge.badgeURL);
       }
@@ -173,10 +161,17 @@ async function sendProfile(msg, user) {
   );
 
   //Buddy
-  const { getBuddyId } = require("../../index");
-  const buddyPokemonId = getBuddyId(msg.author.id);
-  const { drawPokemonImage } = require("../walk/utils/getRandomPokemons");
-  drawPokemonImage(ctx, buddyPokemonId, 100, 100);
+  const { getBuddy } = require("../../database");
+  const buddyPokemon = await getBuddy(msg.author.id);
+  const drawPokemonImage = require("../../utils/drawPokemonImage");
+  const buddySize = 300;
+  drawPokemonImage(
+    ctx,
+    buddyPokemon.id,
+    WS - buddySize,
+    XPbarY + ch * 0.05,
+    buddySize
+  );
 
   //Make attachment from canvas
   const attachment = new Discord.MessageAttachment(
