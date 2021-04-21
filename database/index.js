@@ -58,15 +58,23 @@ const givePokemonToUser = (userId, pokemon) => {
 const getUserPokemons = async (
   userId,
   limit = 20,
-  limitToLast = 20,
+  lastDoc = undefined,
   value = "name",
   order = "desc"
 ) => {
   const pokemonsRef = db.collection("users").doc(userId).collection("pokemons");
+
+  const firstDoc = async () => {
+    const docSnapshot = await pokemonsRef.orderBy(value, order).limit(1).get();
+    return docSnapshot.docs[0].data();
+  };
+
+  const startDoc = lastDoc || (await firstDoc());
+
   const snapshot = await pokemonsRef
     .orderBy(value, order)
+    .startAfter(startDoc[value])
     .limit(limit)
-    .limitToLast(limitToLast)
     .get();
   const pokemons = snapshot.docs.map((doc) => ({
     docId: doc.id,

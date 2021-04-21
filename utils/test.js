@@ -3,12 +3,22 @@ const getPokemonTeam = async (id) => {
 
   const firstThreePokemons = await getUserPokemons(id, 3);
 
-  firstThreePokemons.forEach((pokemon) => {
-    updateTeam(id, 0, pokemon.docId);
-  });
+  console.log("first", firstThreePokemons);
 
-  const team = await getTeam(id);
-  console.log(team);
+  // firstThreePokemons.forEach((pokemon) => {
+  //   updateTeam(id, 0, pokemon.docId);
+  // });
+
+  const nextThreePokemons = await getUserPokemons(
+    id,
+    3,
+    firstThreePokemons[firstThreePokemons.length - 1]
+  );
+
+  console.log("next", nextThreePokemons);
+
+  // const team = await getTeam(id);
+  // console.log(team);
 };
 
-getPokemonTeam("223718005471838212");
+getPokemonTeam("476302464493158400");
