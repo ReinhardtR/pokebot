@@ -86,11 +86,10 @@ async function pickBuddy(msg, userId, args) {
   const firstArg = args[0];
   const standardSort = "id";
   var sortArg = args[1] ? args[1].toLowerCase() : standardSort;
+  if (sortArg == "rarity") {
+  }
 
-  //User firstArg to check what the player wants, and dragBag based on the result
-  if (!firstArg || acceptableKeywords.includes(firstArg)) {
-    await drawBag(userPokemons, sortArg, userId, ctx);
-  } else if (firstArg == "buddy") {
+  if (firstArg == "buddy") {
     if (!isNaN(args[2])) {
       var choiceArg = args[1];
     } else {
@@ -116,7 +115,7 @@ async function pickBuddy(msg, userId, args) {
     userPokemons[toNumber] = savePokemon;
     await drawBag(userPokemons, sortArg, userId, ctx);
   } else {
-    msg.reply(`The fuck you do, homeboy?`);
+    await drawBag(userPokemons, sortArg, userId, ctx);
   }
 
   // Create image file
