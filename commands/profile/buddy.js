@@ -44,8 +44,7 @@ async function pickBuddy(msg, args) {
   var choiceArg = args[1] ? args[1].toLowerCase() : "";
   const userPokemonsData = await getUserPokemons(
     msg.author.id,
-    pokemonsOnEachPage,
-    pageNumber * pokemonsOnEachPage,
+    pokemonsOnEachPage * pageNumber,
     sortArg,
     "desc"
   );
