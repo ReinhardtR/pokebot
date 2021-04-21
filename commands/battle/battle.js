@@ -107,10 +107,12 @@ module.exports = {
 
       const players = [player1Team, player2Team];
 
-      const canvas = Canvas.createCanvas(400, 300);
+      const background = await Canvas.loadImage(
+        "https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/battleBackground.png"
+      );
+      const canvas = Canvas.createCanvas(background.width, background.height);
       const ctx = canvas.getContext("2d");
-
-      const background = await Canvas.loadImage("");
+      ctx.drawImage(background, 0, 0);
 
       const pokemonSize = 128;
 
