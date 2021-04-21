@@ -58,22 +58,25 @@ const givePokemonToUser = (userId, pokemon) => {
 const getUserPokemons = async (
   userId,
   limit = 20,
-  lastDoc = undefined,
   value = "name",
-  order = "desc"
+  order = "desc",
+  lastDoc = undefined
 ) => {
   const pokemonsRef = db.collection("users").doc(userId).collection("pokemons");
 
-  const firstDoc = async () => {
-    const docSnapshot = await pokemonsRef.orderBy(value, order).limit(1).get();
-    return docSnapshot.docs[0].data();
-  };
+  var startValue = lastDoc && lastDoc[value];
 
-  const startDoc = lastDoc || (await firstDoc());
+  if (!startValue) {
+    if (typeof value == "string") {
+      startValue = order == "desc" ? "zzz" : "aaa";
+    } else if (typeof value == "number") {
+      startValue = order == "desc" ? Infinity : 0;
+    }
+  }
 
   const snapshot = await pokemonsRef
     .orderBy(value, order)
-    .startAfter(startDoc[value])
+    .startAt(startValue)
     .limit(limit)
     .get();
 
@@ -166,9 +169,12 @@ const getPokeballs = async (userId) => {
 const getBuddy = async (userId) => {
   const userRef = db.collection("users").doc(userId);
   const userDoc = await userRef.get();
+
   const buddyDocId = userDoc.data().buddy;
+  if (!buddyDocId) return;
   const buddyDoc = await userRef.collection("pokemons").doc(buddyDocId).get();
-  return buddyDoc.data();
+
+  return { docId: buddyDocId, ...buddyDoc.data() };
 };
 
 const setBuddy = async (userId, pokemonDocId) => {

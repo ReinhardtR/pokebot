@@ -1,5 +1,6 @@
 module.exports = {
   name: "battle",
+  description: "Challenge a friend to a Pokémon-battle, and earn rewards!",
   args: true,
   usage: "<user-tag>",
   guildOnly: true,

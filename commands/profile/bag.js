@@ -3,42 +3,11 @@ module.exports = {
   description: "Pick a buddy for your journey!",
   needProfile: true,
   execute(msg, args) {
-    const userId = msg.author.id;
-    pickBuddy(msg, userId, args);
+    pickBuddy(msg, args);
   },
 };
 
-async function drawBag(userPokemons, sortArg, userId, ctx) {
-  var posY = 0;
-  var columnStart = 0;
-  var columnAmount = 10;
-  const spriteSize = 256;
-
-  const drawPokemonImage = require("../../utils/drawPokemonImage");
-  const { getBuddy } = require("../../database");
-  const buddyPokemonId = await getBuddy(userId);
-  userPokemons.forEach((pokemon, index) => {
-    var posX = index * spriteSize;
-    if (posX > ctx.width) {
-      posY++;
-      columnStart += columnAmount;
-    }
-    if (buddyPokemonId === pokemon) {
-      ctx.textAlign = "center";
-      ctx.fillText("Buddy", posX - columnStart, posY * spriteSize);
-    }
-    ctx.fillText(pokemon[sortArg], posX - columnStart, posY * spriteSize);
-    drawPokemonImage(
-      ctx,
-      pokemon.id,
-      posX - columnStart,
-      posY * spriteSize,
-      spriteSize
-    );
-  });
-}
-
-async function pickBuddy(msg, userId, args) {
+async function pickBuddy(msg, args) {
   const Discord = require("discord.js");
   const {
     getUserPokemons,
@@ -62,12 +31,21 @@ async function pickBuddy(msg, userId, args) {
   ctx.fillStyle = "white";
   ctx.textBaseline = "top";
 
+  //Define values to be used in the firstArg checks
+  const acceptableKeywords = ["name", "id", "xp"];
+  const standardSort = "id";
+  const collectionSort =
+    args[0] && acceptableKeywords.includes(args[0])
+      ? args[0].toLowerCase()
+      : standardSort;
+
   //Collect the pokemons from firebase
   const pokemonsOnEachPage = 20;
   const userPokemonsData = await getUserPokemons(
-    userId,
+    msg.author.id,
     pokemonsOnEachPage,
-    sortArg
+    collectionSort,
+    collectionSort === "name" ? "asc" : "desc"
   );
 
   //Get pokemons and return their rarity
@@ -80,42 +58,39 @@ async function pickBuddy(msg, userId, args) {
     };
   });
 
-  //Define values to be used in the firstArg checks
-  const acceptableKeywords = ["name", "id", "xp", "rarity"];
-  const pokemonLength = await getUserPokemonCount(userId);
-  const firstArg = args[0];
-  const standardSort = "id";
-  var sortArg = args[1] ? args[1].toLowerCase() : standardSort;
-  if (sortArg == "rarity") userPokemons.sort((a, b) => b.rarity - a.rarity);
-
-  if (firstArg == "buddy") {
-    if (!isNaN(args[2])) {
-      var choiceArg = args[1];
-    } else {
-      choiceArg = args[2] ? args[2].toLowerCase() : "";
-    }
-    //Check what arguments were given, and send back the correct responds
-    if (acceptableKeywords.includes(sortArg)) {
-      msg.reply(
-        `The correct way of using this command is (sortBy is optional): <p!bag buddy sortBy buddyNumber>`
-      );
-    } else if (choiceArg && choiceArg < pokemonLength) {
-      const buddy = userPokemons[choiceArg - 1];
-      msg.reply(`you chose: ${buddy.name} as your buddy!`);
-      setBuddy(userId, buddy.docId);
-    }
-    await drawBag(userPokemons, standardSort, userId, ctx);
-  } else if (firstArg == "switch") {
-    //Define from and to numbers and use them to switch the pokemons
-    const fromNumber = args[1];
-    const toNumber = args[2];
-    const savePokemon = userPokemons[fromNumber];
-    userPokemons[fromNumber] = userPokemons[toNumber];
-    userPokemons[toNumber] = savePokemon;
-    await drawBag(userPokemons, sortArg, userId, ctx);
-  } else {
-    await drawBag(userPokemons, sortArg, userId, ctx);
+  if (args[0] == "rarity") {
+    var bagSort = "rarity";
+    userPokemons.sort((a, b) => b.rarity - a.rarity);
   }
+
+  const pokemonLength = await getUserPokemonCount(msg.author.id);
+
+  // if (firstArg == "buddy") {
+  //   if (!isNaN(args[2])) {
+  //     var choiceArg = args[1];
+  //   } else {
+  //     choiceArg = args[2] ? args[2].toLowerCase() : "";
+  //   }
+  //   //Check what arguments were given, and send back the correct responds
+  //   if (!acceptableKeywords.includes(sortArg)) {
+  //     msg.reply(
+  //       `The correct way of using this command is (sortBy is optional): <p!bag buddy sortBy buddyNumber>`
+  //     );
+  //   } else if (choiceArg && choiceArg < pokemonLength) {
+  //     const buddy = userPokemons[choiceArg - 1];
+  //     msg.reply(`you chose: ${buddy.name} as your buddy!`);
+  //     setBuddy(msg.author.id, buddy.docId);
+  //   }
+  // } else if (firstArg == "switch") {
+  //   //Define from and to numbers and use them to switch the pokemons
+  //   const fromNumber = args[1];
+  //   const toNumber = args[2];
+  //   const savePokemon = userPokemons[fromNumber];
+  //   userPokemons[fromNumber] = userPokemons[toNumber];
+  //   userPokemons[toNumber] = savePokemon;
+  // }
+
+  await drawBag(userPokemons, bagSort, msg.author.id, ctx);
 
   // Create image file
   const attachment = new Discord.MessageAttachment(
@@ -132,4 +107,53 @@ async function pickBuddy(msg, userId, args) {
     .setImage(`attachment://${attachment.name}`)
     .setThumbnail(msg.author.avatarURL());
   msg.channel.send({ embed });
+
+  const filter = (m) => {
+    const validArg = ["buddy", "switch"].find((string) =>
+      m.content.startsWith(string)
+    );
+    const sameUser = m.author.id === msg.author.id;
+    return validArg && sameUser;
+  };
+
+  msg.channel
+    .awaitMessages(filter, {
+      max: 1,
+      time: 60000,
+      errors: ["Timeout"],
+    })
+    .then((collected) => {
+      console.log(collected);
+    })
+    .catch((error) => {
+      msg.reply("time went out.");
+    });
+}
+
+async function drawBag(userPokemons, bagSort, id, ctx) {
+  const drawPokemonImage = require("../../utils/drawPokemonImage");
+
+  var row = 0;
+  const spriteSize = 256;
+
+  const { getBuddy } = require("../../database");
+  const buddy = await getBuddy(id);
+
+  userPokemons.forEach((pokemon, index) => {
+    const posX = index * spriteSize;
+    if (posX > ctx.width + spriteSize) {
+      row += 1;
+    }
+    const posY = row * spriteSize;
+
+    const textPosX = posX + spriteSize / 2;
+    ctx.textAlign = "center";
+    ctx.fillText(pokemon[bagSort], textPosX, posY);
+
+    if (buddy && buddy.docId == pokemon.docId) {
+      ctx.fillText("Buddy", posX - columnStart, posY * spriteSize);
+    }
+
+    drawPokemonImage(ctx, pokemon.id, posX, posY, spriteSize);
+  });
 }

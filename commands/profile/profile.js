@@ -163,15 +163,17 @@ async function sendProfile(msg, user) {
   //Buddy
   const { getBuddy } = require("../../database");
   const buddyPokemon = await getBuddy(msg.author.id);
-  const drawPokemonImage = require("../../utils/drawPokemonImage");
-  const buddySize = 300;
-  drawPokemonImage(
-    ctx,
-    buddyPokemon.id,
-    WS - buddySize,
-    XPbarY + ch * 0.05,
-    buddySize
-  );
+  if (buddyPokemon) {
+    const drawPokemonImage = require("../../utils/drawPokemonImage");
+    const buddySize = 300;
+    drawPokemonImage(
+      ctx,
+      buddyPokemon.id,
+      WS - buddySize,
+      XPbarY + ch * 0.05,
+      buddySize
+    );
+  }
 
   //Make attachment from canvas
   const attachment = new Discord.MessageAttachment(
