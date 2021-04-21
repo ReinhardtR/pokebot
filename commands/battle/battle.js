@@ -139,6 +139,7 @@ const Discord = require("discord.js");
 const Canvas = require("canvas");
 const drawPokemonImage = require("../../utils/drawPokemonImage");
 const upperCaseString = require("../../utils/upperCaseString");
+const roundRect = require("../../utils/roundRect");
 
 const getBattleEmbed = (background, players) => {
   const canvas = Canvas.createCanvas(background.width, background.height);
@@ -169,8 +170,8 @@ const getBattleEmbed = (background, players) => {
         clipY: 0,
       },
       box: {
-        x: 225,
-        y: 130,
+        x: 230,
+        y: 120,
       },
     },
   };
@@ -193,11 +194,15 @@ const getBattleEmbed = (background, players) => {
     );
 
     const boxCanvas = Canvas.createCanvas(150, 60);
-    const boxCtx = textCanvas.getContext("2d");
+    const boxCtx = boxCanvas.getContext("2d");
+
+    boxCtx.fillStyle = "rgb(24,24,24)";
+    boxCtx.strokeStyle = "rgb(36,36,36)";
+    roundRect(boxCtx, 0, 0, boxCanvas.width, boxCanvas.height, 16);
 
     boxCtx.font = "bold 16px Sans-Serif";
     boxCtx.fillStyle = "#ffffff";
-    boxCtx.textAlign = "center";
+    boxCtx.textAlign = "left";
 
     boxCtx.fillText(
       upperCaseString(player.activePokemon.name),
