@@ -3,14 +3,48 @@ module.exports = {
   description: "Pick a buddy for your journey!",
   needProfile: true,
   execute(msg, args) {
-    pickBuddy(msg, args);
+    const userId = msg.author.id;
+    pickBuddy(msg, userId, args);
   },
 };
 
-async function pickBuddy(msg, args) {
+async function drawBag(
+  userPokemons,
+  columnAmount,
+  columnStart,
+  y,
+  spriteSize,
+  sortArg,
+  userId,
+  ctx
+) {
+  const drawPokemonImage = require("../../utils/drawPokemonImage");
+  const { getBuddy } = require("../../database");
+  const buddyPokemonId = await getBuddy(userId);
+  userPokemons.forEach((pokemon, index) => {
+    var loc = index * spriteSize;
+    if (loc > ctx.width) {
+      y++;
+      columnStart += columnAmount;
+    }
+    if (buddyPokemonId === pokemon) {
+      ctx.textAlign = "center";
+      ctx.fillText("Buddy", loc - columnStart, y * spriteSize);
+    }
+    ctx.fillText(pokemon[sortArg], loc - columnStart, y * spriteSize);
+    drawPokemonImage(
+      ctx,
+      pokemon.id,
+      loc - columnStart,
+      y * spriteSize,
+      spriteSize
+    );
+  });
+}
+
+async function pickBuddy(msg, userId, args) {
   const Discord = require("discord.js");
   const {
-    getBuddy,
     getUserPokemons,
     getUserPokemonCount,
     setBuddy,
@@ -25,95 +59,98 @@ async function pickBuddy(msg, args) {
   ctx.fillStyle = "rgb(20,20,20)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  //Import registerFont to use custom fonts
+  //Import registerFont to use custom fonts and register it
   const { registerFont } = require("canvas");
-  //Register the pokemon font
   registerFont("./fonts/Pokemon Classic.ttf", { family: "pokemonFont" });
   ctx.font = '50px "pokemonFont"';
   ctx.fillStyle = "white";
   ctx.textBaseline = "top";
 
-  //Buddy
-  var pageNumber = 1;
-  const pokemonsOnEachPage = 20;
-
+  //Buddy////////////////////////////////////
   const acceptableKeywords = ["name", "id", "xp", "rarity"];
-  const pokemonLength = await getUserPokemonCount(msg.author.id);
+  const pokemonLength = await getUserPokemonCount(userId);
+  const spriteSize = 256;
 
-  const drawPokemonImage = require("../../utils/drawPokemonImage");
-  const buddyPokemonId = await getBuddy(msg.author.id);
-  const gap = 256;
-
+  //Collect the pokemons from firebase
+  const pokemonsOnEachPage = 20;
   const userPokemonsData = await getUserPokemons(
-    msg.author.id,
+    userId,
     pokemonsOnEachPage,
     sortArg
   );
 
+  //Get pokemons and return their rarity
   const pokemons = require("../../constants/pokemons.json");
-
   const userPokemons = userPokemonsData.map((userPokemon) => {
     const pokemonData = pokemons[userPokemon.id - 1];
-
     return {
       rarity: pokemonData.rarity,
       ...userPokemon,
     };
   });
 
+  //Define values to be used in the firstArg checks
   var y = 0;
   var columnStart = 0;
   var columnAmount = 10;
-
   const firstArg = args[0];
+  var sortArg = args[1] ? args[1].toLowerCase() : "id";
 
+  //User firstArg to check what the player wants, and dragBag based on the result
   if (!firstArg || acceptableKeywords.includes(firstArg)) {
-    userPokemons.forEach((pokemon, index) => {
-      var loc = index * gap;
-      if (loc > ctx.width) {
-        y++;
-        columnStart += columnAmount;
-      }
-      ctx.fillText(pokemon[firstArg], loc - columnStart, y * gap);
-      drawPokemonImage(ctx, pokemon.id, loc - columnStart, y * gap, gap);
-    });
+    drawBag(
+      userPokemons,
+      columnAmount,
+      columnStart,
+      y,
+      spriteSize,
+      sortArg,
+      userId,
+      ctx
+    );
   } else if (firstArg == "buddy") {
-    var sortArg = args[1] ? args[1].toLowerCase() : "id";
-    var choiceArg = args[2] ? args[2].toLowerCase() : "";
-
-    if (!acceptableKeywords.includes(sortArg)) {
-      sortArg = "id";
-      msg.reply(
-        `you did not define an suffix so it is automatically set to: ${sortArg}`
-      );
-      if (!isNaN(sortArg) && sortArg < pokemonLength) {
-        msg.reply(`you chose pokemon number: ${sortArg}`);
-        setBuddy(msg.author.id, userPokemons[sortArg].docId);
-      }
-    } else if (!isNaN(choiceArg) && choiceArg < pokemonLength) {
-      msg.reply(`you chose pokemon number: ${choiceArg}`);
-      setBuddy(msg.author.id, userPokemons[choiceArg - 1].docId);
+    if (!args[2]) {
+      var choiceArg = args[1];
+    } else {
+      choiceArg = args[2] ? args[2].toLowerCase() : "";
     }
-    userPokemons.forEach((pokemon, index) => {
-      var loc = index * gap;
-      if (loc > ctx.width) {
-        y++;
-        columnStart += columnAmount;
-      }
-      if (buddyPokemonId === pokemon) {
-        ctx.textAlign = "center";
-        ctx.fillText("Buddy", loc - columnStart, y * gap);
-      }
-      ctx.fillText(pokemon[sortArg], loc - columnStart, y * gap);
-      drawPokemonImage(ctx, pokemon.id, loc - columnStart, y * gap, gap);
-    });
+    //Check what arguments were given, and send back the correct responds
+    if (!acceptableKeywords.includes(sortArg)) {
+      msg.reply(
+        `The correct way of using this command is (sortBy is optional): <p!bag buddy sortBy buddyNumber>`
+      );
+    } else if (!isNaN(choiceArg) && choiceArg < pokemonLength) {
+      const buddy = userPokemons[choiceArg - 1];
+      msg.reply(`you chose: ${buddy.name} as your buddy!`);
+      setBuddy(userId, buddy.docId);
+    }
+    drawBag(
+      userPokemons,
+      columnAmount,
+      columnStart,
+      y,
+      spriteSize,
+      sortArg,
+      userId,
+      ctx
+    );
   } else if (firstArg == "switch") {
+    //Define from and to numbers and use them to switch the pokemons
     const fromNumber = args[1];
     const toNumber = args[2];
-
     const savePokemon = userPokemons[fromNumber];
     userPokemons[fromNumber] = userPokemons[toNumber];
     userPokemons[toNumber] = savePokemon;
+    drawBag(
+      userPokemons,
+      columnAmount,
+      columnStart,
+      y,
+      spriteSize,
+      sortArg,
+      userId,
+      ctx
+    );
   }
 
   // Create image file
