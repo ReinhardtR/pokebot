@@ -12,10 +12,17 @@ loadPokemonImage().then((image) => {
 
 const pokemonSize = 96;
 
-const drawPokemonImage = (ctx, pokemonId, x, y, size = 96) => {
+const drawPokemonImage = (
+  ctx,
+  pokemonId,
+  x,
+  y,
+  size = pokemonSize,
+  back = false
+) => {
   const pokemonPos = {
     x: (pokemonId - 1) * pokemonSize,
-    y: 0,
+    y: back ? size : 0,
   };
 
   ctx.drawImage(

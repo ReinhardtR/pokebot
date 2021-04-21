@@ -23,6 +23,7 @@ const createUserProfile = (userId) => {
     buddy: 0,
     pokemonCount: 0,
     pokeballs: 10,
+    team: [],
   });
 };
 
@@ -156,10 +157,42 @@ const getBuddy = async (userId) => {
   return buddyDoc.data();
 };
 
-const setBuddy = async (userId, pokemonId) => {
+const setBuddy = async (userId, pokemonDocId) => {
   const userRef = db.collection("users").doc(userId);
   userRef.update({
-    buddy: pokemonId,
+    buddy: pokemonDocId,
+  });
+};
+
+// User Pokemon Team
+const getTeam = async (userId) => {
+  const userRef = db.collection("users").doc(userId);
+  const userDoc = await userRef.get();
+  const teamIds = userDoc.data().team;
+
+  const pokemonsRef = userRef.collection("pokemons");
+  const snapshot = await pokemonsRef
+    .where(firebase.firestore.FieldPath.documentId(), "in", teamIds)
+    .get();
+
+  if (snapshot.empty) {
+    return [];
+  }
+
+  const team = snapshot.docs.map((doc) => doc.data());
+
+  return team;
+};
+
+const updateTeam = (userId, removedPokemonDocId, addedPokemonDocId) => {
+  const userRef = db.collection("users").doc(userId);
+
+  userRef.update({
+    team: firebase.firestore.FieldValue.arrayRemove(removedPokemonDocId),
+  });
+
+  userRef.update({
+    team: firebase.firestore.FieldValue.arrayUnion(addedPokemonDocId),
   });
 };
 
@@ -179,4 +212,6 @@ module.exports = {
   setBuddy,
   updateUserPokemonCount,
   getUserPokemonCount,
+  getTeam,
+  updateTeam,
 };

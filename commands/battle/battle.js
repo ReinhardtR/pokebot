@@ -15,6 +15,20 @@ module.exports = {
       return msg.reply("you can't battle yourself. Battle a friend instead!");
     }
 
+    const { battles } = msg.client;
+
+    const alreadyInBattle = await battles.find(
+      (battle) =>
+        battle.player1 === msg.author.id ||
+        battle.player2 === msg.author.id ||
+        battle.player1 === invitedUser.id ||
+        battle.player2 === invitedUser.id
+    );
+
+    if (alreadyInBattle) {
+      return msg.reply("you or the user you invited are already in a battle.");
+    }
+
     const { getUserProfile } = require("../../database");
     const invitedUserProfile = await getUserProfile(invitedUser.id);
 
@@ -22,16 +36,6 @@ module.exports = {
       return msg.reply(
         `${invitedUser.toString()} doesn't have a profile. Encourage him to create one!`
       );
-    }
-
-    const { battles } = msg.client;
-
-    const userBattle =
-      battles.get(msg.author.id) ||
-      (await battles.find((battle) => battle.player2 == msg.auhor.id));
-
-    if (userBattle) {
-      return msg.reply("you're already in a battle.");
     }
 
     const Discord = require("discord.js");
@@ -46,7 +50,6 @@ module.exports = {
     await botInviteMsg.react("❌");
 
     const filter = async (reaction, user) => {
-      console.log(reaction);
       const validReaction = ["✅", "❌"].includes(reaction.emoji.name);
       const isInvitedUser = user.id === invitedUser.id;
       if (validReaction && isInvitedUser) {
@@ -80,10 +83,31 @@ module.exports = {
         botInviteMsg.delete();
       });
 
+    const Canvas = require("canvas");
+    const drawPokemonImage = require("../../utils/drawPokemonImage");
+
     const startBattle = async () => {
       const channel = await createChannel(msg, invitedUser);
 
-      channel.send(`${msg.author.tag} vs ${invitedUser.toString()}!`);
+      channel.send(`${msg.author} vs ${invitedUser.toString()}!`);
+
+      const battle = {
+        channel,
+        player1: msg.author.id,
+        player2: invitedUser.id,
+        spectators: [],
+      };
+
+      battles.set(channel.id, battle);
+
+      const canvas = Canvas.createCanvas(400, 300);
+      const ctx = canvas.getContext("2d");
+
+      drawPokemonImage();
+
+      const battleEmbed = new Discord.MessageEmbed().setTitle(
+        `${msg.author.username} vs ${invitedUser.username}`
+      );
     };
   },
 };
