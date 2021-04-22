@@ -29,12 +29,6 @@ async function sendProfile(msg, user) {
   } = require("../../database");
   const userDoc = await getUserProfile(user.id);
 
-  if (!userDoc) {
-    return msg.reply(
-      `it looks like ${user} doesn't have a profile. Encourage him to create one!`
-    );
-  }
-
   // discord.js
   const Discord = require("discord.js");
 
