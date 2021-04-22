@@ -57,13 +57,10 @@ async function pickBuddy(msg, args) {
     };
   });
 
+  var bagSort = collectionSort;
   if (args[0] == "rarity") {
-    var bagSort = "rarity";
+    bagSort = "rarity";
     userPokemons.sort((a, b) => b.rarity - a.rarity);
-  } else if (args[0]) {
-    bagSort = args[0];
-  } else {
-    bagSort = standardSort;
   }
 
   const pokemonLength = await getUserPokemonCount(msg.author.id);
