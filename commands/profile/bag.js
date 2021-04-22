@@ -149,6 +149,7 @@ async function pickBuddy(msg, args) {
               );
               //team[alphabet.indexOf(toTeamLetter)] = userPokemons[fromNumber]; // Team Pokemon = Pokemon from main (Primeape(team) = Jolteon)
               updateTeam(
+                msg.author.id,
                 team[alphabet.indexOf(toTeamLetter)].docId,
                 userPokemons[fromNumber].docId
               );
