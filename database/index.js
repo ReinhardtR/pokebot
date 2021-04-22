@@ -208,15 +208,11 @@ const getTeam = async (userId) => {
   return team;
 };
 
-const updateTeam = (userId, removedPokemonDocId, addedPokemonDocId) => {
+const updateTeam = (userId, team) => {
   const userRef = db.collection("users").doc(userId);
 
   userRef.update({
-    team: firebase.firestore.FieldValue.arrayRemove(removedPokemonDocId),
-  });
-
-  userRef.update({
-    team: firebase.firestore.FieldValue.arrayUnion(addedPokemonDocId),
+    team: team,
   });
 };
 
