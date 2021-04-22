@@ -203,7 +203,7 @@ const getTeam = async (userId) => {
     return [];
   }
 
-  const team = snapshot.docs.map((doc) => doc.data());
+  const team = snapshot.docs.map((doc) => ({ docId: doc.id, ...doc.data() }));
 
   return team;
 };
