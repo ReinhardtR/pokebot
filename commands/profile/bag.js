@@ -111,7 +111,7 @@ async function pickBuddy(msg, args) {
     .then(async (collected) => {
       args = collected.first().content.split(" ");
       const firstArg = args[0];
-      const secondArg = args[1];
+      var secondArg = args[1];
       const thirdArg = args[2];
       if (firstArg == "buddy") {
         if (secondArg) {
@@ -134,20 +134,51 @@ async function pickBuddy(msg, args) {
         }
       } else if (firstArg == "switch") {
         if (secondArg && thirdArg) {
+          var fromNumber = secondArg - 1; // 1
           if (alphabet.includes(thirdArg)) {
             if (0 < secondArg < pokemonsOnEachPage) {
               //Define from and to numbers and use them to switch the pokemons
-              const fromNumber = secondArg - 1; // 1
               const toTeamLetter = thirdArg; // a
               const upperCaseString = require("../../utils/upperCaseString");
-              msg.reply(
-                `you switched: ${upperCaseString(
-                  userPokemons[fromNumber].name
-                )} and ${upperCaseString(
-                  team[alphabet.indexOf(toTeamLetter)].name
-                )}!`
-              );
-              team[alphabet.indexOf(toTeamLetter)] = userPokemons[fromNumber]; // Team Pokemon = Pokemon from main (Primeape(team) = Jolteon)
+              // Check if the pokemon attempted to be added is already in the team
+              var teamPokemonDocIds = [];
+              team.map((pokemon1, index) => {
+                teamPokemonDocIds[index] = pokemon1.docId;
+                return teamPokemonDocIds;
+              });
+              // Check if the spot it is added to is empty or not
+              if (team[alphabet.indexOf(toTeamLetter)]) {
+                msg.reply(
+                  `you switched: ${upperCaseString(
+                    userPokemons[fromNumber].name
+                  )} and ${upperCaseString(
+                    team[alphabet.indexOf(toTeamLetter)].name
+                  )}!`
+                );
+              } else {
+                msg.reply(
+                  `you added: ${upperCaseString(
+                    userPokemons[fromNumber].name
+                  )} to your team!`
+                );
+              }
+              // Check if user is adding a pokemon who is already a part of the team
+              if (!teamPokemonDocIds.includes(userPokemons[fromNumber].docId)) {
+                //Make the change to the team and update the team
+                team[alphabet.indexOf(toTeamLetter)] = userPokemons[fromNumber]; // Team Pokemon = Pokemon from main (Primeape(team) = Jolteon)
+                updateTeam(
+                  msg.author.id,
+                  team.map((pokemon) => pokemon.docId)
+                );
+              } else {
+                //switch the two members
+                const oldPokemonSpot = teamPokemonDocIds.indexOf(
+                  team[alphabet.indexOf(toTeamLetter)].docId
+                ); // Find position of the team original team member
+                userPokemons[oldPokemonSpot] =
+                  team[alphabet.indexOf(toTeamLetter)]; // Change the original team member to be the other team member
+                team[alphabet.indexOf(toTeamLetter)] = userPokemons[fromNumber]; // Replace the new team member with the old team member on its dudplicate position
+              }
               updateTeam(
                 msg.author.id,
                 team.map((pokemon) => pokemon.docId)
