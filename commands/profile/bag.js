@@ -147,11 +147,10 @@ async function pickBuddy(msg, args) {
                   team[alphabet.indexOf(toTeamLetter)].name
                 )}!`
               );
-              //team[alphabet.indexOf(toTeamLetter)] = userPokemons[fromNumber]; // Team Pokemon = Pokemon from main (Primeape(team) = Jolteon)
+              team[alphabet.indexOf(toTeamLetter)] = userPokemons[fromNumber]; // Team Pokemon = Pokemon from main (Primeape(team) = Jolteon)
               updateTeam(
                 msg.author.id,
-                team[alphabet.indexOf(toTeamLetter)].docId,
-                userPokemons[fromNumber].docId
+                team.map((pokemon) => pokemon.docId)
               );
             } else {
               msg.reply(`the number you input didnt appear on the page.`);
