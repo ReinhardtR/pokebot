@@ -212,7 +212,7 @@ const updateTeam = (userId, team) => {
   const userRef = db.collection("users").doc(userId);
 
   userRef.update({
-    team: team,
+    team,
   });
 };
 
