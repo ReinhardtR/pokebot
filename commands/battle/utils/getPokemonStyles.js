@@ -11,6 +11,10 @@ const getPokemonStyles = (pokemonSize) => ({
       x: 25,
       y: 60,
     },
+    moves: {
+      x: 0,
+      y: 225,
+    },
   },
   player2: {
     pokemon: {
@@ -23,6 +27,10 @@ const getPokemonStyles = (pokemonSize) => ({
     box: {
       x: 230,
       y: 150,
+    },
+    moves: {
+      x: 0,
+      y: 5,
     },
   },
 });
