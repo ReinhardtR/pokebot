@@ -62,7 +62,7 @@ module.exports = {
     await botInviteMsg.react("✅");
     await botInviteMsg.react("❌");
 
-    const filter = async (reaction, user) => {
+    const reactFilter = async (reaction, user) => {
       const validReaction = ["✅", "❌"].includes(reaction.emoji.name);
       const isInvitedUser = user.id === invitedUser.id;
       if (validReaction && isInvitedUser) {
@@ -74,7 +74,7 @@ module.exports = {
     };
 
     botInviteMsg
-      .awaitReactions(filter, {
+      .awaitReactions(reactFilter, {
         max: 1,
         time: 20000,
         errors: ["Invitation time-out."],
@@ -115,11 +115,13 @@ module.exports = {
       const player2Team = await getTeam(battle.player2);
 
       const player1 = {
+        user: msg.author,
         team: player1Team,
         activePokemon: undefined,
       };
 
       const player2 = {
+        user: invitedUser,
         team: player2Team,
         activePokemon: undefined,
       };
@@ -142,14 +144,111 @@ module.exports = {
         })
       );
 
+      // Preloaded images.
       const background = await Canvas.loadImage(
         "https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/battleBackground.png"
       );
+      const pokeball = await Canvas.loadImage(
+        "https://raw.githubusercontent.com/ReinhardtR/pokebot/main/images/pokeball.png"
+      );
 
-      const battleEmbed = getBattleEmbed(background, players);
-      battleEmbed.setTitle(`${msg.author.username} vs ${invitedUser.username}`);
+      const embedTitle = `${msg.author.username} vs ${invitedUser.username}`;
 
-      channel.send({ embed: battleEmbed });
+      var currentPlayer = player1;
+
+      const getMove = (suggestedMove, player) => {
+        const moveNumber = parseInt(suggestedMove);
+        if (!isNaN(moveNumber)) {
+          return player.activePokemon.moves[moveNumber - 1];
+        } else {
+          const validMove = player.activePokemon.moves.find(
+            ({ name }) => name == suggestedMove
+          );
+
+          if (validMove) return validMove;
+        }
+        return;
+      };
+
+      const executeMoveAndGetMsg = (move, player, opponent) => {
+        var moveLanded = false;
+
+        if (move.accuracy == 100) moveLanded = true;
+
+        const randomNum = Math.floor(Math.random() * 100);
+        if (move.accuracy < randomNum) moveLanded = true;
+
+        const playerPokemonName = upperCaseString(player.activePokemon.name);
+        if (moveLanded) {
+          const attack = player.activePokemon.stats.attack;
+          const defense = opponent.activePokemon.stats.defense;
+          const effect = ((attack - defense) / 35) * move.power;
+          const damage = Math.floor(move.power + effect);
+          opponent.activePokemon.stats.hp -= damage;
+
+          const opponentPokemonName = upperCaseString(
+            opponent.activePokemon.name
+          );
+
+          return `${playerPokemonName} dealt **${damage} damage** to ${opponentPokemonName}`;
+        } else {
+          const moveName = upperCaseString(move.name);
+          return `${playerPokemonName} **missed** ${moveName}!`;
+        }
+      };
+
+      const msgFilter = (m) => {
+        const usersTurn = m.author.id == currentPlayer.user.id;
+        return usersTurn;
+      };
+
+      const continueBattle = async () => {
+        const battleEmbed = getBattleEmbed(
+          players,
+          background,
+          pokeball,
+          embedTitle
+        );
+
+        console.log(channel);
+        await channel.send({ embed: battleEmbed });
+
+        console.log(channel);
+        const collected = await channel.awaitMessages(msgFilter).catch((c) => {
+          console.log(c);
+          return channel.send(
+            `${currentPlayer.user.toString()} forfeited the battle, by not choosing a move in time.`
+          );
+        });
+
+        console.log(collected);
+        if (!collected) return;
+        const moveMsg = collected.first().content().toLowerCase();
+
+        console.log(moveMsg);
+
+        const move = getMove(moveMsg, currentPlayer);
+
+        console.log(move);
+
+        const opponent = currentPlayer == player1 ? player2 : player1;
+
+        const feedbackMsg = executeMoveAndGetMsg(move, currentPlayer, opponent);
+
+        console.log(feedbackMsg);
+
+        channel.send(`${currentPlayer.user.toString()}, ${feedbackMsg}`);
+
+        // if (player1.team.length && player2.team.length) {
+        //   continueBattle();
+        // } else {
+        //   endBattle();
+        // }
+      };
+
+      const endBattle = () => {};
+
+      continueBattle();
     };
   },
 };
@@ -162,17 +261,14 @@ const roundRect = require("../../utils/roundRect");
 const getPokemonStyles = require("./utils/getPokemonStyles");
 const getPokemonStats = require("./utils/getPokemonStats");
 
-const getBattleEmbed = (background, players) => {
+const getBattleEmbed = (players, background, pokeball, title) => {
   const canvas = Canvas.createCanvas(background.width, background.height);
   const ctx = canvas.getContext("2d");
   ctx.drawImage(background, 0, 0);
 
   const pokemonSize = 128;
   const pokemonStyles = getPokemonStyles(pokemonSize);
-  const textPos = {
-    x: 16,
-    y: 48,
-  };
+  const boxPadding = 12;
 
   players.forEach((player, index) => {
     // Get Styles for this player.
@@ -190,47 +286,78 @@ const getBattleEmbed = (background, players) => {
     );
 
     // Draw Box With Name and other info.
+    // Create Canvas.
     const boxCanvas = Canvas.createCanvas(150, 60);
     const boxCtx = boxCanvas.getContext("2d");
 
-    // Box Background
+    // Box Background.
     boxCtx.fillStyle = "rgb(24,24,24)";
     boxCtx.strokeStyle = "rgb(36,36,36)";
     roundRect(boxCtx, 0, 0, boxCanvas.width, boxCanvas.height, 16);
 
+    // Pokemon Name.
+    const textPos = {
+      x: boxPadding,
+      y: 48,
+    };
     boxCtx.font = "bold 16px Sans-Serif";
     boxCtx.fillStyle = "#ffffff";
     boxCtx.textAlign = "left";
-
     boxCtx.fillText(
       upperCaseString(player.activePokemon.name),
       textPos.x,
       textPos.y
     );
 
+    // Pokeballs representing the players Pokémon team.
+    const pokeballGap = 6;
+    const pokeballSize = 14;
+    const pokeballPos = {
+      x: boxPadding,
+      y: boxPadding,
+    };
+    player.team.forEach((pokemon, pokemonIndex) => {
+      const pokeballX =
+        pokeballPos.x + (pokeballSize + pokeballGap) * pokemonIndex;
+      boxCtx.drawImage(
+        pokeball,
+        pokeballX,
+        pokeballPos.y,
+        pokeballSize,
+        pokeballSize
+      );
+    });
+
+    // Draw Box on Main Canvas.
     ctx.drawImage(boxCanvas, style.box.x, style.box.y);
 
     // Draw Moves.
+    // Create Canvas.
     const movesCanvas = Canvas.createCanvas(canvas.width, 30);
     const movesCtx = movesCanvas.getContext("2d");
 
+    // Text Settings.
     movesCtx.font = "bold 10px Sans-Serif";
     movesCtx.textAlign = "center";
     movesCtx.strokeStyle = "rgb(36,36,36)";
 
+    // Pokemon Moves.
     const moveBoxWidth = movesCanvas.width / 5;
     const moveTextY = movesCanvas.height / 2;
     const moveGap = 10;
     player.activePokemon.moves.forEach((move, moveIndex) => {
+      // Move Box Background
       movesCtx.fillStyle = "rgb(24,24,24)";
       const moveBoxX = (moveBoxWidth + moveGap) * moveIndex;
       roundRect(movesCtx, moveBoxX, 0, moveBoxWidth, movesCanvas.height, 16);
 
+      // Move Name
       movesCtx.fillStyle = "#ffffff";
       const moveTextX = moveBoxX + moveBoxWidth / 2;
       movesCtx.fillText(upperCaseString(move.name), moveTextX, moveTextY);
     });
 
+    // Draw Moves on Main Canvas.
     ctx.drawImage(movesCanvas, moveGap, style.moves.y);
   });
 
@@ -240,6 +367,7 @@ const getBattleEmbed = (background, players) => {
   );
 
   const battleEmbed = new Discord.MessageEmbed()
+    .setTitle(title)
     .attachFiles(attachment)
     .setImage(`attachment://${attachment.name}`);
 

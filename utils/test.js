@@ -14,3 +14,11 @@
 // };
 
 // getPokemonTeam("256891473604247554");
+
+const power = 150;
+const attack = 65;
+const defense = 65;
+
+const damage = power + (effect / 35) * power;
+
+console.log(damage);

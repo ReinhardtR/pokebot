@@ -9,11 +9,11 @@ const getPokemonStats = async (pokemonId, pokemonLvl) => {
     wantedStatsNames.includes(stat.stat.name)
   );
 
-  const pokemonStats = wantedStats.map((stat) => {
-    return {
-      name: stat.stat.name,
+  const pokemonStats = {};
+  wantedStats.forEach((stat) => {
+    Object.defineProperty(pokemonStats, stat.stat.name, {
       value: Math.floor(stat.base_stat + pokemonLvl * (stat.base_stat / 50)),
-    };
+    });
   });
 
   return pokemonStats;
