@@ -175,8 +175,10 @@ const getBattleEmbed = (background, players) => {
   };
 
   players.forEach((player, index) => {
+    // Get Styles for this player.
     const style = pokemonStyles[`player${index + 1}`];
 
+    // Draw Pokemon.
     drawPokemonImage(
       ctx,
       player.activePokemon.id,
@@ -187,9 +189,11 @@ const getBattleEmbed = (background, players) => {
       style.pokemon.clipY
     );
 
+    // Draw Box With Name and other info.
     const boxCanvas = Canvas.createCanvas(150, 60);
     const boxCtx = boxCanvas.getContext("2d");
 
+    // Box Background
     boxCtx.fillStyle = "rgb(24,24,24)";
     boxCtx.strokeStyle = "rgb(36,36,36)";
     roundRect(boxCtx, 0, 0, boxCanvas.width, boxCanvas.height, 16);
@@ -204,9 +208,30 @@ const getBattleEmbed = (background, players) => {
       textPos.y
     );
 
-    player.activePokemon.moves(() => {});
-
     ctx.drawImage(boxCanvas, style.box.x, style.box.y);
+
+    // Draw Moves.
+    const movesCanvas = Canvas.createCanvas(canvas.width, 30);
+    const movesCtx = movesCanvas.getContext("2d");
+
+    movesCtx.font = "bold 10px Sans-Serif";
+    movesCtx.textAlign = "center";
+    movesCtx.strokeStyle = "rgb(36,36,36)";
+
+    const moveBoxWidth = movesCanvas.width / 5;
+    const moveTextY = movesCanvas.height / 2;
+    const moveGap = 10;
+    player.activePokemon.moves.forEach((move, moveIndex) => {
+      movesCtx.fillStyle = "rgb(24,24,24)";
+      const moveBoxX = (moveBoxWidth + moveGap) * moveIndex;
+      roundRect(movesCtx, moveBoxX, 0, moveBoxWidth, movesCanvas.height, 16);
+
+      movesCtx.fillStyle = "#ffffff";
+      const moveTextX = moveBoxX + moveBoxWidth / 2;
+      movesCtx.fillText(upperCaseString(move.name), moveTextX, moveTextY);
+    });
+
+    ctx.drawImage(movesCanvas, moveGap, style.moves.y);
   });
 
   const attachment = new Discord.MessageAttachment(
