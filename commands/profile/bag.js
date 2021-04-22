@@ -1,6 +1,6 @@
 module.exports = {
   name: "bag",
-  description: "Pick a buddy for your journey!",
+  description: "Check your bag, and edit it!",
   needProfile: true,
   execute(msg, args) {
     pickBuddy(msg, args);
@@ -11,8 +11,9 @@ async function pickBuddy(msg, args) {
   const Discord = require("discord.js");
   const {
     getUserPokemons,
-    getUserPokemonCount,
     setBuddy,
+    getTeam,
+    updateTeam,
   } = require("../../database");
 
   //Setup canvas
@@ -26,9 +27,12 @@ async function pickBuddy(msg, args) {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   //Import registerFont to use custom fonts and register it
-  ctx.font = "13px sans-serif";
+  ctx.font = "20px sans-serif";
   ctx.fillStyle = "white";
   ctx.textBaseline = "top";
+
+  const alphabet = ["a", "b", "c"];
+  const team = await getTeam(msg.author.id);
 
   //Define values to be used in the firstArg checks
   const acceptableKeywords = ["name", "id", "xp"];
@@ -63,35 +67,16 @@ async function pickBuddy(msg, args) {
     userPokemons.sort((a, b) => b.rarity - a.rarity);
   }
 
-  const pokemonLength = await getUserPokemonCount(msg.author.id);
-  const firstArg = args[0];
-
-  if (firstArg == "buddy") {
-    if (!isNaN(args[2])) {
-      var choiceArg = args[1];
-    } else {
-      choiceArg = args[2] ? args[2].toLowerCase() : "";
-    }
-    //Check what arguments were given, and send back the correct responds
-    if (!acceptableKeywords.includes(bagSort)) {
-      msg.reply(
-        `The correct way of using this command is (sortBy is optional): <p!bag buddy sortBy buddyNumber>`
-      );
-    } else if (choiceArg && choiceArg < pokemonLength) {
-      const buddy = userPokemons[choiceArg - 1];
-      msg.reply(`you chose: ${buddy.name} as your buddy!`);
-      setBuddy(msg.author.id, buddy.docId);
-    }
-  } else if (firstArg == "switch") {
-    //Define from and to numbers and use them to switch the pokemons
-    const fromNumber = args[1];
-    const toNumber = args[2];
-    const savePokemon = userPokemons[fromNumber];
-    userPokemons[fromNumber] = userPokemons[toNumber];
-    userPokemons[toNumber] = savePokemon;
-  }
-
-  await drawBag(userPokemons, bagSort, msg.author.id, ctx, canvas, Canvas);
+  await drawBag(
+    userPokemons,
+    bagSort,
+    msg.author.id,
+    ctx,
+    canvas,
+    Canvas,
+    alphabet,
+    team
+  );
 
   // Create image file
   const attachment = new Discord.MessageAttachment(
@@ -120,18 +105,82 @@ async function pickBuddy(msg, args) {
   msg.channel
     .awaitMessages(filter, {
       max: 1,
-      time: 60000,
+      time: 120000,
       errors: ["Timeout"],
     })
-    .then((collected) => {
-      console.log(collected);
+    .then(async (collected) => {
+      args = collected.first().content.split(" ");
+      const firstArg = args[0];
+      const secondArg = args[1];
+      const thirdArg = args[2];
+      if (firstArg == "buddy") {
+        if (secondArg) {
+          if (0 < secondArg < pokemonsOnEachPage) {
+            if (!isNaN(secondArg)) {
+              const buddy = userPokemons[secondArg - 1];
+              const upperCaseString = require("../../utils/upperCaseString");
+              msg.reply(
+                `you chose: ${upperCaseString(buddy.name)} as your buddy!`
+              );
+              setBuddy(msg.author.id, buddy.docId);
+            } else {
+              msg.reply(`that's not a valid number.`);
+            }
+          } else {
+            msg.reply(`the number you input didnt appear on the page.`);
+          }
+        } else {
+          msg.reply(`you didn't input a number.`);
+        }
+      } else if (firstArg == "switch") {
+        if (secondArg && thirdArg) {
+          if (alphabet.includes(thirdArg)) {
+            if (0 < secondArg < pokemonsOnEachPage) {
+              //Define from and to numbers and use them to switch the pokemons
+              const fromNumber = secondArg - 1; // 1
+              const toTeamLetter = thirdArg; // a
+              const upperCaseString = require("../../utils/upperCaseString");
+              msg.reply(
+                `you switched: ${upperCaseString(
+                  userPokemons[fromNumber].name
+                )} and ${upperCaseString(
+                  team[alphabet.indexOf(toTeamLetter)].name
+                )}!`
+              );
+              team[alphabet.indexOf(toTeamLetter)] = userPokemons[fromNumber]; // Team Pokemon = Pokemon from main (Primeape(team) = Jolteon)
+              updateTeam(
+                msg.author.id,
+                team.map((pokemon) => pokemon.docId)
+              );
+            } else {
+              msg.reply(`the number you input didnt appear on the page.`);
+            }
+          } else {
+            msg.reply(`the team letter must be in the range!`);
+          }
+        } else {
+          msg.reply(
+            `switch takes input like so: <switch fromNumber toTeamLetter>.`
+          );
+        }
+      }
     })
     .catch((error) => {
+      console.log(error);
       msg.reply("time went out.");
     });
 }
 
-async function drawBag(userPokemons, bagSort, id, ctx, canvas, Canvas, msg) {
+async function drawBag(
+  userPokemons,
+  bagSort,
+  id,
+  ctx,
+  canvas,
+  Canvas,
+  alphabet,
+  team
+) {
   const drawPokemonImage = require("../../utils/drawPokemonImage");
   const uiColor = "#84B6DF";
 
@@ -176,8 +225,8 @@ async function drawBag(userPokemons, bagSort, id, ctx, canvas, Canvas, msg) {
     ctx.beginPath();
     ctx.arc(
       posX - placement1 + spriteSize,
-      posY + spriteSize - placement1 * 2,
-      placement1,
+      posY + spriteSize - placement1 * 1.5,
+      placement1 * 2,
       0,
       2 * Math.PI
     );
@@ -200,7 +249,7 @@ async function drawBag(userPokemons, bagSort, id, ctx, canvas, Canvas, msg) {
   const sideCanvas = Canvas.createCanvas(spriteSize * 1.25, canvas.height);
   const ctx2 = sideCanvas.getContext("2d");
 
-  ctx2.font = "13px sans-serif";
+  ctx2.font = "20px sans-serif";
 
   ctx2.fillStyle = uiColor;
   ctx2.fillRect(0, 0, sideCanvas.width, sideCanvas.height);
@@ -236,11 +285,7 @@ async function drawBag(userPokemons, bagSort, id, ctx, canvas, Canvas, msg) {
     );
   }
 
-  const alphabet = ["a", "b", "c"];
-
   //////////////////////Team//////////////////////
-  const { getTeam } = require("../../database");
-  const team = await getTeam(id);
   team.forEach((pokemon, index) => {
     //Get level
     const { getLevel } = require("./utils/levelAndXP");
@@ -258,7 +303,7 @@ async function drawBag(userPokemons, bagSort, id, ctx, canvas, Canvas, msg) {
     ctx2.textAlign = "center";
     ctx2.fillText(
       `${alphabet[index]}:`,
-      spriteSize / 10,
+      spriteSize / 7,
       posY2 + spriteSize / 2
     );
     ctx2.textBaseline = "top";
