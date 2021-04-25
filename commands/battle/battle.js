@@ -76,7 +76,7 @@ module.exports = {
     botInviteMsg
       .awaitReactions(reactFilter, {
         max: 1,
-        time: 20000,
+        time: 30000,
         errors: ["Invitation time-out."],
       })
       .then((reactions) => {
@@ -173,24 +173,31 @@ module.exports = {
       const executeMoveAndGetMsg = (move, player, opponent) => {
         var moveLanded = false;
 
-        if (move.accuracy == 100) moveLanded = true;
-
-        const randomNum = Math.floor(Math.random() * 100);
-        if (move.accuracy < randomNum) moveLanded = true;
+        if (move.accuracy == 100) {
+          moveLanded = true;
+        } else {
+          const randomNum = Math.floor(Math.random() * 100);
+          if (move.accuracy >= randomNum) moveLanded = true;
+        }
 
         const playerPokemonName = upperCaseString(player.activePokemon.name);
         if (moveLanded) {
           const attack = player.activePokemon.stats.attack;
           const defense = opponent.activePokemon.stats.defense;
-          const effect = ((attack - defense) / 35) * move.power;
-          const damage = Math.floor(move.power + effect);
-          opponent.activePokemon.stats.hp -= damage;
+          console.log(`ATT: ${attack}, DEF: ${defense}`);
+          const effect = ((attack - defense) / 50) * move.power;
+          console.log("EFFECT", effect);
+          const calcDamage = Math.floor(move.power + effect);
+          console.log("DMG", calcDamage);
+          const effectiveDamage = calcDamage > 0 ? calcDamage : 0;
+          console.log("EFFEC DMG", effectiveDamage);
+          opponent.activePokemon.stats.hp -= effectiveDamage;
 
           const opponentPokemonName = upperCaseString(
             opponent.activePokemon.name
           );
 
-          return `${playerPokemonName} dealt **${damage} damage** to ${opponentPokemonName}`;
+          return `**${playerPokemonName}** dealt **${effectiveDamage} damage** to **${opponentPokemonName}**`;
         } else {
           const moveName = upperCaseString(move.name);
           return `${playerPokemonName} **missed** ${moveName}!`;
@@ -203,50 +210,143 @@ module.exports = {
       };
 
       const continueBattle = async () => {
+        const opponent = currentPlayer == player1 ? player2 : player1;
+
         const battleEmbed = getBattleEmbed(
           players,
+          currentPlayer,
           background,
           pokeball,
           embedTitle
         );
 
-        console.log(channel);
         await channel.send({ embed: battleEmbed });
 
-        console.log(channel);
-        const collected = await channel.awaitMessages(msgFilter).catch((c) => {
-          console.log(c);
-          return channel.send(
-            `${currentPlayer.user.toString()} forfeited the battle, by not choosing a move in time.`
-          );
+        const collector = channel.createMessageCollector(msgFilter, {
+          time: 120000,
         });
 
-        console.log(collected);
-        if (!collected) return;
-        const moveMsg = collected.first().content().toLowerCase();
+        collector.on("collect", async (m) => {
+          const moveMsg = m.content.toLowerCase();
 
-        console.log(moveMsg);
+          const move = getMove(moveMsg, currentPlayer);
 
-        const move = getMove(moveMsg, currentPlayer);
+          if (!move) {
+            return channel.send("Invalid choice.");
+          }
 
-        console.log(move);
+          const feedbackMsg = executeMoveAndGetMsg(
+            move,
+            currentPlayer,
+            opponent
+          );
 
-        const opponent = currentPlayer == player1 ? player2 : player1;
+          channel.send(`${currentPlayer.user.toString()}, ${feedbackMsg}`);
 
-        const feedbackMsg = executeMoveAndGetMsg(move, currentPlayer, opponent);
+          if (opponent.activePokemon.stats.hp <= 0) {
+            const deadPokemonIndex = opponent.team.findIndex(
+              (pokemon) => pokemon.docId === opponent.activePokemon.docId
+            );
+            opponent.team.splice(deadPokemonIndex, 1);
 
-        console.log(feedbackMsg);
+            if (!opponent.team.length) return collector.stop("team-dead");
 
-        channel.send(`${currentPlayer.user.toString()}, ${feedbackMsg}`);
+            collector.stop("switch-pokemon");
 
-        // if (player1.team.length && player2.team.length) {
-        //   continueBattle();
-        // } else {
-        //   endBattle();
-        // }
+            const options = opponent.team
+              .map(
+                (pokemon, index) =>
+                  `${index + 1}. ${upperCaseString(pokemon.name)}`
+              )
+              .join(", ");
+
+            await channel.send(
+              `${opponent.user.toString()}, switch to your next Pokémon - here is your options:\n${options}.`
+            );
+
+            const switchMsgFilter = (switchChoice) => {
+              const choice = parseInt(switchChoice.content);
+              const typeNumber = typeof choice === "number";
+
+              if (!typeNumber) {
+                channel.send("Please provide a number.");
+                return false;
+              }
+
+              const validInterval = 0 < choice && choice <= options.length;
+
+              if (!validInterval) {
+                channel.send("Invalid choice.");
+                return false;
+              }
+
+              const validUser = switchChoice.author.id === opponent.user.id;
+
+              return choice && typeNumber && validInterval && validUser;
+            };
+
+            await channel
+              .awaitMessages(switchMsgFilter, { time: 60000, max: 1 })
+              .then((switchChoice) => {
+                const choice = switchChoice.first().content;
+
+                opponent.activePokemon = opponent.team[choice - 1];
+                const newPokemonName = upperCaseString(
+                  opponent.activePokemon.name
+                );
+                channel.send(
+                  `${opponent.user.toString()}, you chose ${newPokemonName}!`
+                );
+              })
+              .catch((e) => {
+                channel.send(
+                  `${opponent.user.toString()} didn't choose a new Pokémon in time. Therefore ${currentPlayer.user.toString()} is the winner.`
+                );
+                endBattle(currentPlayer);
+                throw e;
+              });
+          }
+
+          collector.stop("next-turn");
+
+          currentPlayer = opponent;
+          continueBattle();
+        });
+
+        collector.on("end", (collected, reason) => {
+          switch (reason) {
+            case "next-turn":
+              return channel.send(
+                `${currentPlayer.user.toString()} it's your turn!`
+              );
+            case "time":
+              endBattle(currentPlayer);
+              return channel.send(
+                `${currentPlayer.user.toString()} forfeited the battle, by not choosing a move in time.`
+              );
+            case "switch-pokemon":
+              return channel.send(
+                `${opponent.user.toString()}, your ${upperCaseString(
+                  opponent.activePokemon.name
+                )} fainted!`
+              );
+            case "team-dead":
+              endBattle(currentPlayer);
+              break;
+            default:
+              return channel.send("Error");
+          }
+        });
       };
 
-      const endBattle = () => {};
+      const endBattle = async (winner) => {
+        await channel.send(
+          `${winner.user.toString()} has won the battle!\nThis channel will be deleted in 4 seconds.`
+        );
+        setTimeout(() => {
+          channel.delete();
+        }, 4000);
+      };
 
       continueBattle();
     };
@@ -261,7 +361,13 @@ const roundRect = require("../../utils/roundRect");
 const getPokemonStyles = require("./utils/getPokemonStyles");
 const getPokemonStats = require("./utils/getPokemonStats");
 
-const getBattleEmbed = (players, background, pokeball, title) => {
+const getBattleEmbed = (
+  players,
+  currentPlayer,
+  background,
+  pokeball,
+  title
+) => {
   const canvas = Canvas.createCanvas(background.width, background.height);
   const ctx = canvas.getContext("2d");
   ctx.drawImage(background, 0, 0);
@@ -295,19 +401,29 @@ const getBattleEmbed = (players, background, pokeball, title) => {
     boxCtx.strokeStyle = "rgb(36,36,36)";
     roundRect(boxCtx, 0, 0, boxCanvas.width, boxCanvas.height, 16);
 
-    // Pokemon Name.
-    const textPos = {
-      x: boxPadding,
-      y: 48,
-    };
-    boxCtx.font = "bold 16px Sans-Serif";
+    // Text Styles.
+    boxCtx.font = "bold 12px Sans-Serif";
     boxCtx.fillStyle = "#ffffff";
+
+    // Pokemon Name.
+    const namePos = {
+      x: boxPadding,
+      y: boxCanvas.height - boxPadding,
+    };
     boxCtx.textAlign = "left";
     boxCtx.fillText(
       upperCaseString(player.activePokemon.name),
-      textPos.x,
-      textPos.y
+      namePos.x,
+      namePos.y
     );
+
+    // Pokemon HP.
+    const hpPos = {
+      x: boxCanvas.width - boxPadding,
+      y: boxPadding * 2,
+    };
+    boxCtx.textAlign = "right";
+    boxCtx.fillText(`HP: ${player.activePokemon.stats.hp}`, hpPos.x, hpPos.y);
 
     // Pokeballs representing the players Pokémon team.
     const pokeballGap = 6;
@@ -331,34 +447,36 @@ const getBattleEmbed = (players, background, pokeball, title) => {
     // Draw Box on Main Canvas.
     ctx.drawImage(boxCanvas, style.box.x, style.box.y);
 
-    // Draw Moves.
-    // Create Canvas.
-    const movesCanvas = Canvas.createCanvas(canvas.width, 30);
-    const movesCtx = movesCanvas.getContext("2d");
+    if (player === currentPlayer) {
+      // Draw Moves.
+      // Create Canvas.
+      const movesCanvas = Canvas.createCanvas(canvas.width, 30);
+      const movesCtx = movesCanvas.getContext("2d");
 
-    // Text Settings.
-    movesCtx.font = "bold 10px Sans-Serif";
-    movesCtx.textAlign = "center";
-    movesCtx.strokeStyle = "rgb(36,36,36)";
+      // Text Settings.
+      movesCtx.font = "bold 10px Sans-Serif";
+      movesCtx.textAlign = "center";
+      movesCtx.strokeStyle = "rgb(36,36,36)";
 
-    // Pokemon Moves.
-    const moveBoxWidth = movesCanvas.width / 5;
-    const moveTextY = movesCanvas.height / 2;
-    const moveGap = 10;
-    player.activePokemon.moves.forEach((move, moveIndex) => {
-      // Move Box Background
-      movesCtx.fillStyle = "rgb(24,24,24)";
-      const moveBoxX = (moveBoxWidth + moveGap) * moveIndex;
-      roundRect(movesCtx, moveBoxX, 0, moveBoxWidth, movesCanvas.height, 16);
+      // Pokemon Moves.
+      const moveBoxWidth = movesCanvas.width / 5;
+      const moveTextY = movesCanvas.height / 2;
+      const moveGap = 10;
+      player.activePokemon.moves.forEach((move, moveIndex) => {
+        // Move Box Background
+        movesCtx.fillStyle = "rgb(24,24,24)";
+        const moveBoxX = (moveBoxWidth + moveGap) * moveIndex;
+        roundRect(movesCtx, moveBoxX, 0, moveBoxWidth, movesCanvas.height, 16);
 
-      // Move Name
-      movesCtx.fillStyle = "#ffffff";
-      const moveTextX = moveBoxX + moveBoxWidth / 2;
-      movesCtx.fillText(upperCaseString(move.name), moveTextX, moveTextY);
-    });
+        // Move Name
+        movesCtx.fillStyle = "#ffffff";
+        const moveTextX = moveBoxX + moveBoxWidth / 2;
+        movesCtx.fillText(upperCaseString(move.name), moveTextX, moveTextY);
+      });
 
-    // Draw Moves on Main Canvas.
-    ctx.drawImage(movesCanvas, moveGap, style.moves.y);
+      // Draw Moves on Main Canvas.
+      ctx.drawImage(movesCanvas, moveGap, style.moves.y);
+    }
   });
 
   const attachment = new Discord.MessageAttachment(

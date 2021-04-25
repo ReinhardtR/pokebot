@@ -13,6 +13,7 @@ const getPokemonStats = async (pokemonId, pokemonLvl) => {
   wantedStats.forEach((stat) => {
     Object.defineProperty(pokemonStats, stat.stat.name, {
       value: Math.floor(stat.base_stat + pokemonLvl * (stat.base_stat / 50)),
+      writable: true,
     });
   });
 
