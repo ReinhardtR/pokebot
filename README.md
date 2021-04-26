@@ -42,11 +42,11 @@ to get all dependencies. You will also need to have [node](https://nodejs.org/en
 - [x] Profile-system; Pokemons
 - [x] Pokemon-System; Name
 - [ ] Pokemon-System; Stats
-- [ ] Pokemon-System; Type
-- [ ] Pokemon-System; Level
+- [x] Pokemon-System; Type
+- [x] Pokemon-System; Level
 - [x] Pokedex (List of undiscovered, discovered and caught Pokemons)
-- [ ] Pokemon-Battles (Battkes against wild Pokemons)
-- [ ] Player-Battles (Battles against other players)
+- [ ] Pokemon-Battles (Battles against wild Pokemons)
+- [x] Player-Battles (Battles against other players)
 - [x] Walks (to catch Pokemons with friends)
 - [x] Commands (menues and navigation)
 
