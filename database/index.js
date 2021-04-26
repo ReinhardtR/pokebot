@@ -104,7 +104,7 @@ const getUserPokedex = async (userId) => {
 };
 
 // User XP
-const updateUserXP = async (userId, xpGain, msg) => {
+const updateUserXP = async (userId, xpGain, channel, userTag) => {
   const userRef = db.collection("users").doc(userId);
   const userDoc = await userRef.get();
   const userXP = userDoc.data().xp;
@@ -122,8 +122,10 @@ const updateUserXP = async (userId, xpGain, msg) => {
   // Define new level (has to be userDoc.xp to get new xp)
   const level = getLevel(updatedXP);
   if (oldLevel != level) {
-    msg.reply(
-      `Congratulations! You leveled up and you are now level: ${level}`
+    const pokeballReward = level * 10;
+    updatePokeballs(userId, pokeballReward);
+    channel.send(
+      `${userTag}, Congratulations! You leveled up and you are now level: ${level}.\n You've been rewarded with **${pokeballReward} Pokéballs**!`
     );
   }
 };

@@ -7,6 +7,9 @@ const fs = require("fs");
 // Constants
 const { PREFIX } = require("./constants/config.json");
 
+// Update Pokéballs command.
+const randomlyGivePokeBall = require("./utils/randomlyGivePokeball");
+
 // Discord.js
 const Discord = require("discord.js");
 const client = new Discord.Client();
@@ -33,8 +36,14 @@ client.once("ready", async () => {
 });
 
 client.on("message", async (msg) => {
-  // Check if the message start with the prefix, or if the message came from a bot. If so, return.
-  if (!msg.content.startsWith(PREFIX) || msg.author.bot) return;
+  // If the message came from a bot. If so, return.
+  if (msg.author.bot) return;
+
+  // Genererates a random number, to simulate the chance of receiving a Pokéball, for every message.
+  randomlyGivePokeBall(msg);
+
+  // Check if the message start with the prefix,
+  if (!msg.content.startsWith(PREFIX)) return;
 
   // Disect the message, get the args and command name.
   const args = msg.content.slice(PREFIX.length).trim().split(/ +/);

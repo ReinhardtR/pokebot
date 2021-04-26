@@ -85,7 +85,7 @@ module.exports = {
     const xpGain = Math.floor(
       Math.pow(pokemonToCatch.rarity, 2) * 10 * membersEffect
     );
-    updateUserXP(msg.author.id, xpGain, msg);
+    updateUserXP(msg.author.id, xpGain, msg.channel, msg.author.toString());
 
     const pokemonName = toUpperCaseString(caughtPokemon.name);
     msg.reply(`you've caught **${pokemonName}**! **+${xpGain} XP**`);

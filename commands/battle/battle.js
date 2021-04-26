@@ -12,9 +12,9 @@ module.exports = {
 
     const invitedUser = msg.mentions.members.first().user;
 
-    // if (invitedUser.id == msg.author.id) {
-    //   return msg.reply("you can't battle yourself. Battle a friend instead!");
-    // }
+    if (invitedUser.id == msg.author.id) {
+      return msg.reply("you can't battle yourself. Battle a friend instead!");
+    }
 
     const { battles } = msg.client;
 
@@ -302,7 +302,7 @@ module.exports = {
                 channel.send(
                   `${opponent.user.toString()} didn't choose a new Pokémon in time. Therefore ${currentPlayer.user.toString()} is the winner.`
                 );
-                endBattle(currentPlayer);
+                endBattle(currentPlayer, opponent);
                 throw e;
               });
           }
@@ -320,7 +320,7 @@ module.exports = {
                 `${currentPlayer.user.toString()} it's your turn!`
               );
             case "time":
-              endBattle(currentPlayer);
+              endBattle(currentPlayer, opponent);
               return channel.send(
                 `${currentPlayer.user.toString()} forfeited the battle, by not choosing a move in time.`
               );
@@ -331,7 +331,7 @@ module.exports = {
                 )} fainted!`
               );
             case "team-dead":
-              endBattle(currentPlayer);
+              endBattle(currentPlayer, opponent);
               break;
             default:
               return channel.send("Error");
@@ -339,13 +339,26 @@ module.exports = {
         });
       };
 
-      const endBattle = async (winner) => {
+      const endBattle = async (winner, loser) => {
+        const { updatePokeballs, updateUserXP } = require("../../database");
+
+        // Winner
+        updatePokeballs(winner.user.id, 10);
+        updateUserXP(winner.user.id, 2000, channel, winner.author.toString());
+
+        // Loser
+        updatePokeballs(loser.user.id, 3);
+        updateUserXP(loser.user.id, 500, channel, loser.author.toString());
+
         await channel.send(
-          `${winner.user.toString()} has won the battle!\nThis channel will be deleted in 4 seconds.`
+          `${winner.user.toString()} has won the battle!\n
+          ${winner.user.toString()} has been rewarded with **10 Pokéballs** and **2000 XP**.\n
+          ${loser.user.toString()} has been rewarded with a **3 Pokéballs** and **500 XP**.\n
+          This channel will be deleted in 7 seconds.`
         );
         setTimeout(() => {
           channel.delete();
-        }, 4000);
+        }, 7000);
       };
 
       continueBattle();
